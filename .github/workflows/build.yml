@@ -18,5 +18,5 @@ jobs:
         with:
           java-version: 18
       - name: Build using Maven
-        run: mvn -B package --file backend/pom.xml
         working-directory: backend
+        run: mvn -B package --file backend/pom.xml
