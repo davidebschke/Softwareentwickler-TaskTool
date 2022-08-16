@@ -18,6 +18,4 @@ jobs:
         with:
           java-version: 18
       - name: Build using Maven
-        run: mvn--batch-mode verify
-        with:
-          path: /backend/target
+        run: mvn -B package --file backend/pom.xml
