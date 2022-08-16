@@ -34,8 +34,6 @@ export default function Header() {
         };
 
         return (
-
-
             <AppBar position="static"  sx={{
                     backgroundColor:'green',}}>
                 <Container maxWidth="xl">
