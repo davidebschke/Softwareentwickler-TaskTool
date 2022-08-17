@@ -5,15 +5,17 @@ import lombok.Builder;
 import javax.validation.constraints.NotNull;
 
 @Builder
-public class Project
-{
+public class Project {
 
-@NotNull
+    @NotNull
     Integer ProjektNummer;
 
-@NotNull
+    @NotNull
     String ProjektName;
 
-@NotNull
+    @NotNull
     String Status;
+
+    @NotNull
+    String ProjektMember;
 }
