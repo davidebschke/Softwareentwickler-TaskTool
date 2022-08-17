@@ -1,4 +1,4 @@
-package Projects;
+package com.example.backend.Projects;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("stt")
+@RequestMapping("/stt/projects")
 public class ProjectController {
 
 
     Projectservice projectservice ;
 
-    @GetMapping("/projects")
+    public ProjectController(Projectservice projectservice) {
+        this.projectservice = projectservice;
+    }
+
+    @GetMapping
     public List<Project> listProjects()
     {
         return projectservice.getProjects();

@@ -1,9 +1,9 @@
 export type Project ={
 
-    projectnumber:number,
-    projectname: string,
+    projectNumber:number,
+    projectName: string,
     status:string,
-    projectmember:string,
+    projectMember:string,
 
 }
 

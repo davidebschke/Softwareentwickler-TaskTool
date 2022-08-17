@@ -11,7 +11,7 @@ export default function UseProjects() {
     }, [])
 
     const getAllProjects = () => {
-        axios.get("stt/projects")
+        axios.get("/stt/projects")
             .then((response) => response.data)
             .then(setProjects)
     }
