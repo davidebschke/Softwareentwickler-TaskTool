@@ -15,7 +15,7 @@ import React from "react";
 
 export default function Header() {
 
-    const pages = ['Products', 'Pricing', 'Blog'];
+    const pages = ['Home', 'Projects', 'Mitteilungen'];
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
         const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -35,7 +35,7 @@ export default function Header() {
 
         return (
             <AppBar position="static"  sx={{
-                    backgroundColor:'green',}}>
+                    backgroundColor:'#C0C0C0', color:'black'}}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
@@ -116,21 +116,21 @@ export default function Header() {
                                 <Button
                                     key={page}
                                     onClick={handleCloseNavMenu}
-                                    sx={{my: 2, color: 'white', display: 'block'}}
+                                    sx={{my: 2, color: 'black', display: 'block'}}
                                 >
                                     {page}
                                 </Button>
                             ))}
                         </Box>
 
-                        <Box sx={{flexGrow: 0}}>
+                        <Box sx={{flexGrow: 0, color:'black'}}>
                             <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0, color:'black'}}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
                                 </IconButton>
                             </Tooltip>
                             <Menu
-                                sx={{mt: '45px'}}
+                                sx={{mt: '45px', color:'black'}}
                                 id="menu-appbar"
                                 anchorEl={anchorElUser}
                                 anchorOrigin={{
@@ -146,7 +146,7 @@ export default function Header() {
                                 onClose={handleCloseUserMenu}
                             >
                                 {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                    <MenuItem key={setting} onClick={handleCloseUserMenu} >
                                         <Typography textAlign="center">{setting}</Typography>
                                     </MenuItem>
                                 ))}
