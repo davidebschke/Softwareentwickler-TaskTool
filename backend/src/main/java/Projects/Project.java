@@ -1,20 +1,20 @@
 package Projects;
 
 import lombok.Builder;
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 
+@Data
 @Builder
 public class Project {
 
     @NotNull
-    Integer ProjektNummer;
-
+    Integer projectNummer;
     @NotNull
-    String ProjektName;
-
+    String projectName;
     @NotNull
-    String Status;
-
+    String status;
     @NotNull
-    String ProjektMember;
+    String projectMember;
 }
