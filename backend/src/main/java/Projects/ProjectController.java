@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/STT")
+@RequestMapping("stt")
 public class ProjectController {
 
 
     Projectservice projectservice ;
 
-    @GetMapping("/Projects")
+    @GetMapping("/projects")
     public List<Project> listProjects()
     {
         return projectservice.getProjects();

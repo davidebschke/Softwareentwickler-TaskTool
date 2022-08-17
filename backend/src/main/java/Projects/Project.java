@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class Project {
 
     @NotNull
-    Integer projectNummer;
+    Integer projectNumber;
     @NotNull
     String projectName;
     @NotNull

@@ -57,7 +57,7 @@ export default function Header() {
                             SETT
                         </Typography>
                         <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
-                            <IconButton
+                            <a href={"/Home"}><IconButton
                                 size="large"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
@@ -66,7 +66,7 @@ export default function Header() {
                                 color="inherit"
                             >
                                 <MenuIcon/>
-                            </IconButton>
+                            </IconButton></a>
                             <Menu
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
@@ -85,8 +85,9 @@ export default function Header() {
                                     display: {xs: 'block', md: 'none'},
                                 }}
                             >
-                                {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+
+                                {pages.map((page ) => (
+                                    <MenuItem key={page} onClick={handleCloseNavMenu} >
                                         <Typography textAlign="center">{page}</Typography>
                                     </MenuItem>
                                 ))}
@@ -111,15 +112,16 @@ export default function Header() {
                         >
                             SETT
                         </Typography>
-                        <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                        <Box sx={{flexGrow: 1,display: {xs: 'none', md: 'flex'}}}>
                             {pages.map((page) => (
-                                <Button
+                               <a href={'/#/'+page.toLowerCase()}> <Button
                                     key={page}
                                     onClick={handleCloseNavMenu}
+
                                     sx={{my: 2, color: 'black', display: 'block'}}
                                 >
                                     {page}
-                                </Button>
+                                </Button></a>
                             ))}
                         </Box>
 
