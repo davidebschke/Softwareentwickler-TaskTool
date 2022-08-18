@@ -3,11 +3,13 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #C0C0C0;
+    background: saddlebrown;
     height: auto;
     width: 100vw;
-    padding-top: 40px;
+    padding-top: 20px;
     color: black;
+    border-style: inset;
+    border-color: saddlebrown;
 }
 
 .footer-content {

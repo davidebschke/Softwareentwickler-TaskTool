@@ -35,7 +35,7 @@ export default function Header() {
 
         return (
             <AppBar position="static" sx={{
-                backgroundColor: 'lightblue', color: 'black'
+                backgroundColor: 'saddlebrown', borderStyle: 'inset', borderColor: 'saddlebrown', color: 'black'
             }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
