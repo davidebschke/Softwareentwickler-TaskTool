@@ -1,10 +1,13 @@
 import {Project} from "./Project";
 import * as React from 'react';
 import "./projectshow.css"
+import AddProject from "./AddProject";
+import {NewProject} from "./NewProject";
 
 
 type ProjectProps = {
-    projects: Project[]
+    projects: Project[],
+    addProject: (newProject: NewProject) => Promise<Project>
 }
 
 export default function ProjectsShow(props: ProjectProps) {
@@ -38,9 +41,9 @@ export default function ProjectsShow(props: ProjectProps) {
                             </td>
                         </tr>)}
                     </tbody>
-                    <tfoot>
-                    <button> new</button>
-                    </tfoot>
+
+                    <AddProject addProject={props.addProject}/>
+
                 </table>
             </div>
         </>
