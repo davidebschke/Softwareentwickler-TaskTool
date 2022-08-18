@@ -29,7 +29,5 @@ class ProjectserviceTest {
         Assertions.assertArrayEquals(projectList.toArray(), actual.toArray());
     }
 
-    @Test
-    void getRandomId() {
-    }
+
 }
