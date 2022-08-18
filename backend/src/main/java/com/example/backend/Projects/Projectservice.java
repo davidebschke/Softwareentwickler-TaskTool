@@ -1,19 +1,17 @@
 package com.example.backend.Projects;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
-
 @Service
+@AllArgsConstructor
 public class Projectservice {
 
     Projectrepo projectrepo;
 
-    public Projectservice(Projectrepo projectrepo) {
-        this.projectrepo = projectrepo;
-    }
 
     public List<Project> getProjects()
     {

@@ -1,13 +1,10 @@
 import {Project} from "./Project";
 
 type ProjectProps = {
-
     projects: Project[]
-
 }
 
 export default function ProjectsShow(props: ProjectProps) {
-
 
     const objectList = props.projects
 

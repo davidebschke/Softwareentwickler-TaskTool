@@ -7,6 +7,3 @@ export type Project ={
     projectMember:string,
 
 }
-
-
-

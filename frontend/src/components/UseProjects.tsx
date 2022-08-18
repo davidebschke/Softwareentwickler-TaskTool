@@ -17,8 +17,6 @@ export default function UseProjects() {
     }
 
     return {
-
         projects
-
     }
 }
