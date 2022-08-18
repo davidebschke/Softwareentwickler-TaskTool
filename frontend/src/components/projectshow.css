@@ -35,3 +35,7 @@ button {
     min-height: 20px;
     border-radius: 1em;
 }
+
+tfoot button {
+    margin-top: 1em;
+}

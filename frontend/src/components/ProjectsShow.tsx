@@ -38,6 +38,9 @@ export default function ProjectsShow(props: ProjectProps) {
                             </td>
                         </tr>)}
                     </tbody>
+                    <tfoot>
+                    <button> new</button>
+                    </tfoot>
                 </table>
             </div>
         </>
