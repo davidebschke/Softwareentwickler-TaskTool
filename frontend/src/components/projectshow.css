@@ -36,6 +36,11 @@ button {
     border-radius: 1em;
 }
 
+button:hover {
+
+    background-color: lightseagreen;
+}
+
 tfoot button {
     margin-top: 1em;
 }
