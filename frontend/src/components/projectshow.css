@@ -5,6 +5,7 @@ table {
     padding: 2em;
     min-width: 100%;
 
+
 }
 
 .tableShow {
@@ -14,10 +15,23 @@ table {
     display: flex;
     justify-content: left;
     min-height: 100%;
+    border-style: outset;
+    border-color: #C0C0C0;
 }
 
 body {
-
-
     height: 100vh;
+}
+
+th {
+
+    text-align: left;
+}
+
+button {
+
+    text-align: center;
+    min-width: 100px;
+    min-height: 20px;
+    border-radius: 1em;
 }

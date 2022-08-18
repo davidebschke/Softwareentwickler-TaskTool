@@ -30,6 +30,12 @@ export default function ProjectsShow(props: ProjectProps) {
                             <td>{project.projectName}</td>
                             <td>{project.status}</td>
                             <td>{project.projectMember}</td>
+                            <td>
+                                <button> edit</button>
+                            </td>
+                            <td>
+                                <button> delete</button>
+                            </td>
                         </tr>)}
                     </tbody>
                 </table>
