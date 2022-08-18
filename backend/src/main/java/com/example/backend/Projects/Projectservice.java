@@ -3,12 +3,12 @@ package com.example.backend.Projects;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
 public class Projectservice {
 
-    Project project1= new Project(1234, "Pizzahut","In Progress","David");
     Projectrepo projectrepo;
 
     public Projectservice(Projectrepo projectrepo) {
@@ -19,5 +19,9 @@ public class Projectservice {
     {
         return projectrepo.findAll();
 
+    }
+
+    public String getRandomId() {
+        return UUID.randomUUID().toString();
     }
 }

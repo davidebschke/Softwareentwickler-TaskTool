@@ -2,6 +2,7 @@ package com.example.backend.Projects;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 
@@ -9,6 +10,9 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class Project {
 
+    @Id
+    @NotNull
+    String id;
     @NotNull
     Integer projectNumber;
     @NotNull

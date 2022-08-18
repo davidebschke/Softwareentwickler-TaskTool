@@ -14,13 +14,22 @@ export default function ProjectsShow(props: ProjectProps) {
     return (
 
         <>
-            <div>{objectList.map((project) => <li key={project.projectNumber}>
-                    {project.projectNumber +
-                        project.projectName +
-                        project.projectMember +
-                        project.status}
-                </li>
-            )}
+            <div>
+                <table>
+                    <tr>
+                        <th>Projectnumber</th>
+                        <th>Projectname</th>
+                        <th>Projectstatus</th>
+                        <th>Projectsmember</th>
+                    </tr>
+                    {objectList.map((project) =>
+                        <tr key={project.id}>
+                            <td>{project.projectNumber}</td>
+                            <td>{project.projectName}</td>
+                            <td>{project.status}</td>
+                            <td>{project.projectMember}</td>
+                        </tr>)}
+                </table>
             </div>
         </>
 
