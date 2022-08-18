@@ -34,8 +34,9 @@ export default function Header() {
         };
 
         return (
-            <AppBar position="static"  sx={{
-                    backgroundColor:'#C0C0C0', color:'black'}}>
+            <AppBar position="static" sx={{
+                backgroundColor: 'saddlebrown', borderStyle: 'inset', borderColor: 'saddlebrown', color: 'black'
+            }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
@@ -43,7 +44,7 @@ export default function Header() {
                             variant="h6"
                             noWrap
                             component="a"
-                            href="/"
+                            href="/#/home"
                             sx={{
                                 mr: 2,
                                 display: {xs: 'none', md: 'flex'},
@@ -57,7 +58,7 @@ export default function Header() {
                             SETT
                         </Typography>
                         <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
-                            <a href={"/Home"}><IconButton
+                            <IconButton
                                 size="large"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
@@ -66,7 +67,7 @@ export default function Header() {
                                 color="inherit"
                             >
                                 <MenuIcon/>
-                            </IconButton></a>
+                            </IconButton>
                             <Menu
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
