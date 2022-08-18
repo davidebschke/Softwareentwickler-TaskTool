@@ -1,4 +1,7 @@
 import {Project} from "./Project";
+import * as React from 'react';
+import "./projectshow.css"
+
 
 type ProjectProps = {
     projects: Project[]
@@ -11,14 +14,16 @@ export default function ProjectsShow(props: ProjectProps) {
     return (
 
         <>
-            <div>
+            <div className={"tableShow"}>
                 <table>
+                    <tbody>
                     <tr>
                         <th>Projectnumber</th>
                         <th>Projectname</th>
                         <th>Projectstatus</th>
                         <th>Projectsmember</th>
                     </tr>
+
                     {objectList.map((project) =>
                         <tr key={project.id}>
                             <td>{project.projectNumber}</td>
@@ -26,6 +31,7 @@ export default function ProjectsShow(props: ProjectProps) {
                             <td>{project.status}</td>
                             <td>{project.projectMember}</td>
                         </tr>)}
+                    </tbody>
                 </table>
             </div>
         </>

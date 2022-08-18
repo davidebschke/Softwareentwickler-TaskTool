@@ -1,0 +1,23 @@
+table {
+    margin-top: 1em;
+    background-color: #C0C0C0;
+    border-radius: 1em;
+    padding: 2em;
+    min-width: 100%;
+
+}
+
+.tableShow {
+    width: 100vw;
+    overflow-x: auto;
+    overflow-y: auto;
+    display: flex;
+    justify-content: left;
+    min-height: 100%;
+}
+
+body {
+
+
+    height: 100vh;
+}
