@@ -10,7 +10,7 @@ export default function Footer(){
             <div className="footer-content">
                 <p>Source Code by David Ebschke</p>
                 <ul className="socials">
-                    <li><a href="https://google.de"><i className="HomeBottom"></i><CottageRoundedIcon/></a></li>
+                    <li><a href="https://google.de"><i className="HomeBottom"><CottageRoundedIcon/></i></a></li>
                     <li><a href="https://facebook.com"><i className="Facebook"> <FacebookRoundedIcon/></i></a></li>
                     <li><a href="https://google.de"><i className="BugReport"><AdbRoundedIcon/></i></a></li>
                 </ul>

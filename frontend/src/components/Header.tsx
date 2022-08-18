@@ -34,8 +34,9 @@ export default function Header() {
         };
 
         return (
-            <AppBar position="static"  sx={{
-                    backgroundColor:'#C0C0C0', color:'black'}}>
+            <AppBar position="static" sx={{
+                backgroundColor: 'lightblue', color: 'black'
+            }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
