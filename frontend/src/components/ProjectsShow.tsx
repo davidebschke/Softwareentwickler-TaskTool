@@ -19,15 +19,17 @@ export default function ProjectsShow(props: ProjectProps) {
         <>
             <div className={"tableShow"}>
                 <table>
-                    <tbody>
+                    <thead>
                     <tr>
                         <th>Projectnumber</th>
                         <th>Projectname</th>
                         <th>Projectstatus</th>
                         <th>Projectsmember</th>
                     </tr>
+                    </thead>
 
                     {objectList.map((project) =>
+                        <tbody>
                         <tr key={project.id}>
                             <td>{project.projectNumber}</td>
                             <td>{project.projectName}</td>
@@ -39,12 +41,11 @@ export default function ProjectsShow(props: ProjectProps) {
                             <td>
                                 <button> delete</button>
                             </td>
-                        </tr>)}
-                    </tbody>
-
-                    <AddProject addProject={props.addProject}/>
+                        </tr>
+                        </tbody>)}
 
                 </table>
+                <AddProject addProject={props.addProject}/>
             </div>
         </>
 

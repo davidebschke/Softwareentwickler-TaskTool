@@ -54,10 +54,9 @@ export default function AddProject(props: addProjectProps) {
 
     return (
 
-        <div>
 
-            <form className="form" onSubmit={onProjectSubmit}>
-                <tfoot>
+        <form className="form" onSubmit={onProjectSubmit}>
+            <table>
                 <tr>
                     <td><input type={"number"} value={projectNumber} onChange={onProjectNumberChange}/></td>
                     <td><input type={"text"} value={projectName} onChange={onProjectNameChange}/></td>
@@ -69,9 +68,9 @@ export default function AddProject(props: addProjectProps) {
                         <button type={"submit"}> Speichern</button>
                     </td>
                 </tr>
-                </tfoot>
-            </form>
-        </div>
+            </table>
+
+        </form>
 
     )
 }
