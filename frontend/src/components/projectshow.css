@@ -47,3 +47,9 @@ button:hover {
 tfoot button {
     margin-top: 1em;
 }
+.tableButton{
+
+
+    width: 7%;
+    height:auto;
+}

@@ -30,16 +30,16 @@ export default function ProjectsShow(props: ProjectProps) {
                     </thead>
 
                     {objectList.map((project) =>
-                        <tbody>
-                        <tr key={project.id}>
+                        <tbody key={project.id}>
+                        <tr>
                             <td>{project.projectNumber}</td>
                             <td>{project.projectName}</td>
                             <td>{project.status}</td>
                             <td>{project.projectMember}</td>
-                            <td>
+                            <td className={"tableButton"}>
                                 <button> edit</button>
                             </td>
-                            <td>
+                            <td className={"tableButton"}>
                                 <button onClick={() => props.deleteProject(project.id)
                                 }> delete
                                 </button>
@@ -47,8 +47,9 @@ export default function ProjectsShow(props: ProjectProps) {
                         </tr>
                         </tbody>)}
                 </table>
-                <AddProject addProject={props.addProject}/>
+
             </div>
+            <AddProject addProject={props.addProject}/>
         </>
     )
 }
