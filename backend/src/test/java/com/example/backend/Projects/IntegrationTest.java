@@ -15,7 +15,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @SpringBootTest
 @AutoConfigureMockMvc
 public class IntegrationTest {
@@ -29,7 +28,6 @@ public class IntegrationTest {
     void testGetProjects() throws Exception {
         mockMvc.perform(get("/stt/projects")).andExpect(status().is(200));
     }
-
 
     @DirtiesContext
     @Test
@@ -52,5 +50,3 @@ public class IntegrationTest {
                         """));
     }
 }
-
-
