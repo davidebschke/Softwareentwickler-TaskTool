@@ -3,7 +3,7 @@ export default function Home(){
 
     return (
         <>
-            Hallo Home
+            <img src={""} alt={"HomeExamplePicture"}/>
         </>
     )
 }
