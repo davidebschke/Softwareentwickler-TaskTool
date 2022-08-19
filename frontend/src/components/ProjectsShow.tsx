@@ -1,10 +1,13 @@
 import {Project} from "./Project";
 import * as React from 'react';
 import "./projectshow.css"
+import AddProject from "./AddProject";
+import {NewProject} from "./NewProject";
 
 
 type ProjectProps = {
-    projects: Project[]
+    projects: Project[],
+    addProject: (newProject: NewProject) => Promise<Project>
 }
 
 export default function ProjectsShow(props: ProjectProps) {
@@ -16,15 +19,17 @@ export default function ProjectsShow(props: ProjectProps) {
         <>
             <div className={"tableShow"}>
                 <table>
-                    <tbody>
+                    <thead>
                     <tr>
                         <th>Projectnumber</th>
                         <th>Projectname</th>
                         <th>Projectstatus</th>
                         <th>Projectsmember</th>
                     </tr>
+                    </thead>
 
                     {objectList.map((project) =>
+                        <tbody>
                         <tr key={project.id}>
                             <td>{project.projectNumber}</td>
                             <td>{project.projectName}</td>
@@ -36,12 +41,11 @@ export default function ProjectsShow(props: ProjectProps) {
                             <td>
                                 <button> delete</button>
                             </td>
-                        </tr>)}
-                    </tbody>
-                    <tfoot>
-                    <button> new</button>
-                    </tfoot>
+                        </tr>
+                        </tbody>)}
+
                 </table>
+                <AddProject addProject={props.addProject}/>
             </div>
         </>
 

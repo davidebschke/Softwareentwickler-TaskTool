@@ -1,7 +1,11 @@
 
+
 export default function Home(){
 
-    return(
-        <>Hallo Home</>
+    return (
+        <>
+            Hallo Home
+
+        </>
     )
 }

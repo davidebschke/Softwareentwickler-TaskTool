@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom";
-import UseProjects from "./UseProjects";
+import useProjects from "./useProjects";
 import Home from "./Home";
 import ProjectsShow from "./ProjectsShow";
 import {Project} from "./Project";
@@ -12,13 +12,13 @@ type ProjectProps = {
 
 export default function AllRoutes() {
 
-    const {projects}= UseProjects();
+    const {projects, addProject} = useProjects();
     
     return (
         <>
             <Routes>
                 <Route path={"/home"} element={<Home/>}/>
-                <Route path={"/projects"} element={<ProjectsShow projects={projects}/>}/>
+                <Route path={"/projects"} element={<ProjectsShow addProject={addProject} projects={projects}/>}/>
             </Routes>
         </>
     )

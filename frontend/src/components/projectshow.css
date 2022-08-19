@@ -28,6 +28,11 @@ th {
     text-align: left;
 }
 
+td {
+
+    padding: 0.5em;
+}
+
 button {
 
     text-align: center;

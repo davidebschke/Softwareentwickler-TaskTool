@@ -13,8 +13,8 @@ public class Projectservice {
     Projectrepo projectrepo;
 
 
-    public List<Project> getProjects()
-    {
+
+    public List<Project> getProjects() {
         return projectrepo.findAll();
 
     }
@@ -22,4 +22,17 @@ public class Projectservice {
     public String getRandomId() {
         return UUID.randomUUID().toString();
     }
+
+    public Project addProject(NewProject newProject) {
+        return projectrepo.save(
+                new Project(
+                        getRandomId(),
+                        newProject.projectNumber,
+                        newProject.projectName,
+                        newProject.status,
+                        newProject.projectMember
+                ));
+    }
 }
+
+
