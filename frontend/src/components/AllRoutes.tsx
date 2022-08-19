@@ -1,11 +1,11 @@
 import {Route, Routes} from "react-router-dom";
-import useProjects from "./useProjects";
+import UseProjects from "./UseProjects";
 import Home from "./Home";
 import ProjectsShow from "./ProjectsShow";
 
 export default function AllRoutes() {
 
-    const {projects, addProject} = useProjects();
+    const {projects, addProject} = UseProjects();
     
     return (
         <>
