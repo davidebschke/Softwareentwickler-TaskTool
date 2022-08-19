@@ -35,8 +35,13 @@ class ProjectserviceTest {
         // given
         when(projectrepo.save(any())).thenReturn(project);
         //when
-        Project actual = projectservice.addProject(new NewProject(project.projectNumber, project.projectName, project.status, project.projectMember));
-        Assertions.assertEquals(project, project);
+        Project actual = projectservice.addProject(new NewProject(
+                project.projectNumber,
+                project.projectName,
+                project.status,
+                project.projectMember));
+
+        Assertions.assertEquals(actual, project);
     }
 
 }
