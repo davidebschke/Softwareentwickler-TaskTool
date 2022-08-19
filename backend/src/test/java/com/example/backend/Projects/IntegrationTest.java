@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
@@ -66,6 +67,10 @@ public class IntegrationTest {
 
         mockMvc.perform(delete("http://localhost:8080/stt/projects/" + id))
                 .andExpect(status().is(204));
+
+        mockMvc.perform(delete("http://localhost:8080/stt/projects/" + id))
+                .andExpect(status().is(404));
+
 
         mockMvc.perform(get("http://localhost:8080/stt/projects"))
                 .andExpect(status().is(200))
