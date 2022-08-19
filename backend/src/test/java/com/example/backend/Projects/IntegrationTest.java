@@ -51,7 +51,7 @@ public class IntegrationTest {
 
     @DirtiesContext
     @Test
-    void deleteEmployee() throws Exception {
+    void deleteProject() throws Exception {
 
         String saveResult = mockMvc.perform(post(
                 "/stt/projects")
