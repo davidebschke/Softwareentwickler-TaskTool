@@ -24,3 +24,4 @@ yarn-error.log*
 .idea
 /frontend/node_modules/
 /backend/HELP.md
+/backend/target/
