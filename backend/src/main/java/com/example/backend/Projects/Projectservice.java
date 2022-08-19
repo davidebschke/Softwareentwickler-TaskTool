@@ -12,8 +12,6 @@ public class Projectservice {
 
     Projectrepo projectrepo;
 
-
-
     public List<Project> getProjects() {
         return projectrepo.findAll();
 
@@ -44,5 +42,3 @@ public class Projectservice {
         return false;
     }
 }
-
-

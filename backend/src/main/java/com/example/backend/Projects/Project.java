@@ -22,5 +22,4 @@ public class Project {
     @NotNull
     String projectMember;
 
-
 }

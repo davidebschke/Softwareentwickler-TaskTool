@@ -30,13 +30,10 @@ export default function UseProjects() {
         return axios.delete("/stt/projects/" + id)
             .then((response) => response.status)
             .then(getAllProjects)
-
     }
     return {
         addProject,
         projects,
         deleteProject,
     }
-
-
 }

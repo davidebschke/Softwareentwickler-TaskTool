@@ -53,5 +53,4 @@ class ProjectserviceTest {
         projectservice.deleteProject(project.id);
         verify(projectrepo).deleteById(project.id);
     }
-
 }

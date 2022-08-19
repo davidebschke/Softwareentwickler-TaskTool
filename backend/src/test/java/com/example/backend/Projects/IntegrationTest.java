@@ -71,7 +71,6 @@ public class IntegrationTest {
         mockMvc.perform(delete("http://localhost:8080/stt/projects/" + id))
                 .andExpect(status().is(404));
 
-
         mockMvc.perform(get("http://localhost:8080/stt/projects"))
                 .andExpect(status().is(200))
                 .andExpect(content().json("""

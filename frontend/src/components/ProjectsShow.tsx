@@ -8,14 +8,12 @@ import {NewProject} from "./NewProject";
 type ProjectProps = {
     projects: Project[],
     addProject: (newProject: NewProject) => Promise<Project>,
-    deleteProject: (id:string)=>Promise <void>;
+    deleteProject: (id: string) => Promise<void>;
 }
 
 export default function ProjectsShow(props: ProjectProps) {
 
     const objectList = props.projects;
-
-
 
     return (
 
@@ -42,16 +40,15 @@ export default function ProjectsShow(props: ProjectProps) {
                                 <button> edit</button>
                             </td>
                             <td>
-                                <button onClick={()=>props.deleteProject(project.id)
-                                }> delete</button>
+                                <button onClick={() => props.deleteProject(project.id)
+                                }> delete
+                                </button>
                             </td>
                         </tr>
                         </tbody>)}
-
                 </table>
                 <AddProject addProject={props.addProject}/>
             </div>
         </>
-
     )
 }

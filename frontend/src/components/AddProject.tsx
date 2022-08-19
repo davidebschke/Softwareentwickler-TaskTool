@@ -54,7 +54,6 @@ export default function AddProject(props: addProjectProps) {
 
     return (
 
-
         <form className="form" onSubmit={onProjectSubmit}>
             <table>
                 <tr>
@@ -69,8 +68,6 @@ export default function AddProject(props: addProjectProps) {
                     </td>
                 </tr>
             </table>
-
         </form>
-
     )
 }
