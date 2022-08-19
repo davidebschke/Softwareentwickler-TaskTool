@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("/stt/projects")
 public class ProjectController {
 
-    Projectservice projectservice ;
+    private final Projectservice projectservice ;
 
     public ProjectController(Projectservice projectservice) {
         this.projectservice = projectservice;
