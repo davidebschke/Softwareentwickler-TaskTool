@@ -1,6 +1,7 @@
 package com.example.backend.Projects;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,5 +26,13 @@ public class ProjectController {
     public Project addProject(@RequestBody NewProject newProject) {
 
         return projectservice.addProject(newProject);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteProject (@PathVariable String id)
+    {
+        boolean deleteSuccess= projectservice.deleteProject(Integer.valueOf(id));
+        return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
+
     }
 }

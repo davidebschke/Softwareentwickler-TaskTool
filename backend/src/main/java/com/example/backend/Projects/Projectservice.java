@@ -33,6 +33,16 @@ public class Projectservice {
                         newProject.projectMember
                 ));
     }
+
+    public boolean deleteProject(Integer id) {
+
+        if(projectrepo.existsById(String.valueOf(id)))
+        {
+            projectrepo.deleteById(String.valueOf(id));
+            return true;
+        }
+        return false;
+    }
 }
 
 
