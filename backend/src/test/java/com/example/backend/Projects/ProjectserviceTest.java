@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class ProjectserviceTest {
 
@@ -44,4 +43,14 @@ class ProjectserviceTest {
         Assertions.assertEquals(actual, project);
     }
 
+    @Test
+    void deleteProjectTest() {
+        Project project = new Project("", 9,"Shop","Done","David");
+
+        when(projectrepo.existsById(project.id)).thenReturn(true);
+        doNothing().when(projectrepo).deleteById(project.id);
+
+        projectservice.deleteProject(project.id);
+        verify(projectrepo).deleteById(project.id);
+    }
 }

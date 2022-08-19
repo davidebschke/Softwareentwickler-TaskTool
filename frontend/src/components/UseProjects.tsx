@@ -26,9 +26,14 @@ export default function UseProjects() {
                 }
             );
     }
-
+    const deleteProject = (id: string) => {
+        return axios.delete("/stt/projects/" + id)
+            .then((response) => response.status)
+            .then(getAllProjects)
+    }
     return {
         addProject,
-        projects
+        projects,
+        deleteProject,
     }
 }

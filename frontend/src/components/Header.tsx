@@ -129,7 +129,7 @@ export default function Header() {
                         <Box sx={{flexGrow: 0, color:'black'}}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{p: 0, color:'black'}}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
+                                    <Avatar alt="Remy Sharp" src=""/>
                                 </IconButton>
                             </Tooltip>
                             <Menu

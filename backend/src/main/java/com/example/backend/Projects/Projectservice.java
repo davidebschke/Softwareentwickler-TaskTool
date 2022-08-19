@@ -12,8 +12,6 @@ public class Projectservice {
 
     Projectrepo projectrepo;
 
-
-
     public List<Project> getProjects() {
         return projectrepo.findAll();
 
@@ -33,6 +31,14 @@ public class Projectservice {
                         newProject.projectMember
                 ));
     }
+
+    public boolean deleteProject(String id) {
+
+        if(projectrepo.existsById(String.valueOf(id)))
+        {
+            projectrepo.deleteById(String.valueOf(id));
+            return true;
+        }
+        return false;
+    }
 }
-
-
