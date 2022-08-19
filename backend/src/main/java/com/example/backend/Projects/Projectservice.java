@@ -13,6 +13,7 @@ public class Projectservice {
     Projectrepo projectrepo;
 
 
+
     public List<Project> getProjects() {
         return projectrepo.findAll();
 
@@ -25,11 +26,12 @@ public class Projectservice {
     public Project addProject(NewProject newProject) {
         return projectrepo.save(
                 new Project(
-                        newProject.projectName,
+                        getRandomId(),
                         newProject.projectNumber,
-                        newProject.projectMember,
+                        newProject.projectName,
                         newProject.status,
-                        getRandomId()));
+                        newProject.projectMember
+                ));
     }
 }
 
