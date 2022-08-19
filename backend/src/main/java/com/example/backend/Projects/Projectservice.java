@@ -34,7 +34,7 @@ public class Projectservice {
                 ));
     }
 
-    public boolean deleteProject(Integer id) {
+    public boolean deleteProject(String id) {
 
         if(projectrepo.existsById(String.valueOf(id)))
         {

@@ -5,13 +5,13 @@ import ProjectsShow from "./ProjectsShow";
 
 export default function AllRoutes() {
 
-    const {projects, addProject} = UseProjects();
+    const {projects, addProject,deleteProject} = UseProjects();
     
     return (
         <>
             <Routes>
                 <Route path={"/home"} element={<Home/>}/>
-                <Route path={"/projects"} element={<ProjectsShow addProject={addProject} projects={projects}/>}/>
+                <Route path={"/projects"} element={<ProjectsShow deleteProject={deleteProject} addProject={addProject} projects={projects}/>}/>
             </Routes>
         </>
     )

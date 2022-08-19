@@ -31,7 +31,7 @@ public class ProjectController {
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteProject (@PathVariable String id)
     {
-        boolean deleteSuccess= projectservice.deleteProject(Integer.valueOf(id));
+        boolean deleteSuccess= projectservice.deleteProject(id);
         return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
 
     }
