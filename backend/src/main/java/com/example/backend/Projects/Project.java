@@ -18,7 +18,7 @@ public class Project {
     @NotNull
     String projectName;
     @NotNull
-    String status;
+    Status status;
     @NotNull
     String projectMember;
 

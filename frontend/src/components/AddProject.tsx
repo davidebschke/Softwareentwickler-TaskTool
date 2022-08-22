@@ -1,10 +1,11 @@
-import {Project} from "./Project";
 import {ChangeEvent, FormEvent, useState} from "react";
 import {NewProject} from "./NewProject";
+import {Status} from "./Enum_Status";
+import {Project} from "./Project";
 
 
 type addProjectProps = {
-    addProject: (project: NewProject
+    addProject: (newProject: NewProject
     ) => Promise<Project>
 }
 
@@ -12,7 +13,7 @@ export default function AddProject(props: addProjectProps) {
 
     const [projectNumber, setProjectNumber] = useState<number>(0);
     const [projectName, setProjectName] = useState<string>("");
-    const [status, setStatus] = useState<string>("");
+    const [status, setStatus] = useState<Status>(Status.Wait);
     const [projectMember, setProjectMember] = useState<string>("");
 
     function onProjectNumberChange(event: ChangeEvent<HTMLInputElement>) {
@@ -23,8 +24,9 @@ export default function AddProject(props: addProjectProps) {
         setProjectName(event.target.value)
     }
 
-    function onStatusChange(event: ChangeEvent<HTMLInputElement>) {
-        setStatus(event.target.value)
+    function onStatusChange(event: ChangeEvent<HTMLSelectElement>) {
+        const {value} = event.target;
+        setStatus(value as Status)
     }
 
     function onProjectMemberChange(event: ChangeEvent<HTMLInputElement>) {
@@ -46,7 +48,7 @@ export default function AddProject(props: addProjectProps) {
                 .then(() => {
                     setProjectNumber(0);
                     setProjectName("");
-                    setStatus("");
+                    setStatus(Status.Wait);
                     setProjectMember("");
                 })
         }
@@ -68,9 +70,18 @@ export default function AddProject(props: addProjectProps) {
                 <tr>
                     <td><input type={"number"} value={projectNumber} onChange={onProjectNumberChange}/></td>
                     <td><input type={"text"} value={projectName} onChange={onProjectNameChange}/></td>
-                    <td><input type={"text"} value={status} onChange={onStatusChange}/></td>
+                    <td>
+                        <select id="status" name="status" onChange={onStatusChange}>
+                            <option value="">Bitte Auswählen</option>
+                            <option value="Wait">Wait</option>
+                            <option value="In_Progress">In Progress</option>
+                            <option value="Done">Done</option>
+                        </select>
+                    </td>
                     <td><input type={"text"} value={projectMember} onChange={onProjectMemberChange}/></td>
-                    <td className={"tableButton"}><button type={"submit"}> Speichern</button></td>
+                    <td className={"tableButton"}>
+                        <button type={"submit"}> Speichern</button>
+                    </td>
                     <td className={"tableButton"}></td>
 
                 </tr>

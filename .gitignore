@@ -25,3 +25,4 @@ yarn-error.log*
 /frontend/node_modules/
 /backend/HELP.md
 /backend/target/
+/frontend/build/

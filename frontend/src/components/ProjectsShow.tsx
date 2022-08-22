@@ -51,7 +51,7 @@ export default function ProjectsShow(props: ProjectProps) {
             </div>
 
             <div className={"tableShow"}>
-            <AddProject addProject={props.addProject}/>
+                <AddProject addProject={props.addProject}/>
             </div>
         </>
     )
