@@ -1,11 +1,12 @@
 import {ChangeEvent, FormEvent, useState} from "react";
 import {NewProject} from "./NewProject";
 import {Status} from "./Enum_Status";
+import {Project} from "./Project";
 
 
 type addProjectProps = {
     addProject: (newProject: NewProject
-    ) => Promise<NewProject>
+    ) => Promise<Project>
 }
 
 export default function AddProject(props: addProjectProps) {
