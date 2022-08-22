@@ -115,10 +115,8 @@ export default function Header() {
                         </Typography>
                         <Box sx={{flexGrow: 1,display: {xs: 'none', md: 'flex'}}}>
                             {pages.map((page) => (
-                               <a href={'/#/'+page.toLowerCase()}> <Button
-                                    key={page}
+                               <a href={'/#/'+page.toLowerCase()} key={page}> <Button
                                     onClick={handleCloseNavMenu}
-
                                     sx={{my: 2, color: 'black', display: 'block'}}
                                 >
                                     {page}
