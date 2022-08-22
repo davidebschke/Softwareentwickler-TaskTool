@@ -49,7 +49,10 @@ export default function ProjectsShow(props: ProjectProps) {
                 </table>
 
             </div>
+
+            <div className={"tableShow"}>
             <AddProject addProject={props.addProject}/>
+            </div>
         </>
     )
 }
