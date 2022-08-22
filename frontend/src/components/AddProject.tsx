@@ -1,18 +1,18 @@
-import {Project} from "./Project";
 import {ChangeEvent, FormEvent, useState} from "react";
 import {NewProject} from "./NewProject";
+import {Status} from "./Enum_Status";
 
 
 type addProjectProps = {
-    addProject: (project: NewProject
-    ) => Promise<Project>
+    addProject: (newProject: NewProject
+    ) => Promise<NewProject>
 }
 
 export default function AddProject(props: addProjectProps) {
 
     const [projectNumber, setProjectNumber] = useState<number>(0);
     const [projectName, setProjectName] = useState<string>("");
-    const [status, setStatus] = useState<string>("");
+    const [status, setStatus] = useState<Status>(Status.Wait);
     const [projectMember, setProjectMember] = useState<string>("");
 
     function onProjectNumberChange(event: ChangeEvent<HTMLInputElement>) {
@@ -24,7 +24,8 @@ export default function AddProject(props: addProjectProps) {
     }
 
     function onStatusChange(event: ChangeEvent<HTMLSelectElement>) {
-        setStatus(event.target.value)
+        const {value} = event.target;
+        setStatus(value as Status)
     }
 
     function onProjectMemberChange(event: ChangeEvent<HTMLInputElement>) {
@@ -37,18 +38,16 @@ export default function AddProject(props: addProjectProps) {
             console.error("Projectnumber must not be empty")
         } else if (!projectName) {
             console.error("ProjectName must not be empty")
-        }
-        else if (!status) {
+        } else if (!status) {
             console.error("Status must not be empty")
-        }
-         else if (!projectMember) {
+        } else if (!projectMember) {
             console.error("Projectmember must not be empty")
         } else {
             props.addProject({projectNumber, projectName, status, projectMember})
                 .then(() => {
                     setProjectNumber(0);
                     setProjectName("");
-                    setStatus("");
+                    setStatus(Status.Wait);
                     setProjectMember("");
                 })
         }
@@ -73,7 +72,7 @@ export default function AddProject(props: addProjectProps) {
                     <td>
                         <select id="status" name="status" onChange={onStatusChange}>
                             <option value="">Bitte Auswählen</option>
-                            <option value="Wait" >Wait</option>
+                            <option value="Wait">Wait</option>
                             <option value="In_Progress">In Progress</option>
                             <option value="Done">Done</option>
                         </select>

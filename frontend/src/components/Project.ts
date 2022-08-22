@@ -1,10 +1,9 @@
-import Enum_Status from "./Enum_Status";
-
+import {Status} from "./Enum_Status";
 
 export type Project ={
     id:string,
     projectNumber:number,
     projectName: string,
-    status:string,
+    status:Status,
     projectMember:string,
 }
