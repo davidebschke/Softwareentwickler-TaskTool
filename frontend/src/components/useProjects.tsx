@@ -37,7 +37,6 @@ export default function UseProjects() {
             .then(() => {
                     getAllProjects();
                     //navigate('/employees');
-
             })
     }
 
