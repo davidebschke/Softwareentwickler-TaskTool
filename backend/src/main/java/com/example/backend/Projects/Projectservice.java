@@ -41,4 +41,8 @@ public class Projectservice {
         }
         return false;
     }
+
+    public Project updateProject(Project project) {
+        return projectrepo.save(new Project(project.id,project.projectNumber, project.projectName, project.status, project.projectMember));
+    }
 }
