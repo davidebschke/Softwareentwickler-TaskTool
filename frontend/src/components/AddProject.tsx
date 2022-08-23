@@ -4,7 +4,6 @@ import {Status} from "./Enum_Status";
 import {Project} from "./Project";
 import Button from "@mui/material/Button";
 
-
 type addProjectProps = {
     addProject: (newProject: NewProject
     ) => Promise<Project>
@@ -65,7 +64,6 @@ export default function AddProject(props: addProjectProps) {
                     <td>Projectname</td>
                     <td>Status</td>
                     <td>Projectmember</td>
-
 
                 </tr>
                 <tr>

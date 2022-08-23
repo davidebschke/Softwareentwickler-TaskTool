@@ -16,7 +16,6 @@ type ProjectProps = {
 
 export default function ProjectsShow(props: ProjectProps) {
 
-
     const objectList = props.projects;
 
     return (
