@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("/stt/projects")
 public class ProjectController {
 
-    private final Projectservice projectservice ;
+    private final Projectservice projectservice;
 
     public ProjectController(Projectservice projectservice) {
         this.projectservice = projectservice;
@@ -29,10 +29,15 @@ public class ProjectController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteProject (@PathVariable String id)
-    {
-        boolean deleteSuccess= projectservice.deleteProject(id);
+    public ResponseEntity<Void> deleteProject(@PathVariable String id) {
+        boolean deleteSuccess = projectservice.deleteProject(id);
         return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
 
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public Project updateProject(@PathVariable String id, @RequestBody Project project) {
+        return projectservice.updateProject(project);
     }
 }
