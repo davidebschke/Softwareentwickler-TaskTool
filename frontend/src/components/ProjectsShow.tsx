@@ -41,7 +41,7 @@ export default function ProjectsShow(props: ProjectProps) {
                             <td>{project.status}</td>
                             <td>{project.projectMember}</td>
                             <td className={"tableButton"}>
-                                <UpdateProjectForm Projects={props.projects} projectUpdate={props.updateProjectForm}/>
+                                <UpdateProjectForm project={project} projectUpdate={props.updateProjectForm}/>
                             </td>
                             <td className={"tableButton"}>
                                 <Button variant={"contained"} size={"small"} onClick={() => props.deleteProject(project.id)

@@ -1,5 +1,5 @@
-import {useParams} from "react-router-dom";
-import React, {ChangeEvent, MouseEventHandler, useState} from "react";
+
+import React, {ChangeEvent, useState} from "react";
 import {Status} from "./Enum_Status";
 import {Project} from "./Project";
 import Button from "@mui/material/Button";
@@ -7,18 +7,16 @@ import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitl
 import MenuItem from "@mui/material/MenuItem";
 
 type UpdateProjectProps = {
-    Projects: Project[],
+    project: Project,
     projectUpdate: (project: Project) => void,
 }
 
 export default function UpdateProjectForm(props: UpdateProjectProps) {
 
-    const [id,setID]=useState<string|undefined>(undefined)
     const [projectNumber, setProjectNumber] = useState<number>(0);
     const [projectName, setProjectName] = useState<string>("");
     const [status, setStatus] = useState<Status>(Status.Wait);
     const [projectMember, setProjectMember] = useState<string>("");
-    const project: Project | undefined = props.Projects.find((p: Project) => p.id === id);
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -30,13 +28,13 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
     };
 
     const handleUpdate = () => {
-        if (project) {
+        if (props.project) {
             const updatedProject: Project = {
-                id: project.id,
-                projectNumber: project.projectNumber,
-                projectName: project.projectName,
-                status: project.status,
-                projectMember: project.projectMember
+                id: props.project.id,
+                projectNumber: projectNumber,
+                projectName: projectName,
+                status: status,
+                projectMember: projectMember
             };
             props.projectUpdate(updatedProject);
             setOpen(false)
@@ -93,7 +91,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 type="text"
                                 fullWidth
                                 variant="standard"
-                                onChange={onProjectMemberChange}
+                                onChange={onProjectNameChange}
                             />
                             <TextField
                                 id="Status"
@@ -118,7 +116,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 type="text"
                                 fullWidth
                                 variant="standard"
-                                onChange={onProjectNameChange}
+                                onChange={onProjectMemberChange}
                             />
                         </DialogContent>
                         <DialogActions>
