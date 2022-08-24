@@ -12,6 +12,7 @@ import {NewProject} from "./NewProject";
 import UpdateProjectForm from "./UpdateProjectForm";
 import Button from "@mui/material/Button";
 import AddProject from "./AddProject";
+import "./projectshow.css"
 
 type ProjectProps = {
     projects: Project[],
@@ -43,6 +44,8 @@ const columns: readonly Column[] = [
         minWidth: 170,
         align: 'right',
     },
+
+
 ];
 
 export default function StickyHeadTable(props: ProjectProps) {
@@ -59,13 +62,13 @@ export default function StickyHeadTable(props: ProjectProps) {
     };
 
     return (
-        <Paper sx={{width: '100%', overflow: 'hidden'}}>
-            <TableContainer sx={{maxHeight: 440}}>
-                <Table stickyHeader aria-label="sticky table">
+        <Paper sx={{width: '100%', overflow: 'hidden',backgroundColor:'#6B7280',marginTop:'2em'}}>
+            <TableContainer sx={{maxHeight: 440, }}>
+                <Table stickyHeader aria-label="sticky table" >
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (
-                                <TableCell
+                                <TableCell sx={{backgroundColor: "#374151",color:"white"}}
                                     key={column.id}
                                     align={column.align}
                                     style={{minWidth: column.minWidth}}
@@ -85,7 +88,7 @@ export default function StickyHeadTable(props: ProjectProps) {
                                             const value = project[column.id];
                                             return (
                                                 <>
-                                                    <TableCell key={column.id} align={column.align}>
+                                                    <TableCell sx={{color:'#E5E7EB'}} key={column.id} align={column.align}>
                                                         {column.format && typeof value === 'number'
                                                             ? column.format(value)
                                                             : value}
@@ -99,7 +102,7 @@ export default function StickyHeadTable(props: ProjectProps) {
 
                                         </TableCell>
                                         <TableCell>
-                                            <Button variant={"contained"} size={"small"}
+                                            <Button sx={{backgroundColor:'#1F2937'}} variant={"contained"} size={"small"}
                                                     onClick={() => props.deleteProject(project.id)
                                                     }> delete
                                             </Button>
@@ -112,11 +115,14 @@ export default function StickyHeadTable(props: ProjectProps) {
                             })}
 
 
-                        <TableRow><TableCell><AddProject addProject={props.addProject}/></TableCell></TableRow>
+
 
                     </TableBody>
-                </Table>
 
+                </Table>
+                <div className={"add"}>
+                <AddProject addProject={props.addProject}/>
+                </div>
             </TableContainer>
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}

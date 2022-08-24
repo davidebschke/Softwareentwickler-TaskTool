@@ -65,7 +65,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button variant="contained" size={"small"} onClick={handleClickOpen}>
+                    <Button sx={{backgroundColor:'#1F2937'}} variant="contained" size={"small"} onClick={handleClickOpen}>
                         Update
                     </Button>
                     <Dialog open={open} onClose={handleClose}>

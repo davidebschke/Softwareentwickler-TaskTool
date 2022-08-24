@@ -1,53 +1,6 @@
-table {
-    margin-top: 1em;
-    background-color: #C0C0C0;
-    border-radius: 1em;
-    padding: 2em;
-    min-width: 100%;
-}
+.add{
 
-.tableShow {
-    width: 100vw;
-    overflow-x: auto;
-    overflow-y: auto;
-    display: flex;
-    justify-content: left;
-    min-height: 100%;
-    border-style: outset;
-    border-color: #C0C0C0;
-}
+    margin-top: 2em;
+    margin-left: 2em;
 
-body {
-    height: 100vh;
-}
-
-th {
-
-    text-align: left;
-}
-
-td {
-
-    padding: 0.5em;
-}
-
-button {
-
-    text-align: center;
-    min-width: 100px;
-    min-height: 20px;
-    border-radius: 1em;
-}
-
-button:hover {
-
-    background-color: lightseagreen;
-}
-
-tfoot button {
-    margin-top: 1em;
-}
-.tableButton{
-    min-width: 7%;
-    height:auto;
 }

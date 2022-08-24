@@ -6,12 +6,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 80vh;
-  background-color: #C0C5C0;
+  background-color: #9CA3AF;
   overflow: hidden;
-
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+a{
+ text-decoration: none;
 }
