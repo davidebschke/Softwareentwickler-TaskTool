@@ -31,7 +31,17 @@ export default function UseProjects() {
             .then((response) => response.status)
             .then(getAllProjects)
     }
+
+    const updateProject = (updatedProject: Project) => {
+        return axios.put("/stt/projects/" + updatedProject.id, updatedProject)
+            .then(() => {
+                    getAllProjects();
+                    //navigate('/employees');
+            })
+    }
+
     return {
+        updateProject,
         addProject,
         projects,
         deleteProject,

@@ -2,7 +2,7 @@ import {ChangeEvent, FormEvent, useState} from "react";
 import {NewProject} from "./NewProject";
 import {Status} from "./Enum_Status";
 import {Project} from "./Project";
-
+import Button from "@mui/material/Button";
 
 type addProjectProps = {
     addProject: (newProject: NewProject
@@ -65,7 +65,6 @@ export default function AddProject(props: addProjectProps) {
                     <td>Status</td>
                     <td>Projectmember</td>
 
-
                 </tr>
                 <tr>
                     <td><input type={"number"} value={projectNumber} onChange={onProjectNumberChange}/></td>
@@ -80,7 +79,7 @@ export default function AddProject(props: addProjectProps) {
                     </td>
                     <td><input type={"text"} value={projectMember} onChange={onProjectMemberChange}/></td>
                     <td className={"tableButton"}>
-                        <button type={"submit"}> Speichern</button>
+                        <Button variant="contained" type={"submit"} size={"small"}> Speichern</Button>
                     </td>
                     <td className={"tableButton"}></td>
 

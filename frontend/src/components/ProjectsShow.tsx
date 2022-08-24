@@ -3,10 +3,13 @@ import * as React from 'react';
 import "./projectshow.css"
 import AddProject from "./AddProject";
 import {NewProject} from "./NewProject";
+import UpdateProjectForm from "./UpdateProjectForm";
+import Button from "@mui/material/Button";
 
 
 type ProjectProps = {
     projects: Project[],
+    updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: string) => Promise<void>;
 }
@@ -37,12 +40,12 @@ export default function ProjectsShow(props: ProjectProps) {
                             <td>{project.status}</td>
                             <td>{project.projectMember}</td>
                             <td className={"tableButton"}>
-                                <button> edit</button>
+                                <UpdateProjectForm project={project} projectUpdate={props.updateProjectForm}/>
                             </td>
                             <td className={"tableButton"}>
-                                <button onClick={() => props.deleteProject(project.id)
+                                <Button variant={"contained"} size={"small"} onClick={() => props.deleteProject(project.id)
                                 }> delete
-                                </button>
+                                </Button>
                             </td>
                         </tr>
                         </tbody>)}
@@ -52,6 +55,7 @@ export default function ProjectsShow(props: ProjectProps) {
 
             <div className={"tableShow"}>
                 <AddProject addProject={props.addProject}/>
+
             </div>
         </>
     )

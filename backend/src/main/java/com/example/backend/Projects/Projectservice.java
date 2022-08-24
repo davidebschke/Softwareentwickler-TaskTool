@@ -34,11 +34,14 @@ public class Projectservice {
 
     public boolean deleteProject(String id) {
 
-        if(projectrepo.existsById(String.valueOf(id)))
-        {
+        if (projectrepo.existsById(String.valueOf(id))) {
             projectrepo.deleteById(String.valueOf(id));
             return true;
         }
         return false;
+    }
+
+    public Project updateProject(Project project) {
+        return projectrepo.save(new Project(project.id, project.projectNumber, project.projectName, project.status, project.projectMember));
     }
 }

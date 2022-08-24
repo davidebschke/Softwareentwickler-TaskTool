@@ -10,15 +10,15 @@ import static org.mockito.Mockito.*;
 
 class ProjectserviceTest {
 
-    List<Project> projectList= List.of(
+    List<Project> projectList = List.of(
 
-            new Project("0",2000,"Shop",Status.Done,"David"),
-            new Project("0",2001,"Shop",Status.Done,"David"),
-            new Project("0",2002,"Shop",Status.Done,"David")
-            );
+            new Project("0", 2000, "Shop", Status.Done, "David"),
+            new Project("0", 2001, "Shop", Status.Done, "David"),
+            new Project("0", 2002, "Shop", Status.Done, "David")
+    );
 
-    private final Projectrepo projectrepo=mock(Projectrepo.class);
-    private final Projectservice projectservice= new Projectservice(projectrepo);
+    private final Projectrepo projectrepo = mock(Projectrepo.class);
+    private final Projectservice projectservice = new Projectservice(projectrepo);
     private final Project project = new Project("Test", 1995, "Shop", Status.Done, "David");
 
     @Test
@@ -45,12 +45,21 @@ class ProjectserviceTest {
 
     @Test
     void deleteProjectTest() {
-        Project project = new Project("", 9,"Shop",Status.Done,"David");
+        Project project = new Project("", 9, "Shop", Status.Done, "David");
 
         when(projectrepo.existsById(project.id)).thenReturn(true);
         doNothing().when(projectrepo).deleteById(project.id);
 
         projectservice.deleteProject(project.id);
         verify(projectrepo).deleteById(project.id);
+    }
+
+    @Test
+    void updateProjectTest() {
+        Project project = new Project("TestID", 9, "Shop", Status.In_Progress, "David");
+
+        when(projectrepo.save(any(Project.class))).thenReturn(project);
+        Project actual = projectservice.updateProject(project);
+        Assertions.assertEquals(project, actual);
     }
 }
