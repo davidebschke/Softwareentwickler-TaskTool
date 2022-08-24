@@ -1,4 +1,4 @@
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import useProjects from "./useProjects";
 import Home from "./Home";
 import ProjectsShow from "./ProjectsShow";
@@ -10,6 +10,9 @@ export default function AllRoutes() {
     return (
         <>
             <Routes>
+                <Route path={"*"} element={
+                    <Navigate to={"/projects"} replace/>
+                }/>
                 <Route path={"/home"} element={<Home/>}/>
                 <Route path={"/projects"} element={<ProjectsShow updateProjectForm={updateProject}
                                                                  deleteProject={deleteProject}
