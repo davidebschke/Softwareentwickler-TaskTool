@@ -49,7 +49,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
         setProjectName(event.target.value)
     }
 
-
     function onProjectMemberChange(event: ChangeEvent<HTMLInputElement>) {
         setProjectMember(event.target.value)
     }
