@@ -3,6 +3,8 @@ import {NewProject} from "./NewProject";
 import {Status} from "./Enum_Status";
 import {Project} from "./Project";
 import Button from "@mui/material/Button";
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 
 type addProjectProps = {
     addProject: (newProject: NewProject
@@ -57,35 +59,31 @@ export default function AddProject(props: addProjectProps) {
     return (
 
         <form className="form" onSubmit={onProjectSubmit}>
-            <table className={""}>
-                <tbody>
-                <tr>
-                    <td>Projectnumber</td>
-                    <td>Projectname</td>
-                    <td>Status</td>
-                    <td>Projectmember</td>
+            <TableRow>
+                <TableCell>Projectnumber</TableCell>
+                <TableCell>Projectname</TableCell>
+                <TableCell>Status</TableCell>
+                <TableCell>Projectmember</TableCell>
+            </TableRow>
 
-                </tr>
-                <tr>
-                    <td><input type={"number"} value={projectNumber} onChange={onProjectNumberChange}/></td>
-                    <td><input type={"text"} value={projectName} onChange={onProjectNameChange}/></td>
-                    <td>
-                        <select id="status" name="status" onChange={onStatusChange}>
-                            <option value="">Bitte Auswählen</option>
-                            <option value="Wait">Wait</option>
-                            <option value="In_Progress">In Progress</option>
-                            <option value="Done">Done</option>
-                        </select>
-                    </td>
-                    <td><input type={"text"} value={projectMember} onChange={onProjectMemberChange}/></td>
-                    <td className={"tableButton"}>
-                        <Button variant="contained" type={"submit"} size={"small"}> Speichern</Button>
-                    </td>
-                    <td className={"tableButton"}></td>
+            <TableRow>
+                <TableCell><input type={"number"} value={projectNumber} onChange={onProjectNumberChange}/></TableCell>
+                <TableCell><input type={"text"} value={projectName} onChange={onProjectNameChange}/></TableCell>
+                <TableCell>
+                    <select id="status" name="status" onChange={onStatusChange}>
+                        <option value="">Bitte Auswählen</option>
+                        <option value="Wait">Wait</option>
+                        <option value="In_Progress">In Progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </TableCell>
+                <TableCell><input type={"text"} value={projectMember} onChange={onProjectMemberChange}/></TableCell>
+                <TableCell>
+                    <Button variant="contained" type={"submit"} size={"small"}> Speichern</Button>
+                </TableCell>
+                <TableCell></TableCell>
+            </TableRow>
 
-                </tr>
-                </tbody>
-            </table>
         </form>
     )
 }
