@@ -2,7 +2,7 @@ package com.example.backend.Projects;
 
 public enum Status {
     Wait("Wait"),
-    In_Progress("In Progress"),
+    In_Progress("In_Progress"),
     Done("Done");
 
     private final String displayName;
