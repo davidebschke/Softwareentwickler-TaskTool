@@ -78,7 +78,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 autoFocus
                                 margin="dense"
                                 label="Projectnumber"
-                                type="number"
+                                type="text"
                                 fullWidth
                                 variant="standard"
                                 onChange={onProjectNumberChange}

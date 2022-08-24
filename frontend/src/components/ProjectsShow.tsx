@@ -62,16 +62,16 @@ export default function StickyHeadTable(props: ProjectProps) {
     };
 
     return (
-        <Paper sx={{width: '100%', overflow: 'hidden',backgroundColor:'#6B7280',marginTop:'2em'}}>
-            <TableContainer sx={{maxHeight: 440, }}>
-                <Table stickyHeader aria-label="sticky table" >
+        <Paper sx={{width: '100%', overflow: 'hidden', backgroundColor: '#6B7280', marginTop: '2em'}}>
+            <TableContainer sx={{maxHeight: 440,}}>
+                <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (
-                                <TableCell sx={{backgroundColor: "#374151",color:"white"}}
-                                    key={column.id}
-                                    align={column.align}
-                                    style={{minWidth: column.minWidth}}
+                                <TableCell sx={{backgroundColor: "#374151", color: "white"}}
+                                           key={column.id}
+                                           align={column.align}
+                                           style={{minWidth: column.minWidth}}
                                 >
                                     {column.label}
                                 </TableCell>
@@ -82,46 +82,39 @@ export default function StickyHeadTable(props: ProjectProps) {
                         {props.projects
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((project) => {
-                                return (<>
+                                return (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={project.id}>
                                         {columns.map((column) => {
                                             const value = project[column.id];
                                             return (
-                                                <>
-                                                    <TableCell sx={{color:'#E5E7EB'}} key={column.id} align={column.align}>
-                                                        {column.format && typeof value === 'number'
-                                                            ? column.format(value)
-                                                            : value}
-                                                    </TableCell>
-
-                                                </>);
+                                                <TableCell sx={{color: '#E5E7EB'}} key={column.id} align={column.align}>
+                                                    {column.format && typeof value === 'number'
+                                                        ? column.format(value)
+                                                        : value}
+                                                </TableCell>
+                                            );
                                         })}
                                         <TableCell>
                                             <UpdateProjectForm project={project}
                                                                projectUpdate={props.updateProjectForm}/>
-
                                         </TableCell>
                                         <TableCell>
-                                            <Button sx={{backgroundColor:'#1F2937'}} variant={"contained"} size={"small"}
+                                            <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
+                                                    size={"small"}
                                                     onClick={() => props.deleteProject(project.id)
                                                     }> delete
                                             </Button>
                                         </TableCell>
                                     </TableRow>
-
-
-                                    </>
                                 );
                             })}
-
-
 
 
                     </TableBody>
 
                 </Table>
                 <div className={"add"}>
-                <AddProject addProject={props.addProject}/>
+                    <AddProject addProject={props.addProject}/>
                 </div>
             </TableContainer>
             <TablePagination

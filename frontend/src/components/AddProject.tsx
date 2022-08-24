@@ -72,8 +72,8 @@ export default function AddProject(props: addProjectProps) {
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Änderung des Projects</DialogTitle>
-                    <DialogContent>
+                    <DialogTitle sx={{backgroundColor:'#9CA3AF'}}>Änderung des Projects</DialogTitle>
+                    <DialogContent sx={{backgroundColor:'#9CA3AF'}}>
                         <DialogContentText>
                             Please enter here your new Project
                         </DialogContentText>
@@ -81,7 +81,7 @@ export default function AddProject(props: addProjectProps) {
                             autoFocus
                             margin="dense"
                             label="Projectnumber"
-                            type="number"
+                            type="text"
                             fullWidth
                             variant="standard"
                             onChange={onProjectNumberChange}
@@ -121,7 +121,7 @@ export default function AddProject(props: addProjectProps) {
                             onChange={onProjectMemberChange}
                         />
                     </DialogContent>
-                    <DialogActions>
+                    <DialogActions sx={{backgroundColor:'#9CA3AF'}}>
                         <Button onClick={handleClose}>Zurück</Button>
                         <Button onClick={onProjectSubmit}>Speichern</Button>
                     </DialogActions>
