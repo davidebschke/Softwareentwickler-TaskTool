@@ -74,7 +74,7 @@ export default function StickyHeadTable(props: ProjectProps) {
                                            style={{minWidth: column.minWidth}
                                 }
                                 >
-                                    {column.label}<TableSortLabel  active={true}/>
+                                    {column.label} <TableSortLabel  active={true}/>
                                 </TableCell>
                             ))}
                         </TableRow>
