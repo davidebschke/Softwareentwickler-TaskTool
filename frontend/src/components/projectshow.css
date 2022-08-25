@@ -4,5 +4,5 @@
 }
 
 ul.MuiList-root{
-    background: #9CA3AF;
+    background: var(--background_body);
 }
