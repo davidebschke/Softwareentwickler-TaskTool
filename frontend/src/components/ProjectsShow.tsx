@@ -44,8 +44,6 @@ const columns: readonly Column[] = [
         minWidth: 170,
         align: 'right',
     },
-
-
 ];
 
 export default function StickyHeadTable(props: ProjectProps) {
@@ -68,7 +66,7 @@ export default function StickyHeadTable(props: ProjectProps) {
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (
-                                <TableCell sx={{backgroundColor: "#374151", color: "white"}}
+                                <TableCell sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
                                            key={column.id}
                                            align={column.align}
                                            style={{minWidth: column.minWidth}}
@@ -87,7 +85,7 @@ export default function StickyHeadTable(props: ProjectProps) {
                                         {columns.map((column) => {
                                             const value = project[column.id];
                                             return (
-                                                <TableCell sx={{color: '#E5E7EB'}} key={column.id} align={column.align}>
+                                                <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id} align={column.align}>
                                                     {column.format && typeof value === 'number'
                                                         ? column.format(value)
                                                         : value}
@@ -108,8 +106,6 @@ export default function StickyHeadTable(props: ProjectProps) {
                                     </TableRow>
                                 );
                             })}
-
-
                     </TableBody>
 
                 </Table>
@@ -118,6 +114,7 @@ export default function StickyHeadTable(props: ProjectProps) {
                 </div>
             </TableContainer>
             <TablePagination
+                sx={{color:"var(--table_Head_color);"}}
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
                 count={props.projects.length}
