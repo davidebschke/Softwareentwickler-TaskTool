@@ -41,6 +41,10 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
             toast.success("Update Erfolgreich");
             setOpen(false);
         }
+        else{
+
+            toast.error("Update Fehlgeschlagen")
+        }
     }
 
     function onProjectNumberChange(event: ChangeEvent<HTMLInputElement>) {
