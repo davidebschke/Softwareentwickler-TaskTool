@@ -35,7 +35,7 @@ export default function Header() {
 
         return (
             <AppBar position="static" sx={{
-                backgroundColor: '#111827', borderStyle: 'inset', borderColor: '#778899', color: 'var(--footer_Header_color);'
+                backgroundColor: 'var(--structure_background);', borderStyle: 'inset', borderColor: 'var(--structure_background);', color: 'var(--footer_Header_color);'
             }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
