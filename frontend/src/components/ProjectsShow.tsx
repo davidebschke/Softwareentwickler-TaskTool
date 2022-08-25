@@ -12,7 +12,9 @@ import {NewProject} from "./NewProject";
 import UpdateProjectForm from "./UpdateProjectForm";
 import Button from "@mui/material/Button";
 import AddProject from "./AddProject";
-import "./projectshow.css"
+
+
+import "./projectshow.css";
 
 type ProjectProps = {
     projects: Project[],
@@ -59,6 +61,7 @@ export default function StickyHeadTable(props: ProjectProps) {
         setPage(0);
     };
 
+
     return (
         <Paper sx={{width: '100%', overflow: 'hidden', backgroundColor: '#6B7280', marginTop: '2em'}}>
             <TableContainer sx={{maxHeight: 440,}}>
@@ -69,7 +72,8 @@ export default function StickyHeadTable(props: ProjectProps) {
                                 <TableCell sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
                                            key={column.id}
                                            align={column.align}
-                                           style={{minWidth: column.minWidth}}
+                                           style={{minWidth: column.minWidth}
+                                }
                                 >
                                     {column.label}
                                 </TableCell>
@@ -85,7 +89,8 @@ export default function StickyHeadTable(props: ProjectProps) {
                                         {columns.map((column) => {
                                             const value = project[column.id];
                                             return (
-                                                <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id} align={column.align}>
+                                                <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
+                                                           align={column.align}>
                                                     {column.format && typeof value === 'number'
                                                         ? column.format(value)
                                                         : value}
@@ -114,7 +119,7 @@ export default function StickyHeadTable(props: ProjectProps) {
                 </div>
             </TableContainer>
             <TablePagination
-                sx={{color:"var(--table_Head_color);"}}
+                sx={{color: "var(--table_Head_color);"}}
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
                 count={props.projects.length}
