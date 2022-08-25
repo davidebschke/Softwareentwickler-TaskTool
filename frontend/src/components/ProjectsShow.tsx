@@ -11,8 +11,9 @@ import {Project} from "./Project";
 import {NewProject} from "./NewProject";
 import UpdateProjectForm from "./UpdateProjectForm";
 import Button from "@mui/material/Button";
-import {TableSortLabel} from "@mui/material";
 import AddProject from "./AddProject";
+
+
 import "./projectshow.css";
 
 type ProjectProps = {
@@ -74,7 +75,7 @@ export default function StickyHeadTable(props: ProjectProps) {
                                            style={{minWidth: column.minWidth}
                                 }
                                 >
-                                    {column.label} <TableSortLabel  active={true}/>
+                                    {column.label}
                                 </TableCell>
                             ))}
                         </TableRow>
