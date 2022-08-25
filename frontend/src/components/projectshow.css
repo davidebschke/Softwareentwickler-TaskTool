@@ -2,3 +2,7 @@
     margin-top: 2em;
     margin-left: 2em;
 }
+
+ul.MuiList-root{
+    background: #9CA3AF;
+}
