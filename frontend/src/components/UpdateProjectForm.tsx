@@ -36,6 +36,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 status: status,
                 projectMember: projectMember
             };
+
             props.projectUpdate(updatedProject);
             setOpen(false)
         }

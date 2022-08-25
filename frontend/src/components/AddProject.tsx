@@ -5,6 +5,7 @@ import {Project} from "./Project";
 import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
+import {toast} from "react-toastify";
 
 type addProjectProps = {
     addProject: (newProject: NewProject
@@ -32,13 +33,13 @@ export default function AddProject(props: addProjectProps) {
 
     const onProjectSubmit = () => {
         if (!projectNumber) {
-            console.error("Projectnumber must not be empty")
+            toast.error("Projektnummer muss gesetzt sein")
         } else if (!projectName) {
-            console.error("ProjectName must not be empty")
+            toast.error("Projektname muss gesetzt sein")
         } else if (!status) {
-            console.error("Status must not be empty")
+            toast.error("Status muss gesetzt sein")
         } else if (!projectMember) {
-            console.error("Projectmember must not be empty")
+            toast.error("Projektteilnehmer muss gesetzt sein")
         } else {
             props.addProject({projectNumber, projectName, status, projectMember})
                 .then(() => {
@@ -47,6 +48,8 @@ export default function AddProject(props: addProjectProps) {
                     setStatus(Status.Wait);
                     setProjectMember("");
                      })
+                .then(()=> toast.success("Project wurde hinzugefügt",{theme: "light"}))
+                .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}));
         }
     }
 
