@@ -5,6 +5,7 @@ import {Project} from "./Project";
 import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
+import {toast} from "react-toastify";
 
 type UpdateProjectProps = {
     project: Project,
@@ -36,8 +37,13 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 status: status,
                 projectMember: projectMember
             };
-            props.projectUpdate(updatedProject);
-            setOpen(false)
+            props.projectUpdate(updatedProject)
+            toast.success("Update Erfolgreich");
+            setOpen(false);
+        }
+        else{
+
+            toast.error("Update Fehlgeschlagen")
         }
     }
 

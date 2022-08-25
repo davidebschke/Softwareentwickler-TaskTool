@@ -15,6 +15,7 @@ import AddProject from "./AddProject";
 
 
 import "./projectshow.css";
+import {toast} from "react-toastify";
 
 type ProjectProps = {
     projects: Project[],
@@ -105,6 +106,8 @@ export default function StickyHeadTable(props: ProjectProps) {
                                             <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
                                                     size={"small"}
                                                     onClick={() => props.deleteProject(project.id)
+                                                        .then(()=> toast.success("Löschen war Erfolgreich"))
+                                                        .catch(()=> toast.error("löschen ist fehlgeschlagen"))
                                                     }> delete
                                             </Button>
                                         </TableCell>
