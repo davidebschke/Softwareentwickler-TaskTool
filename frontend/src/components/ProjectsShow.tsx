@@ -12,6 +12,7 @@ import {NewProject} from "./NewProject";
 import UpdateProjectForm from "./UpdateProjectForm";
 import Button from "@mui/material/Button";
 import AddProject from "./AddProject";
+import "./projectshow.css"
 
 type ProjectProps = {
     projects: Project[],
@@ -59,16 +60,16 @@ export default function StickyHeadTable(props: ProjectProps) {
     };
 
     return (
-        <Paper sx={{width: '100%', overflow: 'hidden'}}>
-            <TableContainer sx={{maxHeight: 440}}>
+        <Paper sx={{width: '100%', overflow: 'hidden', backgroundColor: '#6B7280', marginTop: '2em'}}>
+            <TableContainer sx={{maxHeight: 440,}}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (
-                                <TableCell
-                                    key={column.id}
-                                    align={column.align}
-                                    style={{minWidth: column.minWidth}}
+                                <TableCell sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
+                                           key={column.id}
+                                           align={column.align}
+                                           style={{minWidth: column.minWidth}}
                                 >
                                     {column.label}
                                 </TableCell>
@@ -79,46 +80,41 @@ export default function StickyHeadTable(props: ProjectProps) {
                         {props.projects
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((project) => {
-                                return (<>
+                                return (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={project.id}>
                                         {columns.map((column) => {
                                             const value = project[column.id];
                                             return (
-                                                <>
-                                                    <TableCell key={column.id} align={column.align}>
-                                                        {column.format && typeof value === 'number'
-                                                            ? column.format(value)
-                                                            : value}
-                                                    </TableCell>
-
-                                                </>);
+                                                <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id} align={column.align}>
+                                                    {column.format && typeof value === 'number'
+                                                        ? column.format(value)
+                                                        : value}
+                                                </TableCell>
+                                            );
                                         })}
                                         <TableCell>
                                             <UpdateProjectForm project={project}
                                                                projectUpdate={props.updateProjectForm}/>
-
                                         </TableCell>
                                         <TableCell>
-                                            <Button variant={"contained"} size={"small"}
+                                            <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
+                                                    size={"small"}
                                                     onClick={() => props.deleteProject(project.id)
                                                     }> delete
                                             </Button>
                                         </TableCell>
                                     </TableRow>
-
-
-                                    </>
                                 );
                             })}
-
-
-                        <TableRow><TableCell><AddProject addProject={props.addProject}/></TableCell></TableRow>
-
                     </TableBody>
-                </Table>
 
+                </Table>
+                <div className={"add"}>
+                    <AddProject addProject={props.addProject}/>
+                </div>
             </TableContainer>
             <TablePagination
+                sx={{color:"var(--table_Head_color);"}}
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
                 count={props.projects.length}

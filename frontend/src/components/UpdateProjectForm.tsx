@@ -65,12 +65,12 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button variant="contained" size={"small"} onClick={handleClickOpen}>
+                    <Button sx={{backgroundColor:'#1F2937'}} variant="contained" size={"small"} onClick={handleClickOpen}>
                         Update
                     </Button>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Änderung des Projects</DialogTitle>
-                        <DialogContent>
+                        <DialogTitle sx={{backgroundColor:'#9CA3AF'}}>Änderung des Projects</DialogTitle>
+                        <DialogContent sx={{backgroundColor:'#9CA3AF'}}>
                             <DialogContentText>
                                 Please enter here the new Data
                             </DialogContentText>
@@ -78,7 +78,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 autoFocus
                                 margin="dense"
                                 label="Projectnumber"
-                                type="number"
+                                type="text"
                                 fullWidth
                                 variant="standard"
                                 onChange={onProjectNumberChange}
@@ -118,9 +118,9 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 onChange={onProjectMemberChange}
                             />
                         </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleClose}>Zurück</Button>
-                            <Button onClick={handleUpdate}>Speichern</Button>
+                        <DialogActions sx={{backgroundColor:'#9CA3AF'}}>
+                            <Button onClick={handleClose} sx={{color:'#4B5563'}}>Zurück</Button>
+                            <Button onClick={handleUpdate} sx={{color:'#4B5563'}}>Speichern</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

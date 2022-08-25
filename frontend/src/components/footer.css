@@ -3,13 +3,13 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: saddlebrown;
+    background: var(--structure_background);
     height: auto;
     width: 100vw;
     padding-top: 20px;
-    color: black;
+    color: ghostwhite;
     border-style: inset;
-    border-color: saddlebrown;
+    border-color: #798098;
 }
 
 .footer-content {
@@ -32,7 +32,7 @@ footer {
     margin: 10px auto;
     line-height: 28px;
     font-size: 14px;
-    color: black;
+    color: var(--footer_Header_color);
 }
 
 .socials {
@@ -48,8 +48,7 @@ footer {
 }
 
 .socials a {
-    text-decoration: none;
-    color: #fff;
+    color: var(--footer_Header_color);
     padding: 5px;
     border-radius: 50%;
 }
@@ -61,7 +60,7 @@ footer {
 }
 
 .socials a:hover i {
-    color: black;
+    color: antiquewhite;
 }
 
 .footer-bottom p {
@@ -72,7 +71,7 @@ footer {
 }
 
 .footer-bottom p a {
-    color: black;
+    color: ghostwhite;
     font-size: 16px;
     text-decoration: none;
 }
