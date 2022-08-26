@@ -17,6 +17,9 @@ import AddProject from "./AddProject";
 import "./projectshow.css";
 import ShowIssues from "./ShowIssues";
 import {Issues} from "./Issues";
+import FilteredCloseIssues from './FilteredCloseIssues';
+import FilteredOpenIssues from "./FilteredOpenIssues";
+
 
 type ProjectProps = {
     projects: Project[],
@@ -100,15 +103,11 @@ export default function StickyHeadTable(props: ProjectProps) {
                                                 const value = project[column.id];
                                                 if (column.id === 'status') {
                                                     return (
-                                                        <TableCell sx={{color: 'var(--table_content_color);'}}
+                                                        <TableCell sx={{color: 'var(--table_content_color);', display:'flex'}}
                                                                    key={column.id}
                                                                    align={column.align}>
-                                                            <Button sx={{backgroundColor: '#1F2937'}}
-                                                                    variant={"contained"}
-                                                                    size={"small"}> Open Issues </Button>
-                                                            <Button sx={{backgroundColor: '#1F2937', marginLeft: '2em'}}
-                                                                    variant={"contained"}
-                                                                    size={"small"}> Closed Issues </Button>
+                                                            <FilteredOpenIssues issues={props.issues}/>
+                                                            <FilteredCloseIssues issues={props.issues}/>
                                                         </TableCell>
                                                     )
                                                 }
