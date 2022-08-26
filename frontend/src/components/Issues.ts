@@ -1,8 +1,8 @@
 
 export type Issues ={
     number:number,
-    title:String,
-    state:String,
-    created_at:String,
-    name:String,
+    title:string,
+    state:string,
+    created_at:string,
+    name:string,
 }
