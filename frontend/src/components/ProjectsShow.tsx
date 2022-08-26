@@ -15,7 +15,6 @@ import AddProject from "./AddProject";
 
 
 import "./projectshow.css";
-import ShowIssues from "./ShowIssues";
 import {Issues} from "./Issues";
 import FilteredCloseIssues from './FilteredCloseIssues';
 import FilteredOpenIssues from "./FilteredOpenIssues";
@@ -153,7 +152,6 @@ export default function StickyHeadTable(props: ProjectProps) {
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
             </Paper>
-            <ShowIssues issues={props.issues}/>
         </>
     );
 }
