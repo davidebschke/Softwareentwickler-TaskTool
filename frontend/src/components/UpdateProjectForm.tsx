@@ -1,4 +1,3 @@
-
 import React, {ChangeEvent, useState} from "react";
 import {Status} from "./Enum_Status";
 import {Project} from "./Project";
@@ -40,8 +39,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
             props.projectUpdate(updatedProject)
             toast.success("Update Erfolgreich");
             setOpen(false);
-        }
-        else{
+        } else {
 
             toast.error("Update Fehlgeschlagen")
         }
@@ -71,12 +69,13 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button sx={{backgroundColor:'#1F2937'}} variant="contained" size={"small"} onClick={handleClickOpen}>
+                    <Button sx={{backgroundColor: '#1F2937'}} variant="contained" size={"small"}
+                            onClick={handleClickOpen}>
                         Update
                     </Button>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle sx={{backgroundColor:'#9CA3AF'}}>Änderung des Projects</DialogTitle>
-                        <DialogContent sx={{backgroundColor:'#9CA3AF'}}>
+                        <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>
+                        <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
                             <DialogContentText>
                                 Please enter here the new Data
                             </DialogContentText>
@@ -110,9 +109,9 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 helperText="Please select the Project Status"
                                 variant={"standard"}
                             >
-                                <MenuItem key={"Wait"}   value={Status.Wait}> Wait </MenuItem>
+                                <MenuItem key={"Wait"} value={Status.Wait}> Wait </MenuItem>
                                 <MenuItem key={"In_Progress"} value={Status.In_Progress}> In_Progress </MenuItem>
-                                <MenuItem key={"Done"}        value={Status.Done}> Done </MenuItem>
+                                <MenuItem key={"Done"} value={Status.Done}> Done </MenuItem>
                             </TextField>
                             <TextField
                                 autoFocus
@@ -124,9 +123,9 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 onChange={onProjectMemberChange}
                             />
                         </DialogContent>
-                        <DialogActions sx={{backgroundColor:'#9CA3AF'}}>
-                            <Button onClick={handleClose} sx={{color:'#4B5563'}}>Zurück</Button>
-                            <Button onClick={handleUpdate} sx={{color:'#4B5563'}}>Update</Button>
+                        <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
+                            <Button onClick={handleClose} sx={{color: '#4B5563'}}>Zurück</Button>
+                            <Button onClick={handleUpdate} sx={{color: '#4B5563'}}>Update</Button>
                         </DialogActions>
                     </Dialog>
                 </div>
