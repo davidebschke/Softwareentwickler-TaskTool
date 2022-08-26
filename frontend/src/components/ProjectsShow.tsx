@@ -19,7 +19,6 @@ import {Issues} from "./Issues";
 import FilteredCloseIssues from './FilteredCloseIssues';
 import FilteredOpenIssues from "./FilteredOpenIssues";
 
-
 type ProjectProps = {
     projects: Project[],
     issues: Issues[],
@@ -66,8 +65,8 @@ export default function StickyHeadTable(props: ProjectProps) {
         setPage(0);
     };
 
+
     return (
-        <>
             <Paper sx={{
                 width: '100%',
                 overflow: 'hidden',
@@ -136,22 +135,21 @@ export default function StickyHeadTable(props: ProjectProps) {
                                 })}
                         </TableBody>
 
-                    </Table>
-                    <div className={"add"}>
-                        <AddProject addProject={props.addProject}/>
-                    </div>
-                </TableContainer>
-                <TablePagination
-                    sx={{color: "var(--table_Head_color);"}}
-                    rowsPerPageOptions={[10, 25, 100]}
-                    component="div"
-                    count={props.projects.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-            </Paper>
-        </>
+                </Table>
+                <div className={"add"}>
+                    <AddProject addProject={props.addProject}/>
+                </div>
+            </TableContainer>
+            <TablePagination
+                sx={{color: "var(--table_Head_color);"}}
+                rowsPerPageOptions={[10, 25, 100]}
+                component="div"
+                count={props.projects.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+        </Paper>
     );
 }
