@@ -5,7 +5,7 @@ import ProjectsShow from "./ProjectsShow";
 
 export default function AllRoutes() {
 
-    const {projects, addProject,deleteProject,updateProject} = useProjects();
+    const {projects,issues, addProject,deleteProject,updateProject} = useProjects();
     
     return (
         <>
@@ -14,7 +14,7 @@ export default function AllRoutes() {
                     <Navigate to={"/projects"} replace/>
                 }/>
                 <Route path={"/home"} element={<Home/>}/>
-                <Route path={"/projects"} element={<ProjectsShow updateProjectForm={updateProject}
+                <Route path={"/projects"} element={<ProjectsShow issues={issues} updateProjectForm={updateProject}
                                                                  deleteProject={deleteProject}
                                                                  addProject={addProject}
                                                                  projects={projects}/>}/>

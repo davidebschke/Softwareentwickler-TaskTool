@@ -7,6 +7,17 @@
 }
 
 body {
+    --toastify-color-light: var(--background_body);
+    --toastify-color-info: #81baf3;
+    --toastify-color-success: #76b076;
+    --toastify-color-warning: #ffe26f;
+    --toastify-color-error: #ff6556;
+    --toastify-toast-width: 520px;
+    --toastify-toast-min-height: 84px;
+    --toastify-toast-max-height: 600px;
+    --toastify-font-family: sans-serif;
+    --toastify-text-color-light: var(--table_content_color);
+
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -26,3 +37,14 @@ code {
 a {
     text-decoration: none;
 }
+
+.Toastify__toast-container--top-center {
+    text-align: center;
+    top: 30pt !important;
+    font-size: 15pt;
+}
+
+.homeCircle{
+    padding-top: 6em;
+}
+

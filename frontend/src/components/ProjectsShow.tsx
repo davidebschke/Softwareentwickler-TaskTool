@@ -15,9 +15,12 @@ import AddProject from "./AddProject";
 
 
 import "./projectshow.css";
+import ShowIssues from "./ShowIssues";
+import {Issues} from "./Issues";
 
 type ProjectProps = {
     projects: Project[],
+    issues:Issues[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: string) => Promise<void>;
@@ -37,7 +40,7 @@ const columns: readonly Column[] = [
     {
         id: 'status',
         label: 'Status',
-        minWidth: 170,
+        minWidth: 200,
         align: 'right',
     },
     {
@@ -63,8 +66,9 @@ export default function StickyHeadTable(props: ProjectProps) {
 
 
     return (
-        <Paper sx={{width: '100%', overflow: 'hidden', backgroundColor: '#6B7280', marginTop: '2em'}}>
-            <TableContainer sx={{maxHeight: 440,}}>
+        <>
+        <Paper sx={{width: '100%', overflow: 'hidden', backgroundColor: '#6B7280', marginTop: '2em',marginRight:'1em',marginLeft:'1em'}}>
+            <TableContainer sx={{maxHeight: 600,}}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
@@ -88,6 +92,17 @@ export default function StickyHeadTable(props: ProjectProps) {
                                     <TableRow hover role="checkbox" tabIndex={-1} key={project.id}>
                                         {columns.map((column) => {
                                             const value = project[column.id];
+                                            if(column.id === 'status'){
+                                              return(
+                                                  <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
+                                                             align={column.align}>
+                                                <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
+                                                          size={"small"}> Open Issues </Button>
+                                                <Button sx={{backgroundColor: '#1F2937' , marginLeft:'2em'}} variant={"contained"}
+                                                        size={"small"}> Closed Issues </Button>
+                                                  </TableCell>
+                                                )
+                                            }
                                             return (
                                                 <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
                                                            align={column.align}>
@@ -129,5 +144,8 @@ export default function StickyHeadTable(props: ProjectProps) {
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
         </Paper>
+
+<ShowIssues issues={props.issues}/>
+    </>
     );
 }
