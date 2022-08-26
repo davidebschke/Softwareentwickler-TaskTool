@@ -27,6 +27,7 @@ public class Projectservice {
                         getRandomId(),
                         newProject.projectNumber,
                         newProject.projectName,
+                        newProject.status,
                         newProject.projectMember
                 ));
     }
@@ -41,6 +42,6 @@ public class Projectservice {
     }
 
     public Project updateProject(Project project) {
-        return projectrepo.save(new Project(project.id, project.projectNumber, project.projectName, project.projectMember));
+        return projectrepo.save(new Project(project.id, project.projectNumber, project.projectName, project.status, project.projectMember));
     }
 }

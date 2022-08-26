@@ -13,7 +13,8 @@ public class NewProject {
     Integer projectNumber;
     @NotNull
     String projectName;
-
+    @NotNull
+    Status status;
     @NotNull
     String projectMember;
 }

@@ -18,6 +18,8 @@ public class Project {
     @NotNull
     String projectName;
     @NotNull
+    Status status;
+    @NotNull
     String projectMember;
 
 }
