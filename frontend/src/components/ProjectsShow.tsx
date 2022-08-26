@@ -20,7 +20,7 @@ import {Issues} from "./Issues";
 
 type ProjectProps = {
     projects: Project[],
-    issues:Issues[],
+    issues: Issues[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: string) => Promise<void>;
@@ -64,88 +64,97 @@ export default function StickyHeadTable(props: ProjectProps) {
         setPage(0);
     };
 
-
     return (
         <>
-        <Paper sx={{width: '100%', overflow: 'hidden', backgroundColor: '#6B7280', marginTop: '2em',marginRight:'1em',marginLeft:'1em'}}>
-            <TableContainer sx={{maxHeight: 600,}}>
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                            {columns.map((column) => (
-                                <TableCell sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
-                                           key={column.id}
-                                           align={column.align}
-                                           style={{minWidth: column.minWidth}
-                                }
-                                >
-                                    {column.label}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {props.projects
-                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((project) => {
-                                return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={project.id}>
-                                        {columns.map((column) => {
-                                            const value = project[column.id];
-                                            if(column.id === 'status'){
-                                              return(
-                                                  <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
-                                                             align={column.align}>
+            <Paper sx={{
+                width: '100%',
+                overflow: 'hidden',
+                backgroundColor: '#6B7280',
+                marginTop: '2em',
+                marginRight: '1em',
+                marginLeft: '1em'
+            }}>
+                <TableContainer sx={{maxHeight: 600,}}>
+                    <Table stickyHeader aria-label="sticky table">
+                        <TableHead>
+                            <TableRow>
+                                {columns.map((column) => (
+                                    <TableCell sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
+                                               key={column.id}
+                                               align={column.align}
+                                               style={{minWidth: column.minWidth}
+                                               }
+                                    >
+                                        {column.label}
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {props.projects
+                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                .map((project) => {
+                                    return (
+                                        <TableRow hover role="checkbox" tabIndex={-1} key={project.id}>
+                                            {columns.map((column) => {
+                                                const value = project[column.id];
+                                                if (column.id === 'status') {
+                                                    return (
+                                                        <TableCell sx={{color: 'var(--table_content_color);'}}
+                                                                   key={column.id}
+                                                                   align={column.align}>
+                                                            <Button sx={{backgroundColor: '#1F2937'}}
+                                                                    variant={"contained"}
+                                                                    size={"small"}> Open Issues </Button>
+                                                            <Button sx={{backgroundColor: '#1F2937', marginLeft: '2em'}}
+                                                                    variant={"contained"}
+                                                                    size={"small"}> Closed Issues </Button>
+                                                        </TableCell>
+                                                    )
+                                                }
+                                                return (
+                                                    <TableCell sx={{color: 'var(--table_content_color);'}}
+                                                               key={column.id}
+                                                               align={column.align}>
+                                                        {column.format && typeof value === 'number'
+                                                            ? column.format(value)
+                                                            : value}
+                                                    </TableCell>
+                                                );
+                                            })}
+                                            <TableCell>
+                                                <UpdateProjectForm project={project}
+                                                                   projectUpdate={props.updateProjectForm}/>
+                                            </TableCell>
+                                            <TableCell>
                                                 <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
-                                                          size={"small"}> Open Issues </Button>
-                                                <Button sx={{backgroundColor: '#1F2937' , marginLeft:'2em'}} variant={"contained"}
-                                                        size={"small"}> Closed Issues </Button>
-                                                  </TableCell>
-                                                )
-                                            }
-                                            return (
-                                                <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
-                                                           align={column.align}>
-                                                    {column.format && typeof value === 'number'
-                                                        ? column.format(value)
-                                                        : value}
-                                                </TableCell>
-                                            );
-                                        })}
-                                        <TableCell>
-                                            <UpdateProjectForm project={project}
-                                                               projectUpdate={props.updateProjectForm}/>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
-                                                    size={"small"}
-                                                    onClick={() => props.deleteProject(project.id)
-                                                    }> delete
-                                            </Button>
-                                        </TableCell>
-                                    </TableRow>
-                                );
-                            })}
-                    </TableBody>
+                                                        size={"small"}
+                                                        onClick={() => props.deleteProject(project.id)
+                                                        }> delete
+                                                </Button>
+                                            </TableCell>
+                                        </TableRow>
+                                    );
+                                })}
+                        </TableBody>
 
-                </Table>
-                <div className={"add"}>
-                    <AddProject addProject={props.addProject}/>
-                </div>
-            </TableContainer>
-            <TablePagination
-                sx={{color: "var(--table_Head_color);"}}
-                rowsPerPageOptions={[10, 25, 100]}
-                component="div"
-                count={props.projects.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-        </Paper>
-
-<ShowIssues issues={props.issues}/>
-    </>
+                    </Table>
+                    <div className={"add"}>
+                        <AddProject addProject={props.addProject}/>
+                    </div>
+                </TableContainer>
+                <TablePagination
+                    sx={{color: "var(--table_Head_color);"}}
+                    rowsPerPageOptions={[10, 25, 100]}
+                    component="div"
+                    count={props.projects.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+            </Paper>
+            <ShowIssues issues={props.issues}/>
+        </>
     );
 }

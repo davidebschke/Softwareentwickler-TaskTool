@@ -14,8 +14,6 @@ type showIssuesProps = {
     issues: Issues[];
 }
 
-
-
 function PaperComponent(props: PaperProps) {
     return (
         <Draggable
@@ -27,7 +25,7 @@ function PaperComponent(props: PaperProps) {
     );
 }
 
-export default function ShowIssues( props:showIssuesProps) {
+export default function ShowIssues(props: showIssuesProps) {
 
     const [open, setOpen] = React.useState(false);
 
@@ -67,6 +65,4 @@ export default function ShowIssues( props:showIssuesProps) {
             </Dialog>
         </div>
     );
-
-
 }
