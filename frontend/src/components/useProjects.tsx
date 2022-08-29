@@ -2,13 +2,16 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
+import {Issue} from "./Issue";
 
 export default function UseProjects() {
 
     const [projects, setProjects] = useState<Project[]>([])
+    const [issues, setIssues] = useState<Issue[]>([])
 
     useEffect(() => {
-        getAllProjects()
+        getAllProjects();
+            getAllIssues();
     }, [])
 
     const getAllProjects = () => {
@@ -35,12 +38,20 @@ export default function UseProjects() {
     const updateProject = (updatedProject: Project) => {
         return axios.put("/stt/projects/" + updatedProject.id, updatedProject)
             .then(() => {
-                    getAllProjects();
-                    //navigate('/employees');
+                getAllProjects();
             })
     }
 
+    const getAllIssues = () => {
+        axios.get("/stt/projects/issues")
+            .then((response) =>
+               response.data)
+            .then(setIssues)
+    }
+
     return {
+        issues,
+        getAllIssues,
         updateProject,
         addProject,
         projects,

@@ -26,3 +26,4 @@ yarn-error.log*
 /backend/HELP.md
 /backend/target
 /frontend/build/
+*/.iml
