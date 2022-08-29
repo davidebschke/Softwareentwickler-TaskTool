@@ -1,23 +1,12 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
-import UpdateProjectForm from "./UpdateProjectForm";
-import Button from "@mui/material/Button";
-import AddProject from "./AddProject";
-
+import Box from '@mui/material/Box';
+import {GridColDef,} from '@mui/x-data-grid-premium';
 
 import "./projectshow.css";
 import {Issue} from "./Issue";
-import FilteredCloseIssues from './FilteredCloseIssues';
-import FilteredOpenIssues from "./FilteredOpenIssues";
+import {DataGrid} from "@mui/x-data-grid";
 
 type ProjectProps = {
     projects: Project[],
@@ -27,32 +16,62 @@ type ProjectProps = {
     deleteProject: (id: string) => Promise<void>;
 }
 
-interface Column {
-    id: 'projectNumber' | 'projectName' | 'status' | 'projectMember';
-    label: string;
-    minWidth?: number;
-    align?: 'right';
-    format?: (value: number) => string;
-}
 
-const columns: readonly Column[] = [
-    {id: 'projectNumber', label: 'Projectnumber', minWidth: 170},
-    {id: 'projectName', label: 'Projectname', minWidth: 100},
+//_______________________
+
+const columns: GridColDef[] = [
+    {field: 'id', headerName: 'ID', width: 90},
     {
-        id: 'status',
-        label: 'Status',
-        minWidth: 200,
-        align: 'right',
+        field: 'projectName',
+        headerName: 'Projektname',
+        width: 200,
+        editable: true,
     },
     {
-        id: 'projectMember',
-        label: 'Projectmember',
-        minWidth: 170,
-        align: 'right',
+        field: 'creator',
+        headerName: 'Creator',
+        width: 200,
+        editable: true,
+    },
+    {
+        field: 'openIssue',
+        headerName: 'Offene Aufgaben',
+        width: 200,
+        editable: true,
+    },
+    {
+        field: 'closeIssue',
+        headerName: 'Geschlossene Aufgaben',
+        width: 200,
+        editable: true,
+    },
+    {
+        field: 'created_at',
+        headerName: 'Erstellt am',
+        width: 160,
     },
 ];
 
-export default function StickyHeadTable(props: ProjectProps) {
+
+export default function DataGridDemo(props: ProjectProps) {
+
+    return (
+        <Box sx={{height: 800, width: '100%'}}>
+            <DataGrid
+                rows={props.projects}
+                columns={columns}
+                pageSize={15}
+                rowsPerPageOptions={[15]}
+                checkboxSelection
+                disableSelectionOnClick
+                experimentalFeatures={{newEditingApi: true}}
+            />
+        </Box>
+    );
+}
+
+
+/*export default function StickyHeadTable(props: ProjectProps) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -66,6 +85,13 @@ export default function StickyHeadTable(props: ProjectProps) {
     };
 
     return (
+
+
+
+
+
+
+
         <>
             <Paper sx={{
                 width: '100%',
@@ -151,6 +177,5 @@ export default function StickyHeadTable(props: ProjectProps) {
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
         </Paper>
-    </>
-    );
-}
+    </>*/
+

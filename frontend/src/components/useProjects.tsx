@@ -10,8 +10,7 @@ export default function UseProjects() {
     const [issues, setIssues] = useState<Issue[]>([])
 
     useEffect(() => {
-        getAllProjects();
-            getAllIssues();
+            getAllProjects()
     }, [])
 
     const getAllProjects = () => {
@@ -42,8 +41,8 @@ export default function UseProjects() {
             })
     }
 
-    const getAllIssues = () => {
-        axios.get("/stt/projects/issues")
+    const getAllIssues = (username: string ,repositoryName: string ) => {
+        axios.get("/stt/projects/issues/"+ username + "/"+repositoryName)
             .then((response) =>
                response.data)
             .then(setIssues)

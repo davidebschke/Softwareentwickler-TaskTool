@@ -1,7 +1,7 @@
 package com.example.backend.Projects;
 
 import com.example.backend.Projects.GithubStatus.GithubService;
-import com.example.backend.Projects.GithubStatus.Issue;
+import com.example.backend.Projects.GithubStatus.OneIssue;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +20,7 @@ public class ProjectController {
         this.githubService = githubService;
     }
 
-    @GetMapping("/issues")
-    public List<Issue> getAllIssues() {
-        return githubService.getAllIssues();
-    }
+
 
     @GetMapping
     public List<Project> listProjects() {
@@ -48,5 +45,9 @@ public class ProjectController {
     @ResponseStatus(code = HttpStatus.OK)
     public Project updateProject(@PathVariable String id, @RequestBody Project project) {
         return projectservice.updateProject(project);
+    }
+    @GetMapping("/issues/{username}/{repositoryName}")
+    public List<OneIssue> getAllIssues(@PathVariable String username, @PathVariable String repositoryName) {
+        return githubService.getAllIssues(username, repositoryName);
     }
 }

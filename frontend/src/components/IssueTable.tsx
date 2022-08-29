@@ -13,7 +13,7 @@ type showIssuesProps = {
 export default function IssueTable(props: showIssuesProps) {
 
     interface Column {
-        id: 'number' | 'title' | 'state' | 'created_at';
+        id: 'number' | 'title' | 'created_at' | 'login';
         label: string;
         minWidth?: number;
         align?: 'right';
@@ -24,13 +24,13 @@ export default function IssueTable(props: showIssuesProps) {
         {id: 'number', label: 'Issuenummer',},
         {id: 'title', label: 'Issuename',},
         {
-            id: 'state',
-            label: 'Issuestatus',
+            id: 'created_at',
+            label: 'Erstellt am',
             align: 'right',
         },
         {
-            id: 'created_at',
-            label: 'Erstellt am',
+            id: 'login',
+            label: 'Owner',
             align: 'right',
         },
     ];
