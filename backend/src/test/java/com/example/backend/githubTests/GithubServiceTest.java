@@ -1,7 +1,7 @@
 package com.example.backend.githubTests;
 
 import com.example.backend.Projects.GithubStatus.GithubService;
-import com.example.backend.Projects.GithubStatus.Issue;
+import com.example.backend.Projects.GithubStatus.OneIssue;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.AfterEach;
@@ -44,7 +44,7 @@ public class GithubServiceTest {
                 .setBody("""
             [Issue[number=78, title=Table to Datagrid, state=open, created_at=2022-08-29T09:23:53Z, name=null]]"""));
 
-        List<Issue> response = Collections.singletonList(githubService.getAllIssues().get(0));
+        List<OneIssue> response = Collections.singletonList(githubService.getAllIssues("davidebschke","Softwareentwickler-TaskTool").get(0));
 
         assertThat(response).hasToString("""
                  [Issue[number=78, title=Table to Datagrid, state=open, created_at=2022-08-29T09:23:53Z, name=null]]""");

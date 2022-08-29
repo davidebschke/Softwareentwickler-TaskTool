@@ -1,5 +1,6 @@
 package com.example.backend.Projects;
 
+import com.example.backend.Projects.GithubStatus.OneIssue;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,7 @@ public class Projectservice {
     Projectrepo projectrepo;
 
     public List<Project> getProjects() {
-        return projectrepo.findAll();
-
+       return  projectrepo.findAll();
     }
 
     public String getRandomId() {
@@ -25,10 +25,9 @@ public class Projectservice {
         return projectrepo.save(
                 new Project(
                         getRandomId(),
-                        newProject.projectNumber,
                         newProject.projectName,
-                        newProject.status,
-                        newProject.projectMember
+                        newProject.login,
+                        newProject.created_at
                 ));
     }
 
@@ -42,6 +41,6 @@ public class Projectservice {
     }
 
     public Project updateProject(Project project) {
-        return projectrepo.save(new Project(project.id, project.projectNumber, project.projectName, project.status, project.projectMember));
+        return projectrepo.save(new Project(project.id, project.projectName, project.creator, project.created_at));
     }
 }

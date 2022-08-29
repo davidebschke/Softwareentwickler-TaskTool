@@ -1,9 +1,9 @@
 package com.example.backend.Projects;
 
+import com.example.backend.Projects.GithubStatus.OneIssue;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -14,12 +14,10 @@ public class Project {
     @NotNull
     String id;
     @NotNull
-    Integer projectNumber;
-    @NotNull
     String projectName;
     @NotNull
-    Status status;
+    String creator;
     @NotNull
-    String projectMember;
+    String created_at;
 
 }

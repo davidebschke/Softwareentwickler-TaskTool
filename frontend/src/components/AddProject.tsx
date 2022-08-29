@@ -1,5 +1,4 @@
 import React, {ChangeEvent, useState} from "react";
-import {NewProject} from "./NewProject";
 import {Status} from "./Enum_Status";
 import {Project} from "./Project";
 import Button from "@mui/material/Button";
@@ -8,7 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import {toast} from "react-toastify";
 
 type addProjectProps = {
-    addProject: (newProject: NewProject
+    addProject: (newProject: { creator: string; projectNumber: number; projectName: string; projectMember: string }
     ) => Promise<Project>
 }
 
@@ -18,10 +17,7 @@ export default function AddProject(props: addProjectProps) {
     const [projectName, setProjectName] = useState<string>("");
     const [status, setStatus] = useState<Status>(Status.Wait);
     const [projectMember, setProjectMember] = useState<string>("");
-
-    function onProjectNumberChange(event: ChangeEvent<HTMLInputElement>) {
-        setProjectNumber(parseInt(event.target.value))
-    }
+    const[creator,setCreator]= useState<string>("")
 
     function onProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
         setProjectName(event.target.value)
@@ -29,6 +25,9 @@ export default function AddProject(props: addProjectProps) {
 
     function onProjectMemberChange(event: ChangeEvent<HTMLInputElement>) {
         setProjectMember(event.target.value)
+    }
+    function onCreatorChange(event: ChangeEvent<HTMLInputElement>) {
+        setCreator(event.target.value)
     }
 
     const onProjectSubmit = () => {
@@ -41,11 +40,10 @@ export default function AddProject(props: addProjectProps) {
         } else if (!projectMember) {
             toast.error("Projektteilnehmer muss gesetzt sein")
         } else {
-            props.addProject({projectNumber, projectName, status, projectMember})
+            props.addProject({projectNumber, projectName, projectMember, creator})
                 .then(() => {
                     setProjectNumber(0);
                     setProjectName("");
-                    setStatus(Status.Wait);
                     setProjectMember("");
                      })
                 .then(()=> toast.success("Project wurde hinzugefügt",{theme: "light"}))
@@ -87,7 +85,7 @@ export default function AddProject(props: addProjectProps) {
                             type="text"
                             fullWidth
                             variant="standard"
-                            onChange={onProjectNumberChange}
+                            onChange={onProjectNameChange}
                         />
                         <TextField
                             autoFocus
@@ -96,7 +94,7 @@ export default function AddProject(props: addProjectProps) {
                             type="text"
                             fullWidth
                             variant="standard"
-                            onChange={onProjectNameChange}
+                            onChange={onCreatorChange}
                         />
                         <TextField
                             id="Status"
