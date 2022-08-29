@@ -42,11 +42,11 @@ public class GithubServiceTest {
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .setBody("""
-            [Issue[number=77, title=18 status for projects as GitHub status, state=open, created_at=2022-08-26T15:16:19Z, name=null]]"""));
+            [Issue[number=78, title=Table to Datagrid, state=open, created_at=2022-08-29T09:23:53Z, name=null]]"""));
 
         List<Issue> response = Collections.singletonList(githubService.getAllIssues().get(0));
 
         assertThat(response).hasToString("""
-                 [Issue[number=77, title=18 status for projects as GitHub status, state=open, created_at=2022-08-26T15:16:19Z, name=null]]""");
+                 [Issue[number=78, title=Table to Datagrid, state=open, created_at=2022-08-29T09:23:53Z, name=null]]""");
     }
 }
