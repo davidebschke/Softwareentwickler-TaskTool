@@ -11,12 +11,16 @@ import java.util.Objects;
 @AllArgsConstructor
 public class GithubService {
 
+
+
     public List<Issue> getAllIssues() {
 
-        WebClient webClient = WebClient.create();
+        WebClient webClient= WebClient.create();
 
-        return Objects.requireNonNull(webClient.get().uri("https://api.github.com/repos/davidebschke/Softwareentwickler-TaskTool/issues?state=all&per_page=100")
+         return Objects.requireNonNull(webClient.get().uri("https://api.github.com/repos/davidebschke/Softwareentwickler-TaskTool/issues?state=all&per_page=100")
                 .retrieve()
                 .toEntityList(Issue.class).block()).getBody();
+
     }
+
 }
