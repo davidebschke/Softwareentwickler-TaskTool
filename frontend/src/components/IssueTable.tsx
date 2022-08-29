@@ -1,12 +1,12 @@
 import {Table, TableCell} from "@mui/material";
 import * as React from "react";
-import {Issues} from "./Issues";
+import {Issue} from "./Issue";
 import TableRow from "@mui/material/TableRow";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 
 type showIssuesProps = {
-    issues: Issues[];
+    issues: Issue[];
 }
 
 

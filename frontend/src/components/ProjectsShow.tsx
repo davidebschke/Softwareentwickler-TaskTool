@@ -15,13 +15,13 @@ import AddProject from "./AddProject";
 
 
 import "./projectshow.css";
-import {Issues} from "./Issues";
+import {Issue} from "./Issue";
 import FilteredCloseIssues from './FilteredCloseIssues';
 import FilteredOpenIssues from "./FilteredOpenIssues";
 
 type ProjectProps = {
     projects: Project[],
-    issues: Issues[],
+    issues: Issue[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: string) => Promise<void>;
@@ -65,8 +65,8 @@ export default function StickyHeadTable(props: ProjectProps) {
         setPage(0);
     };
 
-
     return (
+        <>
             <Paper sx={{
                 width: '100%',
                 overflow: 'hidden',
@@ -151,5 +151,6 @@ export default function StickyHeadTable(props: ProjectProps) {
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
         </Paper>
+    </>
     );
 }

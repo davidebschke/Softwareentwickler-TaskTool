@@ -2,12 +2,12 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
-import {Issues} from "./Issues";
+import {Issue} from "./Issue";
 
 export default function UseProjects() {
 
     const [projects, setProjects] = useState<Project[]>([])
-    const [issues, setIssues] = useState<Issues[]>([])
+    const [issues, setIssues] = useState<Issue[]>([])
 
     useEffect(() => {
         getAllProjects();

@@ -1,5 +1,5 @@
 
-export type Issues ={
+export type Issue ={
     number:number,
     title:string,
     state:string,

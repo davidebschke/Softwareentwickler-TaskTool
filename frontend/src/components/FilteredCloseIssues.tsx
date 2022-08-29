@@ -3,7 +3,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import * as React from "react";
-import {Issues} from "./Issues";
+import {Issue} from "./Issue";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
@@ -11,7 +11,7 @@ import Paper, {PaperProps} from "@mui/material/Paper";
 import Draggable from "react-draggable";
 
 type showIssuesProps = {
-    issues: Issues[];
+    issues: Issue[];
 }
 
 function PaperComponent(props: PaperProps) {

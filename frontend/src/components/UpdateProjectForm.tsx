@@ -39,6 +39,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
             props.projectUpdate(updatedProject)
             toast.success("Update Erfolgreich");
             setOpen(false);
+
         } else {
 
             toast.error("Update Fehlgeschlagen")

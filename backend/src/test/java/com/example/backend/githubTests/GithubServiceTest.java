@@ -25,19 +25,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class GithubServiceTest {
 
-
     @Autowired
     MockMvc mockMvc;
-
     private final MockWebServer mockWebServer = new MockWebServer();
     private final GithubService githubService = new GithubService();
-
-
     @AfterEach
     public void shutDown() throws IOException {
         mockWebServer.shutdown();
     }
-
 
     @Test
     @DirtiesContext

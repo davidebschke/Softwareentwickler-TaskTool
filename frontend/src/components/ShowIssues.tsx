@@ -1,4 +1,4 @@
-import {Issues} from "./Issues";
+import {Issue} from "./Issue";
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -11,7 +11,7 @@ import Draggable from "react-draggable";
 import IssueTable from "./IssueTable";
 
 type showIssuesProps = {
-    issues: Issues[];
+    issues: Issue[];
 }
 
 function PaperComponent(props: PaperProps) {
