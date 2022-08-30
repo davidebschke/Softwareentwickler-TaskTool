@@ -12,8 +12,6 @@ public class NewProject {
 
     @NotNull
     String projectName;
-    @NotNull
-    String login;
 
     String creator;
     String created_at;

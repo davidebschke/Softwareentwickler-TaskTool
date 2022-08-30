@@ -1,50 +1,45 @@
 import React, {ChangeEvent, useState} from "react";
-import {Status} from "./Enum_Status";
 import {Project} from "./Project";
 import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
 import {toast} from "react-toastify";
+import {NewProject} from "./NewProject";
 
 type addProjectProps = {
-    addProject: (newProject: { creator: string; projectNumber: number; projectName: string; projectMember: string }
+    addProject: (newProject: NewProject
     ) => Promise<Project>
 }
 
 export default function AddProject(props: addProjectProps) {
 
-    const [projectNumber, setProjectNumber] = useState<number>(0);
     const [projectName, setProjectName] = useState<string>("");
-    const [status, setStatus] = useState<Status>(Status.Wait);
-    const [projectMember, setProjectMember] = useState<string>("");
+    const [created_at, setProjectCreatedAt] = useState<string>("");
     const[creator,setCreator]= useState<string>("")
 
     function onProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
         setProjectName(event.target.value)
     }
 
-    function onProjectMemberChange(event: ChangeEvent<HTMLInputElement>) {
-        setProjectMember(event.target.value)
+    function onProjectCreatedAtChange(event: ChangeEvent<HTMLInputElement>) {
+        setProjectCreatedAt(event.target.value)
     }
     function onCreatorChange(event: ChangeEvent<HTMLInputElement>) {
         setCreator(event.target.value)
     }
 
     const onProjectSubmit = () => {
-        if (!projectNumber) {
-            toast.error("Projektnummer muss gesetzt sein")
+        if (!creator) {
+            toast.error("Creator muss gesetzt sein")
         } else if (!projectName) {
             toast.error("Projektname muss gesetzt sein")
-        } else if (!status) {
-            toast.error("Status muss gesetzt sein")
-        } else if (!projectMember) {
-            toast.error("Projektteilnehmer muss gesetzt sein")
+        } else if (!created_at) {
+            toast.error("Erstellungsdatum muss gesetzt sein")
         } else {
-            props.addProject({projectNumber, projectName, projectMember, creator})
+            props.addProject({projectName, creator, created_at})
                 .then(() => {
-                    setProjectNumber(0);
                     setProjectName("");
-                    setProjectMember("");
+                    setCreator("");
+                    setProjectCreatedAt("");
                      })
                 .then(()=> toast.success("Project wurde hinzugefügt",{theme: "light"}))
                 .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}));
@@ -69,7 +64,8 @@ export default function AddProject(props: addProjectProps) {
                 noValidate
                 autoComplete="off"
             >
-                <Button variant="contained" size={"small"} onClick={handleClickOpen} sx={{backgroundColor:'#1F2937'}}>
+                <Button variant="contained" size={"small"} onClick={handleClickOpen}
+                        sx={{backgroundColor:'#1F2937', marginLeft:'2em', marginTop:'2em'}}>
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
@@ -81,7 +77,7 @@ export default function AddProject(props: addProjectProps) {
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Projectnumber"
+                            label="Projektname"
                             type="text"
                             fullWidth
                             variant="standard"
@@ -90,36 +86,20 @@ export default function AddProject(props: addProjectProps) {
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Projectname"
+                            label="Creator"
                             type="text"
                             fullWidth
                             variant="standard"
                             onChange={onCreatorChange}
                         />
                         <TextField
-                            id="Status"
-                            select
-                            label="Select"
-                            defaultValue={Status.Wait}
-                            onChange={event => {
-                                const {value} = event.target;
-                                setStatus(value as Status)
-                            }}
-                            helperText="Please select the Project Status"
-                            variant={"standard"}
-                        >
-                            <MenuItem key={"Wait"} value={Status.Wait}> Wait </MenuItem>
-                            <MenuItem key={"In_Progress"} value={Status.In_Progress}> In_Progress </MenuItem>
-                            <MenuItem key={"Done"} value={Status.Done}> Done </MenuItem>
-                        </TextField>
-                        <TextField
                             autoFocus
                             margin="dense"
-                            label="Projectmember"
+                            label="Erstellt am"
                             type="text"
                             fullWidth
                             variant="standard"
-                            onChange={onProjectMemberChange}
+                            onChange={onProjectCreatedAtChange}
                         />
                     </DialogContent>
                     <DialogActions sx={{backgroundColor:'#9CA3AF'}}>
