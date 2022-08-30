@@ -40,17 +40,17 @@ public class IntegrationTest {
                         "/stt/projects")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
-                                {"projectName": "Shop",
-                                "projectNumber": "1995",
-                                "projectMember":"Karl"}
+                                {"projectName": "Shop"
+                                
+                                }
                                 """)
                 )
                 .andExpect(status().is(201))
                 .andExpect(content().json("""
                         {
-                                "projectName": "Shop",
-                                "projectNumber": 1995,
-                                "projectMember":"Karl"}
+                                "projectName": "Shop"
+                                
+                                }
                         """));
     }
 
