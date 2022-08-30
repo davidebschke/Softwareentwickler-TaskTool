@@ -11,6 +11,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -62,14 +66,21 @@ public class IntegrationTest {
                         """)
         ).andReturn().getResponse().getContentAsString();
 
+
         Project saveResultProject = objectMapper.readValue(saveResult, Project.class);
         String id = saveResultProject.id;
 
-        mockMvc.perform(delete("http://localhost:8080/stt/projects/" + id))
-                .andExpect(status().is(204));
+        System.out.println(id + "Hallo");
 
-        mockMvc.perform(delete("http://localhost:8080/stt/projects/" + id))
-                .andExpect(status().is(404));
+        mockMvc.perform(delete("http://localhost:8080/stt/projects").content("""
+                        ["<ID>"]
+                        """.replaceFirst("<ID>",id)).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(200));
+
+       /* mockMvc.perform(delete("http://localhost:8080/stt/projects").content("""
+                        ["<ID>"]
+                        """.replaceFirst("<ID>",id)).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(404));*/
 
         mockMvc.perform(get("http://localhost:8080/stt/projects"))
                 .andExpect(status().is(200))
