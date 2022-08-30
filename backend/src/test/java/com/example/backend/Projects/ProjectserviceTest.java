@@ -44,12 +44,13 @@ class ProjectserviceTest {
 
     @Test
     void deleteProjectTest() {
-        Project project = new Project("", "shop", "David", "2022-09-09");
+        Project project = new Project("1", "shop", "David", "2022-09-09");
 
+        List<String> ids = List.of("1");
         when(projectrepo.existsById(project.id)).thenReturn(true);
         doNothing().when(projectrepo).deleteById(project.id);
 
-        projectservice.deleteProject(project.id);
+        projectservice.deleteProject(ids);
         verify(projectrepo).deleteById(project.id);
     }
 
