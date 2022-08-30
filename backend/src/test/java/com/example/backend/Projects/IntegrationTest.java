@@ -66,7 +66,6 @@ public class IntegrationTest {
                         """)
         ).andReturn().getResponse().getContentAsString();
 
-
         Project saveResultProject = objectMapper.readValue(saveResult, Project.class);
         String id = saveResultProject.id;
 
