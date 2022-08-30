@@ -29,11 +29,11 @@ export default function AddProject(props: addProjectProps) {
 
     const onProjectSubmit = () => {
         if (!creator) {
-            toast.error("Projektnummer muss gesetzt sein")
+            toast.error("Creator muss gesetzt sein")
         } else if (!projectName) {
             toast.error("Projektname muss gesetzt sein")
         } else if (!created_at) {
-            toast.error("Projektteilnehmer muss gesetzt sein")
+            toast.error("Erstellungsdatum muss gesetzt sein")
         } else {
             props.addProject({projectName, creator, created_at})
                 .then(() => {

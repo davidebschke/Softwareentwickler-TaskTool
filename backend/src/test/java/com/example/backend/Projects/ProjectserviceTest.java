@@ -12,14 +12,14 @@ class ProjectserviceTest {
 
     List<Project> projectList = List.of(
 
-            new Project("0", 2000, "Shop", Status.Done, "David"),
-            new Project("0", 2001, "Shop", Status.Done, "David"),
-            new Project("0", 2002, "Shop", Status.Done, "David")
+            new Project("0", "Jacke", "David",  "2022-11-09"),
+            new Project("0", "Kakao", "Jan",  "2022-09-11"),
+            new Project("0", "Shop", "Michael", "2022-09-11")
     );
 
     private final Projectrepo projectrepo = mock(Projectrepo.class);
     private final Projectservice projectservice = new Projectservice(projectrepo);
-    private final Project project = new Project("Test", 1995, "Shop", Status.Done, "David");
+    private final Project project = new Project("Test", "Shop", "David",  "2022-09-09");
 
     @Test
     void getProjects() {
@@ -35,17 +35,16 @@ class ProjectserviceTest {
         when(projectrepo.save(any())).thenReturn(project);
         //when
         Project actual = projectservice.addProject(new NewProject(
-                project.projectNumber,
                 project.projectName,
-                project.status,
-                project.projectMember));
+                project.creator,
+                project.created_at));
 
         Assertions.assertEquals(actual, project);
     }
 
     @Test
     void deleteProjectTest() {
-        Project project = new Project("", 9, "Shop", Status.Done, "David");
+        Project project = new Project("", "shop", "David", "2022-09-09");
 
         when(projectrepo.existsById(project.id)).thenReturn(true);
         doNothing().when(projectrepo).deleteById(project.id);
@@ -56,7 +55,7 @@ class ProjectserviceTest {
 
     @Test
     void updateProjectTest() {
-        Project project = new Project("TestID", 9, "Shop", Status.In_Progress, "David");
+        Project project = new Project("TestID", "Shop", "David", "2022-09-09");
 
         when(projectrepo.save(any(Project.class))).thenReturn(project);
         Project actual = projectservice.updateProject(project);
