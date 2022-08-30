@@ -7,7 +7,7 @@ import {GridColDef, GridRowId,} from '@mui/x-data-grid-premium';
 import "./projectshow.css";
 import {Issue} from "./Issue";
 import {DataGrid} from "@mui/x-data-grid";
-import {Button,} from '@mui/material';
+import {Button, ButtonGroup,} from '@mui/material';
 import { useState} from "react";
 import AddProject from "./AddProject";
 
@@ -71,11 +71,12 @@ export default function DataGridDemo(props: ProjectProps) {
                     setID
             }
             />
-            <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
-                    size={"small"}
-                    onClick={()=> props.deleteProject(ID)}
-                    > delete
-            </Button><AddProject addProject={props.addProject}/>
+            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                <Button sx={{backgroundColor: '#1F2937'}} onClick={()=> props.deleteProject(ID)} >Delete</Button>
+                 <AddProject addProject={props.addProject}/>
+                <Button>Three</Button>
+            </ButtonGroup>
+
         </Box>
 
     );

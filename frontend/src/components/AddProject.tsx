@@ -64,8 +64,8 @@ export default function AddProject(props: addProjectProps) {
                 noValidate
                 autoComplete="off"
             >
-                <Button variant="contained" size={"small"} onClick={handleClickOpen}
-                        sx={{backgroundColor:'#1F2937', marginLeft:'2em', marginTop:'2em'}}>
+                <Button  onClick={handleClickOpen}
+                        sx={{backgroundColor:'#1F2937'}}>
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
