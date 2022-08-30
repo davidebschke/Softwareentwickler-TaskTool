@@ -7,6 +7,7 @@ import {GridColDef,} from '@mui/x-data-grid-premium';
 import "./projectshow.css";
 import {Issue} from "./Issue";
 import {DataGrid} from "@mui/x-data-grid";
+import AddProject from "./AddProject";
 
 type ProjectProps = {
     projects: Project[],
@@ -66,6 +67,7 @@ export default function DataGridDemo(props: ProjectProps) {
                 disableSelectionOnClick
                 experimentalFeatures={{newEditingApi: true}}
             />
+            <AddProject addProject={props.addProject}/>
         </Box>
     );
 }
