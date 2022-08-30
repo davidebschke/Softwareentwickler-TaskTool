@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/stt/projects")
@@ -34,11 +35,10 @@ public class ProjectController {
         return projectservice.addProject(newProject);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProject(@PathVariable String id) {
-        boolean deleteSuccess = projectservice.deleteProject(id);
-        return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
-
+    @DeleteMapping
+    public void deleteProject(@RequestBody List<String> ID) {
+         projectservice.deleteProject(ID);
+       // return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
     }
 
     @PutMapping("/{id}")

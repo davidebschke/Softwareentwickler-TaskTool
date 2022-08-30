@@ -2,11 +2,13 @@ import * as React from 'react';
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
 import Box from '@mui/material/Box';
-import {GridColDef,} from '@mui/x-data-grid-premium';
+import {GridColDef, GridRowId,} from '@mui/x-data-grid-premium';
 
 import "./projectshow.css";
 import {Issue} from "./Issue";
 import {DataGrid} from "@mui/x-data-grid";
+import {Button,} from '@mui/material';
+import { useState} from "react";
 import AddProject from "./AddProject";
 
 type ProjectProps = {
@@ -14,7 +16,7 @@ type ProjectProps = {
     issues: Issue[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
-    deleteProject: (id: string) => Promise<void>;
+    deleteProject: (id: GridRowId[]) => Promise<void>;
 }
 
 const columns: GridColDef[] = [
@@ -52,18 +54,29 @@ const columns: GridColDef[] = [
 
 export default function DataGridDemo(props: ProjectProps) {
 
+    const rows=props.projects
+
+    const [ID,setID]=useState <GridRowId[]>([])
     return (
-        <Box sx={{height: 800, width: '100%'}}>
+        <Box sx={{height: 400, width: '100%'}}>
             <DataGrid
-                rows={props.projects}
+                rows={rows}
                 columns={columns}
-                pageSize={15}
-                rowsPerPageOptions={[15]}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
                 checkboxSelection
                 disableSelectionOnClick
-                experimentalFeatures={{newEditingApi: true}}
+                experimentalFeatures={{newEditingApi: false}}
+                onSelectionModelChange={
+                    setID
+            }
             />
-            <AddProject addProject={props.addProject}/>
+            <Button sx={{backgroundColor: '#1F2937'}} variant={"contained"}
+                    size={"small"}
+                    onClick={()=> props.deleteProject(ID)}
+                    > delete
+            </Button><AddProject addProject={props.addProject}/>
         </Box>
+
     );
 }

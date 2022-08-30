@@ -31,13 +31,21 @@ public class Projectservice {
                 ));
     }
 
-    public boolean deleteProject(String id) {
+    public void deleteProject  ( List<String> ids) {
 
-        if (projectrepo.existsById(String.valueOf(id))) {
-            projectrepo.deleteById(String.valueOf(id));
-            return true;
-        }
-        return false;
+        ids.forEach(id -> {
+
+            if (projectrepo.existsById(String.valueOf(id))) {
+                projectrepo.deleteById(String.valueOf(id));
+
+            }
+        });
+
+
+
+
+
+
     }
 
     public Project updateProject(Project project) {
