@@ -42,7 +42,7 @@ export default function AddProject(props: addProjectProps) {
                     setProjectCreatedAt("");
                      })
                 .then(()=> toast.success("Project wurde hinzugefügt",{theme: "light"}))
-                .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}));
+                .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}))
         }
     }
 
@@ -65,7 +65,7 @@ export default function AddProject(props: addProjectProps) {
                 autoComplete="off"
             >
                 <Button  onClick={handleClickOpen}
-                        sx={{backgroundColor:'#1F2937'}}>
+                         sx={{backgroundColor: '#455d7a'}}>
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>

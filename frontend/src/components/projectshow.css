@@ -1,8 +1,4 @@
-div.add{
-    margin-top: 2em;
-    margin-left: 2em;
-}
+.css-f3jnds-MuiDataGrid-columnHeaders{
 
-ul.MuiList-root{
-    background: var(--background_body);
+    background-color: #455d7a;
 }

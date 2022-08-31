@@ -3,13 +3,34 @@ import {Project} from "./Project";
 import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
 import {toast} from "react-toastify";
+import {GridRowId} from "@mui/x-data-grid-premium";
 
 type UpdateProjectProps = {
-    project: Project,
+    selectedID: GridRowId,
     projectUpdate: (project: Project) => void,
+    projects: Project[]
 }
 
 export default function UpdateProjectForm(props: UpdateProjectProps) {
+
+    const isID=()=>{
+        if(props.selectedID != undefined) {
+            console.log(props.selectedID.valueOf())
+            props.projects.map((project) => {
+                if (project.id.toString()=== props.selectedID.toString()) {
+
+                    return project;
+                    console.log(project+"Projekt")
+                } else {
+
+                    console.log(project.id)
+                }
+
+            })
+        }
+    }
+
+    const project= props.projects.find(isID)
 
     const [projectName, setProjectName] = useState<string>("");
     const [open, setOpen] = React.useState(false);
@@ -25,9 +46,9 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
     };
 
     const handleUpdate = () => {
-        if (props.project) {
+        if (project) {
             const updatedProject: Project = {
-                id: props.project.id,
+                id: project.id,
                 projectName: projectName,
                 creator: creator,
                 created_at:created_at,
@@ -65,7 +86,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button sx={{backgroundColor: '#1F2937'}} variant="contained" size={"small"}
+                    <Button sx={{backgroundColor: '#455d7a'}} variant="contained"
                             onClick={handleClickOpen}>
                         Update
                     </Button>
