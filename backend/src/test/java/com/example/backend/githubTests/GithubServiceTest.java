@@ -38,13 +38,16 @@ class GithubServiceTest {
     @DirtiesContext
     void getIssues() {
 
+
+        String username="davidebschke";
+        String repositoryName="Softwareentwickler-TaskTool";
         mockWebServer.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .setBody("""
             [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
 
-        List<Integer> issueNumberList = Collections.singletonList(githubService.getAllIssues("davidebschke","Softwareentwickler-TaskTool").size());
+        List<Integer> issueNumberList = Collections.singletonList(githubService.getAllIssues(username,repositoryName).size());
         Integer issueNumber= issueNumberList.get(0);
         issueNumber=issueNumber-1;
         List<OneIssue> response = Collections.singletonList(githubService.getAllIssues("davidebschke","Softwareentwickler-TaskTool").get(issueNumber));
