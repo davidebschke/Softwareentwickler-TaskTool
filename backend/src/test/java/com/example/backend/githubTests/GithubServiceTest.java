@@ -46,7 +46,6 @@ public class GithubServiceTest {
                 .setBody("""
             [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
 
-
         List<Integer> issueNumberList = Collections.singletonList(githubService.getAllIssues("davidebschke","Softwareentwickler-TaskTool").size());
         Integer issueNumber= issueNumberList.get(0);
         issueNumber=issueNumber-1;
