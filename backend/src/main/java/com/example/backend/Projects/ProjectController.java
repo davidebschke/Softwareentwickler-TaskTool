@@ -34,7 +34,6 @@ public class ProjectController {
     @DeleteMapping
     public void deleteProject(@RequestBody List<String> idList) {
          projectservice.deleteProject(idList);
-       // return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
     }
 
     @PutMapping("/{id}")
