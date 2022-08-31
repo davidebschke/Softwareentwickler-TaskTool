@@ -21,30 +21,27 @@ type ProjectProps = {
 }
 
 const columns: GridColDef[] = [
-    {field: 'id', headerName: 'ID', width: 90},
+    {field: 'id', headerName: 'ID', width: 150},
     {
         field: 'projectName',
         headerName: 'Projektname',
         width: 200,
-        editable: true,
+
     },
     {
         field: 'creator',
         headerName: 'Creator',
         width: 200,
-        editable: true,
     },
     {
         field: 'openIssue',
         headerName: 'Offene Aufgaben',
         width: 200,
-        editable: true,
     },
     {
         field: 'closeIssue',
         headerName: 'Geschlossene Aufgaben',
         width: 200,
-        editable: true,
     },
     {
         field: 'created_at',
@@ -69,7 +66,6 @@ export default function DataGridDemo(props: ProjectProps) {
                 rowsPerPageOptions={[5]}
                 checkboxSelection
                 disableSelectionOnClick
-                experimentalFeatures={{newEditingApi: false}}
                 onSelectionModelChange={setID}
             />
             <ButtonGroup variant="contained" aria-label="outlined primary button group">

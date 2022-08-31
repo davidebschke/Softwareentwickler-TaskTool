@@ -13,13 +13,32 @@ type UpdateProjectProps = {
 
 export default function UpdateProjectForm(props: UpdateProjectProps) {
 
+    const [projectUp, setProjectUp] = useState<Project>();
+
+
+
+    const [projectName, setProjectName] = useState<string>("");
+    const [open, setOpen] = React.useState(false);
+    const[creator,setCreator]= useState<string>("")
+    const[created_at,setCreatedAt]= useState<string>("")
+
+    const handleClickOpen = () => {
+        isID();
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const isID=()=>{
-        if(props.selectedID != undefined) {
-            console.log(props.selectedID.valueOf())
+        if(props.selectedID !== undefined) {
             props.projects.forEach((project) => {
                 if (project.id === props.selectedID.toString()) {
-                    console.log(project + "Projekt")
+                    console.log(project, "Projekt")
+                    setProjectUp(project)
                     return project;
+
 
                 } else {
 
@@ -30,25 +49,10 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
         }
     }
 
-    const project= props.projects.find(isID)
-
-    const [projectName, setProjectName] = useState<string>("");
-    const [open, setOpen] = React.useState(false);
-    const[creator,setCreator]= useState<string>("")
-    const[created_at,setCreatedAt]= useState<string>("")
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
     const handleUpdate = () => {
-        if (project) {
+        if (projectUp) {
             const updatedProject: Project = {
-                id: project.id,
+                id: projectUp.id,
                 projectName: projectName,
                 creator: creator,
                 created_at:created_at,
@@ -56,7 +60,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
             props.projectUpdate(updatedProject)
             toast.success("Update Erfolgreich");
             setOpen(false);
-
         } else {
 
             toast.error("Update Fehlgeschlagen")
@@ -76,7 +79,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
 
     return (
         <>
-
             <Box
                 component="form"
                 sx={{

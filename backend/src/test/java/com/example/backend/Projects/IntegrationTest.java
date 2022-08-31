@@ -6,14 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -84,5 +79,35 @@ public class IntegrationTest {
                 .andExpect(content().json("""
                         []
                         """));
+    }
+
+    @DirtiesContext
+    @Test
+    void updateProject() throws Exception {
+
+        String saveResult = mockMvc.perform(post(
+                "/stt/projects")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                        {"projectName":"Shop",
+                        "creator":"Gustaf",
+                        "created_at":"2020-01-01"}
+                        """)
+        ).andReturn().getResponse().getContentAsString();
+        System.out.println(saveResult);
+
+        Project saveResultProject = objectMapper.readValue(saveResult, Project.class);
+
+         mockMvc.perform(put("/stt/projects").contentType(MediaType.APPLICATION_JSON).content("""
+                        {"id":"<ID>",
+                        "projectName":"Aligator",
+                        "creator":"Frans",
+                        "created_at":"2022-01-01"}
+                """.replaceFirst("<ID>",saveResultProject.id))).andExpect(status().isOk()).andExpect(content().json("""
+                        {"id":"<ID>",
+                        "projectName":"Aligator",
+                        "creator":"Frans",
+                        "created_at":"2022-01-01"}
+                """.replaceFirst("<ID>",saveResultProject.id)));
     }
 }
