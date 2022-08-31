@@ -3,7 +3,6 @@ package com.example.backend.Projects;
 import com.example.backend.Projects.GithubStatus.GithubService;
 import com.example.backend.Projects.GithubStatus.OneIssue;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +19,6 @@ public class ProjectController {
         this.githubService = githubService;
     }
 
-
-
     @GetMapping
     public List<Project> listProjects() {
         return projectservice.getProjects();
@@ -34,11 +31,9 @@ public class ProjectController {
         return projectservice.addProject(newProject);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProject(@PathVariable String id) {
-        boolean deleteSuccess = projectservice.deleteProject(id);
-        return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
-
+    @DeleteMapping
+    public void deleteProject(@RequestBody List<String> idList) {
+         projectservice.deleteProject(idList);
     }
 
     @PutMapping("/{id}")

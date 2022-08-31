@@ -3,6 +3,7 @@ import axios from "axios";
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
 import {Issue} from "./Issue";
+import {GridRowId} from "@mui/x-data-grid-premium";
 
 export default function UseProjects() {
 
@@ -28,8 +29,8 @@ export default function UseProjects() {
                 }
             );
     }
-    const deleteProject = (id: string) => {
-        return axios.delete("/stt/projects/" + id)
+    const deleteProject = (id: GridRowId[]) => {
+        return axios.delete("/stt/projects",{data:id})
             .then((response) => response.status)
             .then(getAllProjects)
     }
