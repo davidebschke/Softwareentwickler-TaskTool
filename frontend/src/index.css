@@ -47,3 +47,8 @@ a {
 .homeCircle{
     padding-top: 6em;
 }
+
+.css-p4ree7-MuiButtonBase-root-MuiButton-root{
+
+    border-radius: 0!important;
+}

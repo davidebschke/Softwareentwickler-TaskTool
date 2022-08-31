@@ -64,7 +64,7 @@ export default function AddProject(props: addProjectProps) {
                 noValidate
                 autoComplete="off"
             >
-                <Button  onClick={handleClickOpen}
+                <Button onClick={handleClickOpen}
                          sx={{backgroundColor: '#455d7a'}}>
                     New Project
                 </Button>
