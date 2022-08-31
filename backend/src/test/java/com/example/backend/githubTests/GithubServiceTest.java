@@ -1,11 +1,9 @@
 package com.example.backend.githubTests;
 
-import com.example.backend.Projects.GithubStatus.GithubService;
-import com.example.backend.Projects.GithubStatus.OneIssue;
-import net.minidev.json.JSONArray;
+import com.example.backend.Projects.githubStatus.GithubService;
+import com.example.backend.Projects.githubStatus.OneIssue;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
-import org.json.JSONObject;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @AutoConfigureMockMvc
 @SpringBootTest
-public class GithubServiceTest {
+class GithubServiceTest {
 
     @Autowired
     MockMvc mockMvc;
