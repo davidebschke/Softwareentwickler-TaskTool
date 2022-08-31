@@ -41,7 +41,6 @@ public class IntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {"projectName": "Shop"
-                                
                                 }
                                 """)
                 )
@@ -49,7 +48,6 @@ public class IntegrationTest {
                 .andExpect(content().json("""
                         {
                                 "projectName": "Shop"
-                                
                                 }
                         """));
     }

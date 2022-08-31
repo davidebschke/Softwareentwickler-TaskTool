@@ -76,7 +76,6 @@ export default function DataGridDemo(props: ProjectProps) {
                  <AddProject addProject={props.addProject}/>
                 <Button>Three</Button>
             </ButtonGroup>
-
         </Box>
 
     );

@@ -3,11 +3,9 @@ package com.example.backend.Projects;
 import com.example.backend.Projects.GithubStatus.GithubService;
 import com.example.backend.Projects.GithubStatus.OneIssue;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/stt/projects")
@@ -20,8 +18,6 @@ public class ProjectController {
         this.projectservice = projectservice;
         this.githubService = githubService;
     }
-
-
 
     @GetMapping
     public List<Project> listProjects() {
