@@ -36,7 +36,7 @@ export default function UseProjects() {
     }
 
     const updateProject = (updatedProject: Project) => {
-        return axios.put("/stt/projects/" + updatedProject.id, updatedProject)
+        return axios.put("/stt/projects", updatedProject)
             .then(() => {
                 getAllProjects();
             })

@@ -36,9 +36,9 @@ public class ProjectController {
          projectservice.deleteProject(idList);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping
     @ResponseStatus(code = HttpStatus.OK)
-    public Project updateProject(@PathVariable String id, @RequestBody Project project) {
+    public Project updateProject( @RequestBody Project project) {
         return projectservice.updateProject(project);
     }
     @GetMapping("/issues/{username}/{repositoryName}")

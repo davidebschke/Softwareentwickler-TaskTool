@@ -42,11 +42,11 @@ public class GithubServiceTest {
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .setBody("""
-            [OneIssue[repositoryName=null, created_at=2022-08-29T16:23:07Z, login=null]]"""));
+            [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
 
         List<OneIssue> response = Collections.singletonList(githubService.getAllIssues("davidebschke","Softwareentwickler-TaskTool").get(2));
 
         assertThat(response).hasToString("""
-                 [OneIssue[repositoryName=null, created_at=2022-08-29T16:23:07Z, login=null]]""");
+                 [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]""");
     }
 }

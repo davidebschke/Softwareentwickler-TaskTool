@@ -3,20 +3,24 @@ import {Project} from "./Project";
 import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
 import {toast} from "react-toastify";
+import {GridRowId} from "@mui/x-data-grid-premium";
 
 type UpdateProjectProps = {
-    project: Project,
+    selectedID: GridRowId,
     projectUpdate: (project: Project) => void,
+    projects: Project[]
 }
 
 export default function UpdateProjectForm(props: UpdateProjectProps) {
 
+    const [projectUp, setProjectUp] = useState<Project>();
     const [projectName, setProjectName] = useState<string>("");
     const [open, setOpen] = React.useState(false);
     const[creator,setCreator]= useState<string>("")
     const[created_at,setCreatedAt]= useState<string>("")
 
     const handleClickOpen = () => {
+        isID();
         setOpen(true);
     };
 
@@ -24,10 +28,26 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
         setOpen(false);
     };
 
+    const isID=()=>{
+        if(props.selectedID !== undefined) {
+            props.projects.forEach((project) => {
+                if (project.id === props.selectedID.toString()) {
+                    setProjectUp(project)
+                    return project;
+
+
+                } else {
+
+                }
+
+            })
+        }
+    }
+
     const handleUpdate = () => {
-        if (props.project) {
+        if (projectUp) {
             const updatedProject: Project = {
-                id: props.project.id,
+                id: projectUp.id,
                 projectName: projectName,
                 creator: creator,
                 created_at:created_at,
@@ -35,7 +55,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
             props.projectUpdate(updatedProject)
             toast.success("Update Erfolgreich");
             setOpen(false);
-
         } else {
 
             toast.error("Update Fehlgeschlagen")
@@ -55,7 +74,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
 
     return (
         <>
-
             <Box
                 component="form"
                 sx={{
@@ -65,7 +83,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button sx={{backgroundColor: '#1F2937'}} variant="contained" size={"small"}
+                    <Button sx={{backgroundColor: '#455d7a'}} variant="contained"
                             onClick={handleClickOpen}>
                         Update
                     </Button>

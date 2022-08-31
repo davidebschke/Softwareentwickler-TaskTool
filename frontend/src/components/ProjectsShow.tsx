@@ -10,6 +10,7 @@ import {DataGrid} from "@mui/x-data-grid";
 import {Button, ButtonGroup,} from '@mui/material';
 import { useState} from "react";
 import AddProject from "./AddProject";
+import UpdateProjectForm from "./UpdateProjectForm";
 
 type ProjectProps = {
     projects: Project[],
@@ -20,30 +21,27 @@ type ProjectProps = {
 }
 
 const columns: GridColDef[] = [
-    {field: 'id', headerName: 'ID', width: 90},
+    {field: 'id', headerName: 'ID', width: 150},
     {
         field: 'projectName',
         headerName: 'Projektname',
         width: 200,
-        editable: true,
+
     },
     {
         field: 'creator',
         headerName: 'Creator',
         width: 200,
-        editable: true,
     },
     {
         field: 'openIssue',
         headerName: 'Offene Aufgaben',
         width: 200,
-        editable: true,
     },
     {
         field: 'closeIssue',
         headerName: 'Geschlossene Aufgaben',
         width: 200,
-        editable: true,
     },
     {
         field: 'created_at',
@@ -57,8 +55,9 @@ export default function DataGridDemo(props: ProjectProps) {
     const rows=props.projects
 
     const [ID,setID]=useState <GridRowId[]>([])
+
     return (
-        <Box sx={{height: 400, width: '100%'}}>
+        <Box sx={{height: 400, width: '90%',margin:'4em'}}>
             <DataGrid
                 rows={rows}
                 columns={columns}
@@ -66,17 +65,13 @@ export default function DataGridDemo(props: ProjectProps) {
                 rowsPerPageOptions={[5]}
                 checkboxSelection
                 disableSelectionOnClick
-                experimentalFeatures={{newEditingApi: false}}
-                onSelectionModelChange={
-                    setID
-            }
+                onSelectionModelChange={setID}
             />
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button sx={{backgroundColor: '#1F2937'}} onClick={()=> props.deleteProject(ID)} >Delete</Button>
-                 <AddProject addProject={props.addProject}/>
-                <Button>Three</Button>
+                <Button sx={{backgroundColor: '#455d7a'}} onClick={()=> props.deleteProject(ID)} >Delete</Button>
+                <AddProject addProject={props.addProject}/>
+                <UpdateProjectForm selectedID={ID[0]} projectUpdate={props.updateProjectForm} projects={props.projects}/>
             </ButtonGroup>
         </Box>
-
     );
 }
