@@ -16,11 +16,11 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
     const isID=()=>{
         if(props.selectedID != undefined) {
             console.log(props.selectedID.valueOf())
-            props.projects.map((project) => {
-                if (project.id.toString()=== props.selectedID.toString()) {
-
+            props.projects.forEach((project) => {
+                if (project.id === props.selectedID.toString()) {
+                    console.log(project + "Projekt")
                     return project;
-                    console.log(project+"Projekt")
+
                 } else {
 
                     console.log(project.id)

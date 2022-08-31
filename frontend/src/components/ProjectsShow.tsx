@@ -70,9 +70,7 @@ export default function DataGridDemo(props: ProjectProps) {
                 checkboxSelection
                 disableSelectionOnClick
                 experimentalFeatures={{newEditingApi: false}}
-                onSelectionModelChange={
-                    setID
-            }
+                onSelectionModelChange={setID}
             />
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
                 <Button sx={{backgroundColor: '#455d7a'}} onClick={()=> props.deleteProject(ID)} >Delete</Button>
