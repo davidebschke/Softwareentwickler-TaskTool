@@ -50,7 +50,6 @@ const columns: GridColDef[] = [
     },
 ];
 
-
 export default function DataGridDemo(props: ProjectProps) {
 
     const rows=props.projects
@@ -74,6 +73,5 @@ export default function DataGridDemo(props: ProjectProps) {
                 <UpdateProjectForm selectedID={ID[0]} projectUpdate={props.updateProjectForm} projects={props.projects}/>
             </ButtonGroup>
         </Box>
-
     );
 }

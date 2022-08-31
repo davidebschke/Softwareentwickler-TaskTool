@@ -14,9 +14,6 @@ type UpdateProjectProps = {
 export default function UpdateProjectForm(props: UpdateProjectProps) {
 
     const [projectUp, setProjectUp] = useState<Project>();
-
-
-
     const [projectName, setProjectName] = useState<string>("");
     const [open, setOpen] = React.useState(false);
     const[creator,setCreator]= useState<string>("")
@@ -35,14 +32,12 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
         if(props.selectedID !== undefined) {
             props.projects.forEach((project) => {
                 if (project.id === props.selectedID.toString()) {
-                    console.log(project, "Projekt")
                     setProjectUp(project)
                     return project;
 
 
                 } else {
 
-                    console.log(project.id)
                 }
 
             })
