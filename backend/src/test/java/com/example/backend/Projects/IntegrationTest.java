@@ -91,10 +91,9 @@ public class IntegrationTest {
                 .content("""
                         {"projectName":"Shop",
                         "creator":"Gustaf",
-                        "created_at":"2020-01-01"}
+                        "createdAt":"2020-01-01"}
                         """)
         ).andReturn().getResponse().getContentAsString();
-        System.out.println(saveResult);
 
         Project saveResultProject = objectMapper.readValue(saveResult, Project.class);
 
@@ -102,12 +101,12 @@ public class IntegrationTest {
                         {"id":"<ID>",
                         "projectName":"Aligator",
                         "creator":"Frans",
-                        "created_at":"2022-01-01"}
+                        "createdAt":"2022-01-01"}
                 """.replaceFirst("<ID>",saveResultProject.id))).andExpect(status().isOk()).andExpect(content().json("""
                         {"id":"<ID>",
                         "projectName":"Aligator",
                         "creator":"Frans",
-                        "created_at":"2022-01-01"}
+                        "createdAt":"2022-01-01"}
                 """.replaceFirst("<ID>",saveResultProject.id)));
     }
 }
