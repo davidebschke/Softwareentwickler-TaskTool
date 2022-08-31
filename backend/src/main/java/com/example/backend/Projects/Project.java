@@ -1,6 +1,5 @@
 package com.example.backend.Projects;
 
-import com.example.backend.Projects.GithubStatus.OneIssue;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -18,6 +17,6 @@ public class Project {
     @NotNull
     String creator;
     @NotNull
-    String created_at;
+    String createdAt;
 
 }

@@ -37,7 +37,7 @@ class ProjectserviceTest {
         Project actual = projectservice.addProject(new NewProject(
                 project.projectName,
                 project.creator,
-                project.created_at));
+                project.createdAt));
 
         Assertions.assertEquals(actual, project);
     }

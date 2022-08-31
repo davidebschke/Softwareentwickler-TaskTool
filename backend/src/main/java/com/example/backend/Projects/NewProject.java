@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Data
 @Builder
@@ -14,5 +13,5 @@ public class NewProject {
     String projectName;
 
     String creator;
-    String created_at;
+    String createdAt;
 }
