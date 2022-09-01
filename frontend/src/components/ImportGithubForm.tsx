@@ -68,7 +68,7 @@ export default function ImportGithubForm(props:showIssuesProps) {
 
     return(
 
-       /* <div>
+        <div>
             <Button variant="contained" size='small' onClick={handleClickOpen}>
                 Open draggable dialog
             </Button>
@@ -103,13 +103,13 @@ export default function ImportGithubForm(props:showIssuesProps) {
                                     {props.issues
                                         .map((issues) => {
                                             return (
-                                                <TableRow hover role="checkbox" tabIndex={-1} key={issues.created_at}>
+                                                <TableRow hover role="checkbox" tabIndex={-1} key={issues.number}>
                                                     {columns.map((column) => {
                                                         const value = issues[column.id];
                                                         return (
                                                             <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
                                                                        align={column.align}>
-                                                                {column.format && false
+                                                                {column.format && typeof value === 'number'
                                                                     ? column.format(value)
                                                                     : value}
                                                             </TableCell>
@@ -130,8 +130,6 @@ export default function ImportGithubForm(props:showIssuesProps) {
                     <Button onClick={handleClose}>Subscribe</Button>
                 </DialogActions>
             </Dialog>
-        </div>*/
-
-<>Hallo</>
+        </div>
     )
 }
