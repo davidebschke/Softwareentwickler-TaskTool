@@ -42,9 +42,13 @@ public class ProjectController {
     public Project updateProject( @RequestBody Project project) {
         return projectservice.updateProject(project);
     }
-    @GetMapping("/{username}/{repositoryName}")
-    public List<OneIssue> getAllIssues(@PathVariable String username, @PathVariable String repositoryName) {
-        return githubService.getAllIssuesFromRepository(username, repositoryName);
+    @GetMapping("/issuesC/{username}/{repositoryName}")
+    public List<OneIssue> getAllCloseIssues(@PathVariable String username, @PathVariable String repositoryName) {
+        return githubService.getAllCloseIssuesFromRepository(username, repositoryName);
+    }
+    @GetMapping("/issuesO/{username}/{repositoryName}")
+    public List<OneIssue> getAllOpenIssues(@PathVariable String username, @PathVariable String repositoryName) {
+        return githubService.getAllOpenIssuesFromRepository(username, repositoryName);
     }
 
     @GetMapping("/{username}/{repositoryName}")

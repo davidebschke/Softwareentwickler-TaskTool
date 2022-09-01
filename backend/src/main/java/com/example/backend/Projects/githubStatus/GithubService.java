@@ -11,13 +11,23 @@ import java.util.Objects;
 @AllArgsConstructor
 public class GithubService {
 
-    public List<OneIssue> getAllIssuesFromRepository(String userName, String repositoryName) {
+    public List<OneIssue> getAllOpenIssuesFromRepository(String userName, String repositoryName) {
 
         WebClient webClient= WebClient.create();
 
          return Objects.requireNonNull(webClient
                  .get()
-                 .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName + "/" + "issues?state=all&per_page=100")
+                 .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName + "/" + "issues?state=open&per_page=100")
+                .retrieve()
+                .toEntityList(OneIssue.class).block()).getBody();
+    }
+    public List<OneIssue> getAllCloseIssuesFromRepository(String userName, String repositoryName) {
+
+        WebClient webClient= WebClient.create();
+
+        return Objects.requireNonNull(webClient
+                .get()
+                .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName + "/" + "issues?state=closed&per_page=100")
                 .retrieve()
                 .toEntityList(OneIssue.class).block()).getBody();
     }
