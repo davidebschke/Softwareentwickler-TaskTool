@@ -42,16 +42,24 @@ export default function UseProjects() {
             })
     }
 
-    const getAllIssues = (username: string ,repositoryName: string ) => {
+    const getAllIssuesInfos = (username: string ,repositoryName: string ) => {
         axios.get("/stt/projects/issues/"+ username + "/"+repositoryName)
             .then((response) =>
                response.data)
             .then(setIssues)
     }
 
+    const getAllRepositoryInfos = (username: string ,repositoryName: string ) => {
+        axios.get("/stt/projects/"+ username + "/"+repositoryName)
+            .then((response) =>
+                response.data)
+            .then(setIssues)
+    }
+
     return {
+        getAllRepositoryInfos,
         issues,
-        getAllIssues,
+        getAllIssuesInfos,
         updateProject,
         addProject,
         projects,

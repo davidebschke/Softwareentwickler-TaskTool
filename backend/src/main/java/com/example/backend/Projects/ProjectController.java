@@ -42,7 +42,7 @@ public class ProjectController {
     public Project updateProject( @RequestBody Project project) {
         return projectservice.updateProject(project);
     }
-    @GetMapping("/issues/{username}/{repositoryName}")
+    @GetMapping("/{username}/{repositoryName}")
     public List<OneIssue> getAllIssues(@PathVariable String username, @PathVariable String repositoryName) {
         return githubService.getAllIssuesFromRepository(username, repositoryName);
     }
