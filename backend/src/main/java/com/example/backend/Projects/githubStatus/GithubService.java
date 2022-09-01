@@ -32,7 +32,7 @@ public class GithubService {
                 .toEntityList(OneIssue.class).block()).getBody();
     }
 
-    public List<Repository> getAllRepositoryInfos(String userName, String repositoryName){
+    public List<OneRepository> getAllRepositoryInfos(String userName, String repositoryName){
 
         WebClient webClient= WebClient.create();
 
@@ -40,6 +40,6 @@ public class GithubService {
                 .get()
                 .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName + "/")
                 .retrieve()
-                .toEntityList(Repository.class).block()).getBody();
+                .toEntityList(OneRepository.class).block()).getBody();
     }
 }

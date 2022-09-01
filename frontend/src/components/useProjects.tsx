@@ -42,10 +42,16 @@ export default function UseProjects() {
             })
     }
 
-    const getAllIssuesInfos = (username: string ,repositoryName: string ) => {
-        axios.get("/stt/projects/issues/"+ username + "/"+repositoryName)
+    const getAllClosedIssues = (username: string ,repositoryName: string ) => {
+        axios.get("/stt/projects/issuesC/"+ username + "/"+repositoryName)
             .then((response) =>
                response.data)
+            .then(setIssues)
+    }
+    const getAllOpenIssues = (username: string ,repositoryName: string ) => {
+        axios.get("/stt/projects/issuesO/"+ username + "/"+repositoryName)
+            .then((response) =>
+                response.data)
             .then(setIssues)
     }
 
@@ -57,12 +63,13 @@ export default function UseProjects() {
     }
 
     return {
-        getAllRepositoryInfos,
         issues,
-        getAllIssuesInfos,
+        getAllOpenIssues,
+        getAllClosedIssues,
+        getAllRepositoryInfos,
+        projects,
         updateProject,
         addProject,
-        projects,
         deleteProject,
     }
 }
