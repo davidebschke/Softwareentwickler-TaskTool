@@ -3,20 +3,24 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import IssueTable from "./IssueTable";
-import DialogActions from "@mui/material/DialogActions";
+import {Table, TableCell} from "@mui/material";
 import * as React from "react";
+import {Issue} from "./Issue";
+import TableRow from "@mui/material/TableRow";
+import TableHead from "@mui/material/TableHead";
+import TableBody from "@mui/material/TableBody";
+import DialogActions from "@mui/material/DialogActions";
 import Paper, {PaperProps} from "@mui/material/Paper";
 import Draggable from "react-draggable";
-import {Issue} from "./Issue";
+
 
 
 type showIssuesProps={
     getAllOpenIssues:(userName:string,RepositoryName:string) => Issue
-
+    issues: Issue[];
 }
 
-export default function ImportGithubForm(){
+export default function ImportGithubForm(props:showIssuesProps) {
 
 
     function PaperComponent(props: PaperProps) {
@@ -29,8 +33,28 @@ export default function ImportGithubForm(){
             </Draggable>
         );
     }
+    interface Column {
+        id: | 'title' | 'created_at' | 'state';
+        label: string;
+        minWidth?: number;
+        align?: 'right';
+        format?: (value: number) => string;
+    }
 
-    export default function ShowIssues(props: showIssuesProps) {
+    const columns: readonly Column[] = [
+        {id: 'title', label: 'Issuename',},
+        {
+            id: 'created_at',
+            label: 'Erstellt am',
+            align: 'right',
+        },
+        {
+            id: 'state',
+            label: 'Owner',
+            align: 'right',
+        },
+    ];
+
 
         const [open, setOpen] = React.useState(false);
 
@@ -44,7 +68,7 @@ export default function ImportGithubForm(){
 
     return(
 
-        <div>
+       /* <div>
             <Button variant="contained" size='small' onClick={handleClickOpen}>
                 Open draggable dialog
             </Button>
@@ -59,7 +83,44 @@ export default function ImportGithubForm(){
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <IssueTable issues={props.issues}/>
+                        <div>
+                            <Table sx={{backgroundColor: '#6B7280'}}>
+                                <TableHead>
+                                    <TableRow>
+                                        {columns.map((column) => (
+                                            <TableCell sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
+                                                       key={column.id}
+                                                       align={column.align}
+                                                       style={{minWidth: column.minWidth}
+                                                       }
+                                            >
+                                                {column.label}
+                                            </TableCell>
+                                        ))}
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {props.issues
+                                        .map((issues) => {
+                                            return (
+                                                <TableRow hover role="checkbox" tabIndex={-1} key={issues.created_at}>
+                                                    {columns.map((column) => {
+                                                        const value = issues[column.id];
+                                                        return (
+                                                            <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
+                                                                       align={column.align}>
+                                                                {column.format && false
+                                                                    ? column.format(value)
+                                                                    : value}
+                                                            </TableCell>
+                                                        );
+                                                    })}
+                                                </TableRow>
+                                            );
+                                        })}
+                                </TableBody>
+                            </Table>
+                        </div>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
@@ -69,8 +130,8 @@ export default function ImportGithubForm(){
                     <Button onClick={handleClose}>Subscribe</Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </div>*/
 
-
+<>Hallo</>
     )
 }
