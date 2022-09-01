@@ -15,7 +15,7 @@ import React from "react";
 
 export default function Header() {
 
-    const pages = ['Home', 'Projects'];
+    const pages = ['Home', 'projects'];
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
         const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);

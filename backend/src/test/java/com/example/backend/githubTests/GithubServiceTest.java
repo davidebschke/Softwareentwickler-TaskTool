@@ -47,10 +47,10 @@ class GithubServiceTest {
                 .setBody("""
             [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
 
-        List<Integer> issueNumberList = Collections.singletonList(githubService.getAllIssues(username,repositoryName).size());
+        List<Integer> issueNumberList = Collections.singletonList(githubService.getAllIssuesFromRepository(username,repositoryName).size());
         Integer issueNumber= issueNumberList.get(0);
         issueNumber=issueNumber-1;
-        List<OneIssue> response = Collections.singletonList(githubService.getAllIssues("davidebschke","Softwareentwickler-TaskTool").get(issueNumber));
+        List<OneIssue> response = Collections.singletonList(githubService.getAllIssuesFromRepository(username,repositoryName).get(issueNumber));
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
     }

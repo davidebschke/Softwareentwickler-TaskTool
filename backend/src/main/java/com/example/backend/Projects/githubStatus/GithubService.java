@@ -11,7 +11,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class GithubService {
 
-    public List<OneIssue> getAllIssues(String userName, String repositoryName) {
+    public List<OneIssue> getAllIssuesFromRepository(String userName, String repositoryName) {
 
         WebClient webClient= WebClient.create();
 
@@ -20,5 +20,16 @@ public class GithubService {
                  .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName + "/" + "issues?state=all&per_page=100")
                 .retrieve()
                 .toEntityList(OneIssue.class).block()).getBody();
+    }
+
+    public List<Repository> getAllRepositoryInfos(String userName, String repositoryName){
+
+        WebClient webClient= WebClient.create();
+
+        return Objects.requireNonNull(webClient
+                .get()
+                .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName + "/")
+                .retrieve()
+                .toEntityList(Repository.class).block()).getBody();
     }
 }
