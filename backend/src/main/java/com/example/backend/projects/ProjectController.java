@@ -1,8 +1,8 @@
-package com.example.backend.Projects;
+package com.example.backend.projects;
 
-import com.example.backend.Projects.githubStatus.GithubService;
-import com.example.backend.Projects.githubStatus.OneIssue;
-import com.example.backend.Projects.githubStatus.OneRepository;
+import com.example.backend.projects.githubStatus.GithubService;
+import com.example.backend.projects.githubStatus.OneIssue;
+import com.example.backend.projects.githubStatus.OneRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

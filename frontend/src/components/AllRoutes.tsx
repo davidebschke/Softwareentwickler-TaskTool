@@ -12,10 +12,10 @@ export default function AllRoutes() {
         <>
             <Routes>
                 <Route path={"*"} element={
-                    <Navigate to={"/Projects"} replace/>
+                    <Navigate to={"/projects"} replace/>
                 }/>
                 <Route path={"/home"} element={<Home/>}/>
-                <Route path={"/Projects"} element={<ProjectsShow issues={issues} updateProjectForm={updateProject}
+                <Route path={"/projects"} element={<ProjectsShow issues={issues} updateProjectForm={updateProject}
                                                                  deleteProject={deleteProject}
                                                                  addProject={addProject}
                                                                  projects={projects}/>}/>

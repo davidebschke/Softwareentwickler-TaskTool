@@ -1,4 +1,4 @@
-package com.example.backend.Projects;
+package com.example.backend.projects;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

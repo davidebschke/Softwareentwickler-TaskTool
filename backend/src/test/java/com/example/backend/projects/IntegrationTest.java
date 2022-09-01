@@ -1,4 +1,4 @@
-package com.example.backend.Projects;
+package com.example.backend.projects;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
