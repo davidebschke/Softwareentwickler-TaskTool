@@ -1,7 +1,6 @@
-package com.example.backend.sett.githubStatus;
+package com.example.backend.sett.githubstatus;
 
 
-import com.example.backend.sett.projects.Projectservice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

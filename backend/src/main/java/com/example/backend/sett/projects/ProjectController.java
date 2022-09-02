@@ -1,6 +1,5 @@
 package com.example.backend.sett.projects;
 
-import com.example.backend.sett.githubStatus.GithubService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

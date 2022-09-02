@@ -1,8 +1,8 @@
 package com.example.backend.githubStatus;
 
-import com.example.backend.sett.githubStatus.GithubService;
-import com.example.backend.sett.githubStatus.OneIssue;
-import com.example.backend.sett.githubStatus.OneRepository;
+import com.example.backend.sett.githubstatus.GithubService;
+import com.example.backend.sett.githubstatus.OneIssue;
+import com.example.backend.sett.githubstatus.OneRepository;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.AfterEach;
@@ -12,15 +12,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static reactor.core.publisher.Mono.when;
@@ -57,7 +54,7 @@ class GithubServiceTest {
         List<Integer> issueNumberListOpen = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username,repositoryName).size());
         Integer issueNumber= issueNumberListOpen.get(0);
         issueNumber=issueNumber-1;
-        List<com.example.backend.sett.githubStatus.OneIssue> response = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username,repositoryName).get(issueNumber));
+        List<com.example.backend.sett.githubstatus.OneIssue> response = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username, repositoryName).get(issueNumber));
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
     }
