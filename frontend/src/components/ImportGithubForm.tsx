@@ -66,7 +66,6 @@ export default function ImportGithubForm(props: showIssuesProps) {
     };
 
     return (
-
         <div>
             <Button variant="contained" size='small' onClick={handleClickOpen}>
                 Open draggable dialog

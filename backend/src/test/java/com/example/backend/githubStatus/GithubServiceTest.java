@@ -40,17 +40,17 @@ class GithubServiceTest {
     @DirtiesContext
     void getIssues() {
 
-        String username="davidebschke";
-        String repositoryName="Softwareentwickler-TaskTool";
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
         mockWebServer.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .setBody("""
-            [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
+                        [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
 
-        List<Integer> issueNumberListOpen = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username,repositoryName).size());
-        Integer issueNumber= issueNumberListOpen.get(0);
-        issueNumber=issueNumber-1;
+        List<Integer> issueNumberListOpen = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username, repositoryName).size());
+        Integer issueNumber = issueNumberListOpen.get(0);
+        issueNumber = issueNumber - 1;
         List<com.example.backend.sett.githubstatus.OneIssue> response = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username, repositoryName).get(issueNumber));
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
@@ -58,8 +58,7 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-
-    void getRepositoryinformation(){
+    void getRepositoryinformation() {
 
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
@@ -89,6 +88,5 @@ class GithubServiceTest {
         List<OneIssue> response = githubService.getAllCloseIssuesFromRepository(username, repositoryName);
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
-
     }
 }
