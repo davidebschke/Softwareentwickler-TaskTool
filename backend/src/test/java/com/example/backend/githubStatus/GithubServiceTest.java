@@ -12,14 +12,18 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static reactor.core.publisher.Mono.when;
 
 
 @AutoConfigureMockMvc
@@ -29,7 +33,10 @@ class GithubServiceTest {
     @Autowired
     MockMvc mockMvc;
     private final MockWebServer mockWebServer = new MockWebServer();
+
     private final GithubService githubService = new GithubService();
+
+
     @AfterEach
     public void shutDown() throws IOException {
         mockWebServer.shutdown();
@@ -38,7 +45,6 @@ class GithubServiceTest {
     @Test
     @DirtiesContext
     void getIssues() {
-
 
         String username="davidebschke";
         String repositoryName="Softwareentwickler-TaskTool";
@@ -61,14 +67,37 @@ class GithubServiceTest {
 
     void getRepositoryinformation(){
 
-        String username="davidebschke";
-        String repositoryName="Softwareentwickler-TaskTool";
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
 
-        List<Integer> RepoNumberList = Collections.singletonList(githubService.getAllRepositoryInfos(username,repositoryName).size());
-        Integer issueNumber= RepoNumberList.get(0);
-        issueNumber=issueNumber-1;
-        List<OneRepository> response = Collections.singletonList(githubService.getAllRepositoryInfos(username,repositoryName).get(issueNumber));
+        List<Integer> RepoNumberList = Collections.singletonList(githubService.getAllRepositoryInfos(username, repositoryName).size());
+        Integer issueNumber = RepoNumberList.get(0);
+        issueNumber = issueNumber - 1;
+        List<OneRepository> response = Collections.singletonList(githubService.getAllRepositoryInfos(username, repositoryName).get(issueNumber));
 
         assertThat(response).hasOnlyElementsOfType(OneRepository.class);
     }
+
+    @Test
+    @DirtiesContext
+    void getCloseIssues() {
+
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
+
+        mockWebServer.enqueue(new MockResponse()
+                .setResponseCode(200)
+                .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+                .setBody(""" 
+                        ["ABC"]
+                        """));
+
+        List<OneIssue> response = githubService.getAllCloseIssuesFromRepository(username, repositoryName);
+
+        assertThat(response).hasOnlyElementsOfType(OneIssue.class);
+
+    }
+
+
 }
+
