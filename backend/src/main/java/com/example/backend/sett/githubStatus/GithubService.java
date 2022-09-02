@@ -38,7 +38,7 @@ public class GithubService {
 
         return Objects.requireNonNull(webClient
                 .get()
-                .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName + "/")
+                .uri("https://api.github.com/repos/"+ userName +"/"+ repositoryName)
                 .retrieve()
                 .toEntityList(OneRepository.class).block()).getBody();
     }

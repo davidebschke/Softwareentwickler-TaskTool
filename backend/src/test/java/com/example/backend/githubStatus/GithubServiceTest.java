@@ -2,6 +2,7 @@ package com.example.backend.githubStatus;
 
 import com.example.backend.sett.githubStatus.GithubService;
 import com.example.backend.sett.githubStatus.OneIssue;
+import com.example.backend.sett.githubStatus.OneRepository;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.AfterEach;
@@ -53,5 +54,21 @@ class GithubServiceTest {
         List<com.example.backend.sett.githubStatus.OneIssue> response = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username,repositoryName).get(issueNumber));
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
+    }
+
+    @Test
+    @DirtiesContext
+
+    void getRepositoryinformation(){
+
+        String username="davidebschke";
+        String repositoryName="Softwareentwickler-TaskTool";
+
+        List<Integer> RepoNumberList = Collections.singletonList(githubService.getAllRepositoryInfos(username,repositoryName).size());
+        Integer issueNumber= RepoNumberList.get(0);
+        issueNumber=issueNumber-1;
+        List<OneRepository> response = Collections.singletonList(githubService.getAllRepositoryInfos(username,repositoryName).get(issueNumber));
+
+        assertThat(response).hasOnlyElementsOfType(OneRepository.class);
     }
 }
