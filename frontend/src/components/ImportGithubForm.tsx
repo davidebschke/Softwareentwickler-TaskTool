@@ -13,14 +13,12 @@ import DialogActions from "@mui/material/DialogActions";
 import Paper, {PaperProps} from "@mui/material/Paper";
 import Draggable from "react-draggable";
 
-
-
-type showIssuesProps={
-    getAllOpenIssues:(userName:string,RepositoryName:string) => Issue
+type showIssuesProps = {
+    getAllOpenIssues: (userName: string, RepositoryName: string) => Issue
     issues: Issue[];
 }
 
-export default function ImportGithubForm(props:showIssuesProps) {
+export default function ImportGithubForm(props: showIssuesProps) {
 
 
     function PaperComponent(props: PaperProps) {
@@ -33,6 +31,7 @@ export default function ImportGithubForm(props:showIssuesProps) {
             </Draggable>
         );
     }
+
     interface Column {
         id: | 'title' | 'created_at' | 'state';
         label: string;
@@ -56,17 +55,17 @@ export default function ImportGithubForm(props:showIssuesProps) {
     ];
 
 
-        const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
-        const handleClickOpen = () => {
-            setOpen(true);
-        };
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-        const handleClose = () => {
-            setOpen(false);
-        };
+    const handleClose = () => {
+        setOpen(false);
+    };
 
-    return(
+    return (
 
         <div>
             <Button variant="contained" size='small' onClick={handleClickOpen}>
@@ -88,11 +87,12 @@ export default function ImportGithubForm(props:showIssuesProps) {
                                 <TableHead>
                                     <TableRow>
                                         {columns.map((column) => (
-                                            <TableCell sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
-                                                       key={column.id}
-                                                       align={column.align}
-                                                       style={{minWidth: column.minWidth}
-                                                       }
+                                            <TableCell
+                                                sx={{backgroundColor: "#374151", color: "var(--table_Head_color);"}}
+                                                key={column.id}
+                                                align={column.align}
+                                                style={{minWidth: column.minWidth}
+                                                }
                                             >
                                                 {column.label}
                                             </TableCell>
@@ -107,7 +107,8 @@ export default function ImportGithubForm(props:showIssuesProps) {
                                                     {columns.map((column) => {
                                                         const value = issues[column.id];
                                                         return (
-                                                            <TableCell sx={{color: 'var(--table_content_color);'}} key={column.id}
+                                                            <TableCell sx={{color: 'var(--table_content_color);'}}
+                                                                       key={column.id}
                                                                        align={column.align}>
                                                                 {column.format && typeof value === 'number'
                                                                     ? column.format(value)

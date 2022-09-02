@@ -1,6 +1,5 @@
 package com.example.backend.sett.githubstatus;
 
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,6 @@ public class GithubController {
     public GithubController(GithubService githubService) {
         this.githubService = githubService;
     }
-
 
     @GetMapping("/issuesC/{username}/{repositoryName}")
     public List<OneIssue> getAllCloseIssues(@PathVariable String username, @PathVariable String repositoryName) {

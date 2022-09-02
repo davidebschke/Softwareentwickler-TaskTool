@@ -19,7 +19,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
     const[creator,setCreator]= useState<string>("")
     const[created_at,setCreatedAt]= useState<string>("")
 
-
     const handleClickOpen = () => {
         isID();
         setOpen(true);

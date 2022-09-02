@@ -50,8 +50,6 @@ const columns: GridColDef[] = [
     },
 ];
 
-
-
 export default function DataGridDemo(props: ProjectProps) {
 
     const rows=props.projects
