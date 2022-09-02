@@ -1,4 +1,4 @@
-package com.example.backend.projects.githubStatus;
+package com.example.backend.sett.githubStatus;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

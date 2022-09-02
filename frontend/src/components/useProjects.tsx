@@ -43,20 +43,20 @@ export default function UseProjects() {
     }
 
     const getAllClosedIssues = (username: string ,repositoryName: string ) => {
-        axios.get("/stt/projects/issuesC/"+ username + "/"+repositoryName)
+        axios.get("/stt/github/issuesC/"+ username + "/"+repositoryName)
             .then((response) =>
                response.data)
             .then(setIssues)
     }
     const getAllOpenIssues = (username: string ,repositoryName: string ) => {
-        axios.get("/stt/projects/issuesO/"+ username + "/"+repositoryName)
+        axios.get("/stt/github/issuesO/"+ username + "/"+repositoryName)
             .then((response) =>
                 response.data)
             .then(setIssues)
     }
 
     const getAllRepositoryInfos = (username: string ,repositoryName: string ) => {
-        axios.get("/stt/projects/"+ username + "/"+repositoryName)
+        axios.get("/stt/github/"+ username + "/"+repositoryName)
             .then((response) =>
                 response.data)
             .then(setIssues)

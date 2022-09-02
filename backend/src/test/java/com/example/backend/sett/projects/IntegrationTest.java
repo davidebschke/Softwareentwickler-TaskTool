@@ -1,6 +1,7 @@
-package com.example.backend.projects;
+package com.example.backend.sett.projects;
 
 
+import com.example.backend.sett.projects.Project;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
