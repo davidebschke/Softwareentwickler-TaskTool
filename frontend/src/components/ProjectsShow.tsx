@@ -72,6 +72,10 @@ export default function DataGridDemo(props: ProjectProps) {
                 <AddProject addProject={props.addProject}/>
                 <UpdateProjectForm selectedID={ID[0]} projectUpdate={props.updateProjectForm} projects={props.projects}/>
             </ButtonGroup>
+
+            <ButtonGroup sx={{marginLeft:'20em',borderStyle:'solid',borderColor:'ghostwhite',borderWidth:'thin'}} variant="contained" aria-label="outlined primary button group">
+           <Button sx={{backgroundColor: '#455d7a'}} variant="contained" startIcon={<img src={"../github.svg"} alt={"GithubIcon"}/>}> Import Github </Button>
+            </ButtonGroup>
         </Box>
     );
 }

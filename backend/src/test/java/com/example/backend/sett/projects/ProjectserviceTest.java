@@ -1,5 +1,9 @@
-package com.example.backend.Projects;
+package com.example.backend.sett.projects;
 
+import com.example.backend.sett.projects.NewProject;
+import com.example.backend.sett.projects.Project;
+import com.example.backend.sett.projects.Projectrepo;
+import com.example.backend.sett.projects.Projectservice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,7 @@
-package com.example.backend.Projects;
+package com.example.backend.sett.projects;
 
 
+import com.example.backend.sett.projects.Project;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class IntegrationTest {
+class IntegrationTest {
 
     @Autowired
     ObjectMapper objectMapper;

@@ -1,8 +1,9 @@
-package com.example.backend.Projects;
+package com.example.backend.sett.projects;
 
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+
 import javax.validation.constraints.NotNull;
 
 @Data

@@ -1,7 +1,7 @@
 
 export type Issue ={
-    number:number,
+    number:string,
     title:string,
     created_at:string,
-    login:string
+    state:string
 }

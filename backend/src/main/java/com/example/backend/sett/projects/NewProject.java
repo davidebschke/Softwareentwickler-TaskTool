@@ -1,4 +1,4 @@
-package com.example.backend.Projects;
+package com.example.backend.sett.projects;
 
 import lombok.Builder;
 import lombok.Data;
