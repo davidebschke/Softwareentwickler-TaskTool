@@ -1,16 +1,22 @@
-package com.example.backend.githubTests;
+package com.example.backend.githubStatus;
 
 import com.example.backend.sett.githubStatus.GithubService;
+import com.example.backend.sett.githubStatus.OneIssue;
+import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -32,7 +38,7 @@ class GithubServiceTest {
     @DirtiesContext
     void getIssues() {
 
-/*
+
         String username="davidebschke";
         String repositoryName="Softwareentwickler-TaskTool";
         mockWebServer.enqueue(new MockResponse()
@@ -41,11 +47,11 @@ class GithubServiceTest {
                 .setBody("""
             [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
 
-        List<Integer> issueNumberList = Collections.singletonList(githubService.getAllIssuesFromRepository(username,repositoryName).size());
-        Integer issueNumber= issueNumberList.get(0);
+        List<Integer> issueNumberListOpen = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username,repositoryName).size());
+        Integer issueNumber= issueNumberListOpen.get(0);
         issueNumber=issueNumber-1;
-        List<OneIssue> response = Collections.singletonList(githubService.getAllIssuesFromRepository(username,repositoryName).get(issueNumber));
+        List<com.example.backend.sett.githubStatus.OneIssue> response = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username,repositoryName).get(issueNumber));
 
-        assertThat(response).hasOnlyElementsOfType(OneIssue.class);*/
+        assertThat(response).hasOnlyElementsOfType(OneIssue.class);
     }
 }
