@@ -5,8 +5,9 @@ import ProjectsShow from "./ProjectsShow";
 
 export default function AllRoutes() {
 
-    const {projects,issues, addProject,deleteProject,updateProject,
-        getAllClosedIssues,getAllOpenIssues,getAllRepositoryInfos} = useProjects();
+    const {
+        projects, issues, addProject, deleteProject, updateProject,
+    } = useProjects();
 
     return (
         <>
