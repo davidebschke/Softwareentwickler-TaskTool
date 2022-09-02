@@ -20,8 +20,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static reactor.core.publisher.Mono.when;
-
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -32,7 +30,6 @@ class GithubServiceTest {
     private final MockWebServer mockWebServer = new MockWebServer();
 
     private final GithubService githubService = new GithubService();
-
 
     @AfterEach
     public void shutDown() throws IOException {
@@ -94,7 +91,4 @@ class GithubServiceTest {
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
 
     }
-
-
 }
-
