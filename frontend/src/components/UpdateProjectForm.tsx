@@ -36,7 +36,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                     return project;
 
 
-                } else {
                 }
             })
         }
