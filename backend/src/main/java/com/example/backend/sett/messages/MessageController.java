@@ -12,6 +12,10 @@ public class MessageController {
 
     MessageService messageService;
 
+    public MessageController(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
     @GetMapping
     public List<Onemessage> listMessages() {
         return messageService.getMessages();
