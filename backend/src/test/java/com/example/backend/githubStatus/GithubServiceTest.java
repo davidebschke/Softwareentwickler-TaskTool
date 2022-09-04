@@ -86,7 +86,6 @@ class GithubServiceTest {
                         """));
 
         List<OneIssue> response = githubService.getAllCloseIssuesFromRepository(username, repositoryName);
-
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
     }
 }
