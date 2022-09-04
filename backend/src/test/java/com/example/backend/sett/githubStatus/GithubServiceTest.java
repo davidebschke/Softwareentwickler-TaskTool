@@ -1,4 +1,4 @@
-package com.example.backend.githubStatus;
+package com.example.backend.sett.githubStatus;
 
 import com.example.backend.sett.githubstatus.GithubService;
 import com.example.backend.sett.githubstatus.OneIssue;
