@@ -15,6 +15,7 @@ public class Onemessage {
     String sender;
     @NotNull
     String receiver;
-    @NotNull
     String projectName;
+    @NotNull
+    String sendDate;
 }
