@@ -19,4 +19,12 @@ public class MessageService {
     public String getRandomId() {
         return UUID.randomUUID().toString();
     }
+
+    public boolean deleteMessage(String id) {
+        if (messageRepo.existsById(id)) {
+            messageRepo.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
