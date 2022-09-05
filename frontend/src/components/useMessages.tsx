@@ -15,7 +15,13 @@ export default function useMessages() {
             .then((response) => response.data)
             .then(setMessages)
     }
+    const deleteMessage = (id: string) => {
+        return axios.delete("/stt/messages/" + id)
+            .then((response) => response.status)
+            .then(getAllMessages)
+    }
     return {
-        messages
+        messages,
+        deleteMessage
     }
 }

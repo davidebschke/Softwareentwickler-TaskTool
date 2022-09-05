@@ -5,6 +5,7 @@ import {Messages} from "./Messages";
 
 type MessageProps = {
     messages: Messages[],
+    deleteMessage: (id: string) => Promise<void>
 }
 export default function MessageShow(props: MessageProps) {
     return (
@@ -39,7 +40,7 @@ export default function MessageShow(props: MessageProps) {
                                             <p> Empfangen am: {message.created_at}</p>
                                         </Typography>
                                         <p className={'message'}>{message.message}</p>
-                                        <Button> Löschen </Button>
+                                        <Button onClick={() => props.deleteMessage(message.id)}> Löschen </Button>
                                     </React.Fragment>
                                 }
                             />
