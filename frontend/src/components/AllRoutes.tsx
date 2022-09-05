@@ -7,7 +7,7 @@ import MessageShow from "./MessageShow";
 export default function AllRoutes() {
 
     const {
-        projects, issues, addProject, deleteProject, updateProject,
+        projects, issues, addProject, deleteProject, updateProject, messages
     } = useProjects();
 
     return (
@@ -21,7 +21,8 @@ export default function AllRoutes() {
                                                              deleteProject={deleteProject}
                                                              addProject={addProject}
                                                              projects={projects}/>}/>
-                <Route path={"/messages"} element={<MessageShow/>}/>
+
+                <Route path={"/messages"} element={<MessageShow messages={messages}/>}/>
 
             </Routes>
         </>

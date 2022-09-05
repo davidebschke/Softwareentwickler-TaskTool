@@ -1,12 +1,16 @@
 import * as React from 'react';
 import {Avatar, Divider, List, ListItem, ListItemAvatar, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
+import {Messages} from "./Messages";
 
 
-type MessageProps = {}
+type MessageProps = {
+
+    messages: Messages[],
+}
 
 
-export default function MessageShow() {
+export default function MessageShow(props: MessageProps) {
     return (
         <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
             <ListItem alignItems="flex-start">
