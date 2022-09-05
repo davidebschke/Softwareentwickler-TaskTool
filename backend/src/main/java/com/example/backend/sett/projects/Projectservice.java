@@ -39,6 +39,6 @@ public class Projectservice {
     }
 
     public Project updateProject(Project project) {
-        return projectrepo.save(new Project(project.id, project.projectName, project.creator, project.createdAt));
+        return projectrepo.save(new Project(project.id, project.projectName, project.creator, project.created_at));
     }
 }

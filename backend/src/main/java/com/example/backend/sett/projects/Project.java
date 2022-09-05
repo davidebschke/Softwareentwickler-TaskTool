@@ -18,6 +18,6 @@ public class Project {
     @NotNull
     String creator;
     @NotNull
-    String createdAt;
+    String created_at;
 
 }
