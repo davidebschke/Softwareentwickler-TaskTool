@@ -16,10 +16,6 @@ public class MessageService {
         return messageRepo.findAll();
     }
 
-    public String getRandomId() {
-        return UUID.randomUUID().toString();
-    }
-
     public boolean deleteMessage(String id) {
         if (messageRepo.existsById(id)) {
             messageRepo.deleteById(id);
