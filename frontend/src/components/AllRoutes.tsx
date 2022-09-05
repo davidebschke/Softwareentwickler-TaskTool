@@ -3,12 +3,15 @@ import useProjects from "./useProjects";
 import Home from "./Home";
 import ProjectsShow from "./ProjectsShow";
 import MessageShow from "./MessageShow";
+import useMessages from "./useMessages";
 
 export default function AllRoutes() {
 
     const {
-        projects, issues, addProject, deleteProject, updateProject, messages
+        projects, issues, addProject, deleteProject, updateProject,
     } = useProjects();
+
+    const {messages} = useMessages();
 
     return (
         <>
@@ -21,9 +24,7 @@ export default function AllRoutes() {
                                                              deleteProject={deleteProject}
                                                              addProject={addProject}
                                                              projects={projects}/>}/>
-
                 <Route path={"/messages"} element={<MessageShow messages={messages}/>}/>
-
             </Routes>
         </>
     )

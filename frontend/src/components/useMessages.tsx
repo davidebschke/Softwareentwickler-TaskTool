@@ -16,11 +16,7 @@ export default function useMessages() {
             .then((response) => response.data)
             .then(setMessages)
     }
-
-    return (
-
+    return {
         messages
-
-
-    )
+    }
 }
