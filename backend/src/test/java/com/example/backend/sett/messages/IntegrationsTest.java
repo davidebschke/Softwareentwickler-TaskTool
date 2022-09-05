@@ -1,6 +1,5 @@
 package com.example.backend.sett.messages;
 
-import com.example.backend.sett.githubstatus.OneIssue;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +56,7 @@ public class IntegrationsTest {
 
         mockMvc.perform(delete("/stt/messages/" + id))
                 .andExpect(status().is(404));
-        
+
         assertThat(testBoolean).isEqualTo(true);
     }
 }
