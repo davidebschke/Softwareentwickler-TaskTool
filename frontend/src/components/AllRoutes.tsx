@@ -2,6 +2,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import useProjects from "./useProjects";
 import Home from "./Home";
 import ProjectsShow from "./ProjectsShow";
+import MessageShow from "./MessageShow";
 
 export default function AllRoutes() {
 
@@ -17,9 +18,11 @@ export default function AllRoutes() {
                 }/>
                 <Route path={"/home"} element={<Home/>}/>
                 <Route path={"/sett"} element={<ProjectsShow issues={issues} updateProjectForm={updateProject}
-                                                                 deleteProject={deleteProject}
-                                                                 addProject={addProject}
-                                                                 projects={projects}/>}/>
+                                                             deleteProject={deleteProject}
+                                                             addProject={addProject}
+                                                             projects={projects}/>}/>
+                <Route path={"/messages"} element={<MessageShow/>}/>
+
             </Routes>
         </>
     )
