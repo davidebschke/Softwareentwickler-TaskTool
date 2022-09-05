@@ -11,11 +11,9 @@ import static org.mockito.Mockito.when;
 public class ServiceTest {
 
     List<OneMessage> messageList = List.of(
-
             new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop"),
             new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop"),
             new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop")
-
     );
 
     private final MessageRepo messageRepo = mock(MessageRepo.class);
@@ -25,7 +23,6 @@ public class ServiceTest {
 
     @Test
     void getMessages() {
-
         when(messageRepo.findAll()).thenReturn(messageList);
         List<OneMessage> actual = messageService.getMessages();
         Assertions.assertArrayEquals(messageList.toArray(), actual.toArray());

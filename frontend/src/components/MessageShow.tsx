@@ -48,11 +48,8 @@ export default function MessageShow(props: MessageProps) {
                     </>
                 )
             })
-
             }
-
             <Button> Neue Nachricht </Button>
         </List>
-
     );
 }
