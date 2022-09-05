@@ -24,4 +24,5 @@ public class OneMessage {
     @NotNull
     String message;
     String title;
+
 }
