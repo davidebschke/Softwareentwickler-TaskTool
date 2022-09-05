@@ -17,7 +17,7 @@ public class MessageController {
     }
 
     @GetMapping
-    public List<Onemessage> listMessages() {
+    public List<OneMessage> listMessages() {
         return messageService.getMessages();
     }
 }

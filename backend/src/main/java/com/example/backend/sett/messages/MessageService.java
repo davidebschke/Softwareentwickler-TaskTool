@@ -12,7 +12,7 @@ public class MessageService {
 
     MessageRepo messageRepo;
 
-    public List<Onemessage> getMessages() {
+    public List<OneMessage> getMessages() {
         return messageRepo.findAll();
     }
 
