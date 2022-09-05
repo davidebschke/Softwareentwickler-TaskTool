@@ -1,9 +1,5 @@
 package com.example.backend.sett.projects;
 
-import com.example.backend.sett.projects.NewProject;
-import com.example.backend.sett.projects.Project;
-import com.example.backend.sett.projects.Projectrepo;
-import com.example.backend.sett.projects.Projectservice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +37,7 @@ class ProjectserviceTest {
         Project actual = projectservice.addProject(new NewProject(
                 project.projectName,
                 project.creator,
-                project.createdAt));
+                project.created_at));
 
         Assertions.assertEquals(actual, project);
     }

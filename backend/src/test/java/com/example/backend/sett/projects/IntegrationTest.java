@@ -92,22 +92,22 @@ class IntegrationTest {
                 .content("""
                         {"projectName":"Shop",
                         "creator":"Gustaf",
-                        "createdAt":"2020-01-01"}
+                        "created_at":"2020-01-01"}
                         """)
         ).andReturn().getResponse().getContentAsString();
 
         Project saveResultProject = objectMapper.readValue(saveResult, Project.class);
 
          mockMvc.perform(put("/stt/projects").contentType(MediaType.APPLICATION_JSON).content("""
-                        {"id":"<ID>",
-                        "projectName":"Aligator",
-                        "creator":"Frans",
-                        "createdAt":"2022-01-01"}
-                """.replaceFirst("<ID>",saveResultProject.id))).andExpect(status().isOk()).andExpect(content().json("""
-                        {"id":"<ID>",
-                        "projectName":"Aligator",
-                        "creator":"Frans",
-                        "createdAt":"2022-01-01"}
-                """.replaceFirst("<ID>",saveResultProject.id)));
+                         {"id":"<ID>",
+                         "projectName":"Aligator",
+                         "creator":"Frans",
+                         "created_at":"2022-01-01"}
+                 """.replaceFirst("<ID>",saveResultProject.id))).andExpect(status().isOk()).andExpect(content().json("""
+                         {"id":"<ID>",
+                         "projectName":"Aligator",
+                         "creator":"Frans",
+                         "created_at":"2022-01-01"}
+                 """.replaceFirst("<ID>",saveResultProject.id)));
     }
 }
