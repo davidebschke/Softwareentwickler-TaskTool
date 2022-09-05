@@ -42,7 +42,7 @@ public class IntegrationsTest {
 
         messageRepo.save(TestObject);
         String id = TestObject.id;
-        
+
         if (messageRepo.existsById(TestObject.id)) {
             mockMvc.perform(delete("/stt/messages/" + id))
                     .andExpect(status().is(204));
@@ -54,6 +54,10 @@ public class IntegrationsTest {
                 .andExpect(content().json("""
                         []
                         """));
+
+        mockMvc.perform(delete("/stt/messages/" + id))
+                .andExpect(status().is(404));
+        
         assertThat(testBoolean).isEqualTo(true);
     }
 }
