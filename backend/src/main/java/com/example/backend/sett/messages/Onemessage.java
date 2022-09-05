@@ -22,5 +22,4 @@ public class Onemessage {
     String projectName;
     @NotNull
     String sendDate;
-
 }

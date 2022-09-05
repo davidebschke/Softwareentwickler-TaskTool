@@ -19,5 +19,4 @@ public class MessageService {
     public String getRandomId() {
         return UUID.randomUUID().toString();
     }
-
 }
