@@ -39,9 +39,10 @@ public class IntegrationsTest {
         messageRepo.save(TestObject);
         String id = TestObject.id;
 
-        messageRepo.existsById(TestObject.id);
-        mockMvc.perform(delete("/stt/messages/" + id))
-                .andExpect(status().is(204));
+        if (messageRepo.existsById(TestObject.id)) {
+            mockMvc.perform(delete("/stt/messages/" + id))
+                    .andExpect(status().is(204));
+        }
 
         mockMvc.perform(get("/stt/messages"))
                 .andExpect(status().is(200))
