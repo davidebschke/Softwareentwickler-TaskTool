@@ -34,8 +34,8 @@ public class MessageService {
     }
 
     public OneMessage addMessage(NewMessage newMessage) {
-
-        return messageRepo.save(new OneMessage(newMessage.number,
+        return messageRepo.save(new OneMessage(
+                newMessage.number,
                 newMessage.sender,
                 newMessage.receiver,
                 newMessage.projectName,
