@@ -1,6 +1,7 @@
 import {Messages} from "./Messages";
 import axios from "axios";
 import {useEffect, useState} from "react";
+import {NewMessage} from "./NewMessage"
 
 export default function useMessages() {
 
@@ -20,8 +21,18 @@ export default function useMessages() {
             .then((response) => response.status)
             .then(getAllMessages)
     }
+    const addMessage = (newMessage: NewMessage) => {
+
+        return axios.post("/stt/messages", newMessage)
+            .then((response) => {
+                    getAllMessages()
+                    return response.data
+                }
+            );
+    }
     return {
         messages,
-        deleteMessage
+        deleteMessage,
+        addMessage
     }
 }

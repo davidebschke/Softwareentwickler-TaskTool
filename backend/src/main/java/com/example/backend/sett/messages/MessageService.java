@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
 public class MessageService {
-
     MessageRepo messageRepo;
 
     public List<OneMessage> getMessages() {
@@ -26,5 +26,22 @@ public class MessageService {
 
             return false;
         }
+    }
+
+    public String getRandomId() {
+        return UUID.randomUUID().toString();
+    }
+
+    public OneMessage addMessage(NewMessage newMessage) {
+        return messageRepo.save(new OneMessage(
+                getRandomId(),
+                newMessage.number,
+                newMessage.sender,
+                newMessage.receiver,
+                newMessage.projectName,
+                newMessage.created_at,
+                newMessage.message,
+                newMessage.title
+        ));
     }
 }

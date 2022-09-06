@@ -1,12 +1,10 @@
 package com.example.backend.sett.messages;
 
-import org.assertj.core.internal.bytebuddy.dynamic.DynamicType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalLong;
 
 import static org.mockito.Mockito.*;
 
@@ -39,5 +37,17 @@ public class ServiceTest {
 
         messageService.deleteMessage(oneMessage.id);
         verify(messageRepo).deleteById(oneMessage.id);
+    }
+
+    @Test
+    void addMessageTest() {
+
+        // given
+        OneMessage oneMessage = new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop");
+        NewMessage newMessage = new NewMessage("1", "David", "Hans", "Shop", "2010-08-08", "Hallo Welt", "Info");
+        when(messageRepo.save(any())).thenReturn(oneMessage);
+        //when
+        OneMessage actual = messageService.addMessage(newMessage);
+        Assertions.assertEquals(oneMessage.sender, actual.sender);
     }
 }

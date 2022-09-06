@@ -2,10 +2,13 @@ import * as React from 'react';
 import {Avatar, Button, Divider, List, ListItem, ListItemAvatar, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import {Messages} from "./Messages";
+import {NewMessage} from "./NewMessage";
+import AddMessages from "./AddMessages";
 
 type MessageProps = {
     messages: Messages[],
     deleteMessage: (id: string) => Promise<void>
+    addMessage: (newMessage: NewMessage) => Promise<Messages>,
 }
 export default function MessageShow(props: MessageProps) {
     return (
@@ -49,7 +52,7 @@ export default function MessageShow(props: MessageProps) {
                 )
             })
             }
-            <Button> Neue Nachricht </Button>
+            {<AddMessages addMessage={props.addMessage}/>}
         </List>
     );
 }

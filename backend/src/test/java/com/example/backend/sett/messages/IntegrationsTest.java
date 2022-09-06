@@ -5,14 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -55,4 +53,24 @@ public class IntegrationsTest {
         mockMvc.perform(delete("/stt/messages/" + id))
                 .andExpect(status().is(404));
     }
+
+    @DirtiesContext
+    @Test
+    void addMessage() throws Exception {
+        mockMvc.perform(post(
+                        "/stt/messages")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"title": "Shop"}
+                                """)
+                )
+                .andExpect(status().is(201))
+                .andExpect(content().json("""
+                        {
+                                "title": "Shop"
+                                }
+                        """));
+
+    }
 }
+

@@ -26,4 +26,10 @@ public class MessageController {
         boolean deleteSuccess = messageService.deleteMessage(id);
         return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
     }
+
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public OneMessage addMessage(@RequestBody NewMessage newMessage) {
+        return messageService.addMessage(newMessage);
+    }
 }
