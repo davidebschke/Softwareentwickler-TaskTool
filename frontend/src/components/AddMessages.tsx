@@ -106,9 +106,9 @@ export default function AddMessages(props: addProjectProps) {
                 noValidate
                 autoComplete="off"
             >
-                <Button onClick={handleClickOpen}
-                        sx={{backgroundColor: '#455d7a'}}>
-                    New Project
+                <Button variant={'contained'} size={'small'} onClick={handleClickOpen}
+                        sx={{backgroundColor: '#051e25', color: 'white'}}>
+                    New Message
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
                     <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>

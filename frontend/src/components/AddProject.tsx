@@ -96,6 +96,7 @@ export default function AddProject(props: addProjectProps) {
                             autoFocus
                             margin="dense"
                             label="Erstellt am"
+                            hiddenLabel={true}
                             type="date"
                             fullWidth
                             variant="standard"

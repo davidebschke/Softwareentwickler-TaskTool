@@ -120,7 +120,12 @@ export default function Header() {
                             {pages.map((page) => (
                                <a href={'/#/'+page.toLowerCase()} key={page}> <Button
                                    onClick={handleCloseNavMenu}
-                                   sx={{my: 2, color: 'var(--HeaderAndFootercolor);', display: 'block'}}
+                                   sx={{
+                                       my: 2,
+                                       color: 'var(--HeaderAndFootercolor);',
+                                       display: 'block',
+                                       fontSize: 'medium'
+                                   }}
                                 >
                                     {page}
                                 </Button></a>
