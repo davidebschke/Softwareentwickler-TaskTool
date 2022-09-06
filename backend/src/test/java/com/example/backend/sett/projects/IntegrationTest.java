@@ -1,7 +1,6 @@
 package com.example.backend.sett.projects;
 
 
-import com.example.backend.sett.projects.Project;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,8 +61,6 @@ class IntegrationTest {
 
         Project saveResultProject = objectMapper.readValue(saveResult, Project.class);
         String id = saveResultProject.id;
-
-        System.out.println(id + "Hallo");
 
         mockMvc.perform(delete("http://localhost:8080/stt/projects").content("""
                         ["<ID>"]

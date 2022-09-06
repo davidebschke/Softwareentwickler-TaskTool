@@ -5,6 +5,7 @@ import {Messages} from "./Messages";
 
 type MessageProps = {
     messages: Messages[],
+    deleteMessage: (id: string) => Promise<void>
 }
 export default function MessageShow(props: MessageProps) {
     return (
@@ -18,7 +19,7 @@ export default function MessageShow(props: MessageProps) {
         }}>
             {props.messages.map((message) => {
                 return (
-                    <>
+                    <div key={message.id}>
                         <ListItem alignItems="flex-start"
                                   sx={{backgroundColor: '#606470', borderRadius: '2em', marginBottom: '1em',}}>
                             <ListItemAvatar>
@@ -34,18 +35,17 @@ export default function MessageShow(props: MessageProps) {
                                             variant="body2"
                                             color="text.primary"
                                         >
-                                            <p> Absender: {message.sender}</p>
-                                            <p> Empfänger: {message.receiver}</p>
-                                            <p> Empfangen am: {message.created_at}</p>
                                         </Typography>
+                                        <p> Absender: {message.sender} , Empfänger: {message.receiver} , Empfangen
+                                            am: {message.created_at}</p>
                                         <p className={'message'}>{message.message}</p>
-                                        <Button> Löschen </Button>
+                                        <Button onClick={() => props.deleteMessage(message.id)}> Löschen </Button>
                                     </React.Fragment>
                                 }
                             />
                         </ListItem>
                         <Divider variant="inset" component="li"/>
-                    </>
+                    </div>
                 )
             })
             }

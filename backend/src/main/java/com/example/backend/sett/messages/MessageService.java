@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -16,7 +15,16 @@ public class MessageService {
         return messageRepo.findAll();
     }
 
-    public String getRandomId() {
-        return UUID.randomUUID().toString();
+    public boolean deleteMessage(String id) {
+
+        messageRepo.findById(id).orElseThrow(() -> new NotDeleteException(id));
+
+        if (messageRepo.existsById(id)) {
+            messageRepo.deleteById(id);
+            return true;
+        } else {
+
+            return false;
+        }
     }
 }
