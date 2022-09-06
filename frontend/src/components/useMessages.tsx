@@ -3,7 +3,6 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import {NewMessage} from "./NewMessage"
 
-
 export default function useMessages() {
 
     const [messages, setMessages] = useState<Messages[]>([]);

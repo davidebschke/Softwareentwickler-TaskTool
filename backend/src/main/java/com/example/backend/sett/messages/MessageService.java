@@ -9,7 +9,6 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class MessageService {
-
     MessageRepo messageRepo;
 
     public List<OneMessage> getMessages() {

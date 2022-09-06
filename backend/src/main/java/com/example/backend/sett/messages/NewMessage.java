@@ -21,5 +21,4 @@ public class NewMessage {
     @NotNull
     String message;
     String title;
-
 }
