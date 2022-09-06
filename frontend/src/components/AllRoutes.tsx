@@ -11,7 +11,7 @@ export default function AllRoutes() {
         projects, issues, addProject, deleteProject, updateProject,
     } = useProjects();
 
-    const {messages, deleteMessage} = useMessages();
+    const {messages, deleteMessage, addMessage} = useMessages();
 
     return (
         <>
