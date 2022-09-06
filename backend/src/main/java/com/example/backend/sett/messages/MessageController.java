@@ -3,6 +3,7 @@ package com.example.backend.sett.messages;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Sinks;
 
 import java.util.List;
 
@@ -25,5 +26,11 @@ public class MessageController {
     public ResponseEntity<Void> deleteMessage(@PathVariable String id) {
         boolean deleteSuccess = messageService.deleteMessage(id);
         return new ResponseEntity<>(deleteSuccess ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public OneMessage addMessage(@RequestBody NewMessage newMessage) {
+        return messageService.addMessage(newMessage);
     }
 }
