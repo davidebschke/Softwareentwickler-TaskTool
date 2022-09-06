@@ -16,10 +16,13 @@ public class MessageService {
     }
 
     public boolean deleteMessage(String id) {
+
         if (messageRepo.existsById(id)) {
             messageRepo.deleteById(id);
             return true;
+        } else {
+            messageRepo.findById(id).orElseThrow(() -> new NotDeleteException(id));
+            return false;
         }
-        return false;
     }
 }
