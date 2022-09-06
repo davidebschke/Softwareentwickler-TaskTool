@@ -8,16 +8,16 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
-public class ServiceTest {
+ class ServiceTest {
 
-    List<OneMessage> messageList = List.of(
-            new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop"),
-            new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop"),
-            new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop")
-    );
+     List<OneMessage> messageList = List.of(
+             new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop"),
+             new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop"),
+             new OneMessage("0", "2", "David", "Alf", "STT", "2022-09-09", "Hallo ", "Shop")
+     );
 
-    private final MessageRepo messageRepo = mock(MessageRepo.class);
-    private final MessageService messageService = new MessageService(messageRepo);
+     private final MessageRepo messageRepo = mock(MessageRepo.class);
+     private final MessageService messageService = new MessageService(messageRepo);
 
 
     @Test
