@@ -24,7 +24,8 @@ export default function AllRoutes() {
                                                              deleteProject={deleteProject}
                                                              addProject={addProject}
                                                              projects={projects}/>}/>
-                <Route path={"/messages"} element={<MessageShow messages={messages} deleteMessage={deleteMessage}/>}/>
+                <Route path={"/messages"} element={<MessageShow messages={messages} deleteMessage={deleteMessage}
+                                                                addMessage={addMessage}/>}/>
             </Routes>
         </>
     )
