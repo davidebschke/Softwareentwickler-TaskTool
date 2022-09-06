@@ -35,27 +35,46 @@ export default function MessageShow(props: MessageProps) {
                             <ListItemAvatar>
                                 <Avatar alt="MessageIcon" src="../envelope.svg"/>
                             </ListItemAvatar>
-                            <ListItemText sx={{}}
-                                          primary={"Title: " + message.title + "   " + 'Absender: ' + message.sender}
+                            <ListItemText sx={{color: 'white'}}
+                                          primary={"Title: " + message.title}
                                           secondary={
                                               <React.Fragment>
+                                                  <Typography
+                                                      sx={{display: 'flex', color: '#E5E7EB'}}
+                                                      component="span"
+                                                      variant="subtitle1"
+                                                      color="text.primary"
+                                                  >{'Absender: ' + message.sender}
+                                                  </Typography>
+
+                                                  <Typography
+                                                      sx={{display: 'flex', color: '#E5E7EB'}}
+                                                      component="span"
+                                                      variant="subtitle2"
+                                                      color="text.primary"
+                                                  >{'Empfänger:' + message.receiver}
+                                                  </Typography>
+                                                  <Typography
+                                                      sx={{display: 'flex', color: '#E5E7EB'}}
+                                                      component="span"
+                                                      variant="subtitle2"
+                                                      color="text.primary"
+                                                  >
+                                                  </Typography>
                                                   <Typography
                                                       sx={{display: 'inline', color: '#E5E7EB'}}
                                                       component="span"
                                                       variant="body2"
                                                       color="text.primary"
                                                   >
+                                                      {message.message}
                                                   </Typography>
-                                                  <p> Absender: {message.sender} , Empfänger: {message.receiver} ,
-                                                      Empfangen
-                                            am: {message.created_at}</p>
-                                                  <p className={'message'}>{message.message}</p>
-                                                  <Button sx={{backgroundColor: '#051e25', color: 'white'}}
-                                                          variant={'contained'} size={'small'}
-                                                          onClick={() => props.deleteMessage(message.id)}> Löschen </Button>
-                                    </React.Fragment>
-                                }
-                            />
+                                              </React.Fragment>
+                                          }/>
+                            {(<Button sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                      variant={'contained'} size={'small'}
+                                      onClick={() => props.deleteMessage(message.id)}> Löschen </Button>)}
+
                         </ListItem>
                         <Divider variant="inset" component="li"/>
                     </div>
