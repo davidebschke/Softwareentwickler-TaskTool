@@ -3,7 +3,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: var(--structure_background);
+    background: var(--footerHeaderBackground);
     height: auto;
     width: 100vw;
     padding-top: 20px;

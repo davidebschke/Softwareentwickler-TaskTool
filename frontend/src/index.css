@@ -1,9 +1,12 @@
 :root {
-    --footer_Header_color: ghostwhite;
-    --table_content_color: #E5E7EB;
-    --table_Head_color: white;
-    --background_body: #9CA3AF;
-    --structure_background: #111827;
+    --footerHeaderBackground: #0c303f;
+    --TableHeadBackground: #0c303f;
+    --TableBodyMessageBackground: #299ac9;
+    --HomeCentralColor: #1a607f;
+    --HomeCentralSecondColor: #2bc9c8;
+    --HeaderAndFootercolor: ghostwhite;
+    --Background: #abe1eb;
+    --ButtonColor: #051e25;
 }
 
 body {
@@ -25,7 +28,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 80vh;
-    background-color: var(--background_body);
+    background-color: var(--Background);
     overflow: hidden;
 }
 

@@ -80,7 +80,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button sx={{backgroundColor: '#455d7a'}} variant="contained"
+                    <Button sx={{backgroundColor: 'var( --ButtonColor)'}} variant="contained"
                             onClick={handleClickOpen}>
                         Update
                     </Button>

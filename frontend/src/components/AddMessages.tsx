@@ -59,19 +59,19 @@ export default function AddMessages(props: addProjectProps) {
 
     const onProjectSubmit = () => {
         if (!number) {
-            toast.error("Nummer muss gesetzt sein")
+            toast.error("Die Nummer muss gesetzt sein")
         } else if (!title) {
-            toast.error("title muss gesetzt sein")
+            toast.error("Der Titel muss gesetzt sein")
         } else if (!created_at) {
-            toast.error("Erstellungsdatum muss gesetzt sein")
+            toast.error("Das Erstellungsdatum muss gesetzt sein")
         } else if (!message) {
-            toast.error("Sie müssen eine Nachricht eingeben")
+            toast.error("Die Nachricht muss eigegeben werden")
         } else if (!receiver) {
-            toast.error("Empfänger muss gesetzt sein")
+            toast.error("Der Empfänger muss gesetzt sein")
         } else if (!sender) {
-            toast.error("Absender muss gesetzt sein")
+            toast.error("Der Absender muss gesetzt sein")
         } else if (!projectName) {
-            toast.error("Projektname muss gesetzt sein")
+            toast.error("Der Projektname muss gesetzt sein")
         } else {
             props.addMessage({number, title, created_at, message, receiver, sender, projectName})
                 .then(() => {
@@ -138,7 +138,7 @@ export default function AddMessages(props: addProjectProps) {
                             autoFocus
                             margin="dense"
                             label="Erstellt am"
-                            type="text"
+                            type="date"
                             fullWidth
                             variant="standard"
                             onChange={onMessageCreatedAtChange}

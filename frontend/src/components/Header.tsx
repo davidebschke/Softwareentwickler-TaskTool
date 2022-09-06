@@ -35,7 +35,10 @@ export default function Header() {
 
         return (
             <AppBar position="static" sx={{
-                backgroundColor: 'var(--structure_background);', borderStyle: 'inset', borderColor: 'var(--structure_background);', color: 'var(--footer_Header_color);'
+                backgroundColor: 'var(--footerHeaderBackground);',
+                borderStyle: 'inset',
+                borderColor: 'var(--structure_background);',
+                color: 'var(--HeaderAndFootercolor);'
             }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
@@ -116,8 +119,8 @@ export default function Header() {
                         <Box sx={{flexGrow: 1,display: {xs: 'none', md: 'flex'}}}>
                             {pages.map((page) => (
                                <a href={'/#/'+page.toLowerCase()} key={page}> <Button
-                                    onClick={handleCloseNavMenu}
-                                    sx={{my: 2, color: 'var(--footer_Header_color);', display: 'block'}}
+                                   onClick={handleCloseNavMenu}
+                                   sx={{my: 2, color: 'var(--HeaderAndFootercolor);', display: 'block'}}
                                 >
                                     {page}
                                 </Button></a>

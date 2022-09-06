@@ -65,12 +65,12 @@ export default function AddProject(props: addProjectProps) {
                 autoComplete="off"
             >
                 <Button onClick={handleClickOpen}
-                         sx={{backgroundColor: '#455d7a'}}>
+                        sx={{backgroundColor: 'var( --ButtonColor)'}}>
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle sx={{backgroundColor:'#9CA3AF'}}>Änderung des Projects</DialogTitle>
-                    <DialogContent sx={{backgroundColor:'#9CA3AF'}}>
+                    <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>
+                    <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
                         <DialogContentText>
                             Please enter here your new Project
                         </DialogContentText>
@@ -96,7 +96,7 @@ export default function AddProject(props: addProjectProps) {
                             autoFocus
                             margin="dense"
                             label="Erstellt am"
-                            type="text"
+                            type="date"
                             fullWidth
                             variant="standard"
                             onChange={onProjectCreatedAtChange}
