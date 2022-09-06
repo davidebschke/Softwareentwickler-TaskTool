@@ -23,7 +23,6 @@ public class ProjectController {
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
     public Project addProject(@RequestBody NewProject newProject) {
-
         return projectservice.addProject(newProject);
     }
 

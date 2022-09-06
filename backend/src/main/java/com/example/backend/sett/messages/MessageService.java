@@ -35,13 +35,14 @@ public class MessageService {
 
     public OneMessage addMessage(NewMessage newMessage) {
         return messageRepo.save(new OneMessage(
+                getRandomId(),
                 newMessage.number,
                 newMessage.sender,
                 newMessage.receiver,
                 newMessage.projectName,
                 newMessage.created_at,
                 newMessage.message,
-                newMessage.title,
-                getRandomId()));
+                newMessage.title
+        ));
     }
 }

@@ -61,8 +61,7 @@ public class IntegrationsTest {
                         "/stt/messages")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
-                                {"title": "Shop"
-                                }
+                                {"title": "Shop"}
                                 """)
                 )
                 .andExpect(status().is(201))
