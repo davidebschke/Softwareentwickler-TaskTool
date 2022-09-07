@@ -96,7 +96,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 label="Projectname"
                                 type="text"
                                 fullWidth
-                                defaultValue={projectName}
                                 variant="standard"
                                 onChange={onProjectNameChange}
                             />
@@ -106,7 +105,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 label="Projeccreator"
                                 type="text"
                                 fullWidth
-                                defaultValue={creator}
                                 variant="standard"
                                 onChange={onProjectMemberChange}
                             />
@@ -114,9 +112,8 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 autoFocus
                                 margin="dense"
                                 label="Erstellt am"
-                                type="text"
+                                type="date"
                                 fullWidth
-                                defaultValue={created_at}
                                 variant="standard"
                                 onChange={onCreatedAtChange}
                             />
