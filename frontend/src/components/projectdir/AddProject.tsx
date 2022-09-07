@@ -81,7 +81,7 @@ export default function AddProject(props: addProjectProps) {
                             type="text"
                             value={projectName}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onProjectNameChange}
                         />
                         <TextField
@@ -91,7 +91,7 @@ export default function AddProject(props: addProjectProps) {
                             type="text"
                             value={creator}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onCreatorChange}
                         />
                         <TextField
@@ -101,7 +101,7 @@ export default function AddProject(props: addProjectProps) {
                             type="date"
                             value={created_at}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onProjectCreatedAtChange}
                         />
                     </DialogContent>

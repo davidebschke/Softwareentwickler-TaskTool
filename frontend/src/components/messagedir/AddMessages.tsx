@@ -134,7 +134,7 @@ export default function AddMessages(props: addProjectProps) {
                             type="text"
                             value={title}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageTitleChange}
                         />
                         <TextField
@@ -144,7 +144,7 @@ export default function AddMessages(props: addProjectProps) {
                             type="date"
                             value={created_at}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageCreatedAtChange}
                         />
                         <TextareaAutosize
@@ -163,7 +163,7 @@ export default function AddMessages(props: addProjectProps) {
                             type="text"
                             value={receiver}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageReceiverChange}
                         />
                         <TextField
@@ -173,7 +173,7 @@ export default function AddMessages(props: addProjectProps) {
                             type="text"
                             value={sender}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageSenderChange}
                         />
                         <TextField
@@ -184,7 +184,7 @@ export default function AddMessages(props: addProjectProps) {
                             value={projectName}
                             defaultValue={''}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageProjectNameChange}
                         />
                     </DialogContent>

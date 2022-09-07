@@ -96,7 +96,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 label="Projectname"
                                 type="text"
                                 fullWidth
-                                variant="standard"
+                                variant="outlined"
                                 onChange={onProjectNameChange}
                             />
                             <TextField
@@ -105,7 +105,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 label="Projeccreator"
                                 type="text"
                                 fullWidth
-                                variant="standard"
+                                variant="outlined"
                                 onChange={onProjectMemberChange}
                             />
                             <TextField
@@ -114,7 +114,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 label="Erstellt am"
                                 type="date"
                                 fullWidth
-                                variant="standard"
+                                variant="outlined"
                                 onChange={onCreatedAtChange}
                             />
                         </DialogContent>
