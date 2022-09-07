@@ -1,9 +1,9 @@
 import {Navigate, Route, Routes} from "react-router-dom";
-import useProjects from "./useProjects";
+import useProjects from "./projectdir/useProjects";
 import Home from "./Home";
-import ProjectsShow from "./ProjectsShow";
-import MessageShow from "./MessageShow";
-import useMessages from "./useMessages";
+import ProjectsShow from "./projectdir/ProjectsShow";
+import MessageShow from "./messagedir/MessageShow";
+import useMessages from "./messagedir/useMessages";
 
 export default function AllRoutes() {
 

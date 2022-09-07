@@ -5,9 +5,9 @@ import {NewProject} from "./NewProject";
 import Box from '@mui/material/Box';
 import {GridColDef, GridRowId,} from '@mui/x-data-grid-premium';
 
-import "../index.css"
+import "../../index.css"
 import "./projectshow.css";
-import {Issue} from "./Issue";
+import {Issue} from "../githubdir/Issue";
 import {DataGrid} from "@mui/x-data-grid";
 import {Button, ButtonGroup,} from '@mui/material';
 import AddProject from "./AddProject";
