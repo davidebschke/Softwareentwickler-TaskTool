@@ -86,6 +86,7 @@ export default function AddMessages(props: addProjectProps) {
                 .then(() => toast.success("Nachricht wurde erstellt", {theme: "light"}))
                 .catch(() => toast.error("Nachricht konnte nicht erstellt werden", {theme: "light"}))
         }
+
     }
 
     const [open, setOpen] = React.useState(false);
@@ -121,6 +122,7 @@ export default function AddMessages(props: addProjectProps) {
                             margin="dense"
                             label="Number"
                             type="text"
+                            value={number}
                             fullWidth
                             variant="standard"
                             onChange={onMessageNumberChange}
@@ -130,6 +132,7 @@ export default function AddMessages(props: addProjectProps) {
                             margin="dense"
                             label="Title"
                             type="text"
+                            value={title}
                             fullWidth
                             variant="standard"
                             onChange={onMessageTitleChange}
@@ -139,6 +142,7 @@ export default function AddMessages(props: addProjectProps) {
                             margin="dense"
                             label="Erstellt am"
                             type="date"
+                            value={created_at}
                             fullWidth
                             variant="standard"
                             onChange={onMessageCreatedAtChange}
@@ -148,15 +152,16 @@ export default function AddMessages(props: addProjectProps) {
                             placeholder="Empty"
                             minRows={5}
                             style={{width: 545}}
+                            value={message}
                             defaultValue={"Bitte hier ihre Nachricht eingeben"}
                             onChange={onMessageMessageChange}
-
                         />
                         <TextField
                             autoFocus
                             margin="dense"
                             label="Empfänger"
                             type="text"
+                            value={receiver}
                             fullWidth
                             variant="standard"
                             onChange={onMessageReceiverChange}
@@ -166,6 +171,7 @@ export default function AddMessages(props: addProjectProps) {
                             margin="dense"
                             label="Sender"
                             type="text"
+                            value={sender}
                             fullWidth
                             variant="standard"
                             onChange={onMessageSenderChange}
@@ -175,14 +181,21 @@ export default function AddMessages(props: addProjectProps) {
                             margin="dense"
                             label="Projektname"
                             type="text"
+                            value={projectName}
+                            defaultValue={''}
                             fullWidth
                             variant="standard"
                             onChange={onMessageProjectNameChange}
                         />
                     </DialogContent>
                     <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
-                        <Button onClick={handleClose} sx={{color: '#4B5563'}}>Zurück</Button>
-                        <Button onClick={onProjectSubmit} sx={{color: '#4B5563'}}>Speichern</Button>
+                        <Button sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}} size={'small'}
+                                variant='contained' onClick={handleClose}> Zurück</Button>
+                        <Button size={'small'} variant='contained' onClick={onProjectSubmit} sx={{
+                            backgroundColor: '#051e25',
+                            color: 'white',
+                            borderRadius: '2em'
+                        }}>Speichern</Button>
                     </DialogActions>
                 </Dialog>
             </Box>
