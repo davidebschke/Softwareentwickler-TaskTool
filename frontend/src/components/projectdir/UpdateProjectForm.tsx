@@ -119,8 +119,12 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                             />
                         </DialogContent>
                         <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
-                            <Button onClick={handleClose} sx={{color: '#4B5563'}}>Zurück</Button>
-                            <Button onClick={handleUpdate} sx={{color: '#4B5563'}}>Update</Button>
+                            <Button onClick={handleClose}
+                                    sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                    size={'small'}>Zurück</Button>
+                            <Button onClick={handleUpdate}
+                                    sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                    size={'small'}>Update</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

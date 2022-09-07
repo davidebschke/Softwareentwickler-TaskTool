@@ -105,9 +105,13 @@ export default function AddProject(props: addProjectProps) {
                             onChange={onProjectCreatedAtChange}
                         />
                     </DialogContent>
-                    <DialogActions sx={{backgroundColor:'#9CA3AF'}}>
-                        <Button onClick={handleClose} sx={{color:'#4B5563'}}>Zurück</Button>
-                        <Button onClick={onProjectSubmit} sx={{color:'#4B5563'}}>Speichern</Button>
+                    <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
+                        <Button onClick={handleClose}
+                                sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                size={'small'}>Zurück</Button>
+                        <Button onClick={onProjectSubmit}
+                                sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                size={'small'}>Speichern</Button>
                     </DialogActions>
                 </Dialog>
             </Box>
