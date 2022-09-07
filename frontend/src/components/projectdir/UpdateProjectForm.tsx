@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from "react";
 import {Project} from "./Project";
 import Button from "@mui/material/Button";
-import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
+import {Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import {toast} from "react-toastify";
 import {GridRowId} from "@mui/x-data-grid-premium";
 
@@ -85,33 +85,34 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                         Update
                     </Button>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>
+                        <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit'}}>Änderung des
+                            Projects</DialogTitle>
                         <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
-                            <DialogContentText>
-                                Please enter here the new Data
-                            </DialogContentText>
+                            Projektname
                             <TextField
                                 autoFocus
                                 margin="dense"
-                                label="Projectname"
+                                label=""
                                 type="text"
                                 fullWidth
                                 variant="outlined"
                                 onChange={onProjectNameChange}
                             />
+                            Projektersteller
                             <TextField
                                 autoFocus
                                 margin="dense"
-                                label="Projeccreator"
+                                label=""
                                 type="text"
                                 fullWidth
                                 variant="outlined"
                                 onChange={onProjectMemberChange}
                             />
+                            Erstellt am
                             <TextField
                                 autoFocus
                                 margin="dense"
-                                label="Erstellt am"
+                                label=""
                                 type="date"
                                 fullWidth
                                 variant="outlined"
