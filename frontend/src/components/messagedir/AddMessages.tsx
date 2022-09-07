@@ -145,6 +145,7 @@ export default function AddMessages(props: addProjectProps) {
                             autoFocus
                             margin="dense"
                             label=""
+
                             type="date"
                             value={created_at}
                             fullWidth

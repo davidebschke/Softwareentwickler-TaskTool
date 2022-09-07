@@ -26,7 +26,7 @@ public class Projectservice {
                         getRandomId(),
                         newProject.projectName,
                         newProject.creator,
-                        newProject.createdAt
+                        newProject.created_at
                 ));
     }
 

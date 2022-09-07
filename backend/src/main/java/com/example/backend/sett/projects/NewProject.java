@@ -13,5 +13,5 @@ public class NewProject {
     String projectName;
 
     String creator;
-    String createdAt;
+    String created_at;
 }

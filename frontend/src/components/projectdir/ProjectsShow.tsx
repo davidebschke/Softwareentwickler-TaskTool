@@ -12,6 +12,7 @@ import {DataGrid} from "@mui/x-data-grid";
 import {Button, ButtonGroup,} from '@mui/material';
 import AddProject from "./AddProject";
 import UpdateProjectForm from "./UpdateProjectForm";
+import moment from "moment";
 
 type ProjectProps = {
     projects: Project[],
@@ -56,8 +57,11 @@ const columns: GridColDef[] = [
     {
         field: 'created_at',
         headerName: 'Erstellt am',
+        type: "date",
         width: 160,
-        headerClassName: 'super-app-theme--header'
+        headerClassName: 'super-app-theme--header',
+        valueFormatter: params =>
+            moment(params?.value).format("DD.MM.YYYY"),
     },
 ];
 
