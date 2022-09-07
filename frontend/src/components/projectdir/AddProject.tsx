@@ -65,12 +65,12 @@ export default function AddProject(props: addProjectProps) {
                 autoComplete="off"
             >
                 <Button onClick={handleClickOpen}
-                         sx={{backgroundColor: '#455d7a'}}>
+                        sx={{backgroundColor: 'var( --ButtonColor)'}}>
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle sx={{backgroundColor:'#9CA3AF'}}>Änderung des Projects</DialogTitle>
-                    <DialogContent sx={{backgroundColor:'#9CA3AF'}}>
+                    <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>
+                    <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
                         <DialogContentText>
                             Please enter here your new Project
                         </DialogContentText>
@@ -79,6 +79,7 @@ export default function AddProject(props: addProjectProps) {
                             margin="dense"
                             label="Projektname"
                             type="text"
+                            value={projectName}
                             fullWidth
                             variant="standard"
                             onChange={onProjectNameChange}
@@ -88,6 +89,7 @@ export default function AddProject(props: addProjectProps) {
                             margin="dense"
                             label="Creator"
                             type="text"
+                            value={creator}
                             fullWidth
                             variant="standard"
                             onChange={onCreatorChange}
@@ -96,15 +98,20 @@ export default function AddProject(props: addProjectProps) {
                             autoFocus
                             margin="dense"
                             label="Erstellt am"
-                            type="text"
+                            type="date"
+                            value={created_at}
                             fullWidth
                             variant="standard"
                             onChange={onProjectCreatedAtChange}
                         />
                     </DialogContent>
-                    <DialogActions sx={{backgroundColor:'#9CA3AF'}}>
-                        <Button onClick={handleClose} sx={{color:'#4B5563'}}>Zurück</Button>
-                        <Button onClick={onProjectSubmit} sx={{color:'#4B5563'}}>Speichern</Button>
+                    <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
+                        <Button onClick={handleClose}
+                                sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                size={'small'}>Zurück</Button>
+                        <Button onClick={onProjectSubmit}
+                                sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                size={'small'}>Speichern</Button>
                     </DialogActions>
                 </Dialog>
             </Box>

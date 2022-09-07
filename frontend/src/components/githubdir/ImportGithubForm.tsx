@@ -5,13 +5,13 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import {Table, TableCell} from "@mui/material";
 import * as React from "react";
-import {Issue} from "./Issue";
 import TableRow from "@mui/material/TableRow";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import DialogActions from "@mui/material/DialogActions";
 import Paper, {PaperProps} from "@mui/material/Paper";
 import Draggable from "react-draggable";
+import {Issue} from "./Issue";
 
 type showIssuesProps = {
     getAllOpenIssues: (userName: string, RepositoryName: string) => Issue
@@ -19,7 +19,6 @@ type showIssuesProps = {
 }
 
 export default function ImportGithubForm(props: showIssuesProps) {
-
 
     function PaperComponent(props: PaperProps) {
         return (

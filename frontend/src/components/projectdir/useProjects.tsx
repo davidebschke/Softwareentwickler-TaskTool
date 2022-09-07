@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
-import {Issue} from "./Issue";
+import {Issue} from "../githubdir/Issue";
 import {GridRowId} from "@mui/x-data-grid-premium";
 
 export default function UseProjects() {

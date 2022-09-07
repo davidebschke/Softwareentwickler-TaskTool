@@ -80,7 +80,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button sx={{backgroundColor: '#455d7a'}} variant="contained"
+                    <Button sx={{backgroundColor: 'var( --ButtonColor)'}} variant="contained"
                             onClick={handleClickOpen}>
                         Update
                     </Button>
@@ -96,7 +96,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 label="Projectname"
                                 type="text"
                                 fullWidth
-                                defaultValue={projectName}
                                 variant="standard"
                                 onChange={onProjectNameChange}
                             />
@@ -106,7 +105,6 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 label="Projeccreator"
                                 type="text"
                                 fullWidth
-                                defaultValue={creator}
                                 variant="standard"
                                 onChange={onProjectMemberChange}
                             />
@@ -114,16 +112,19 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 autoFocus
                                 margin="dense"
                                 label="Erstellt am"
-                                type="text"
+                                type="date"
                                 fullWidth
-                                defaultValue={created_at}
                                 variant="standard"
                                 onChange={onCreatedAtChange}
                             />
                         </DialogContent>
                         <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
-                            <Button onClick={handleClose} sx={{color: '#4B5563'}}>Zurück</Button>
-                            <Button onClick={handleUpdate} sx={{color: '#4B5563'}}>Update</Button>
+                            <Button onClick={handleClose}
+                                    sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                    size={'small'}>Zurück</Button>
+                            <Button onClick={handleUpdate}
+                                    sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                    size={'small'}>Update</Button>
                         </DialogActions>
                     </Dialog>
                 </div>
