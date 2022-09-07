@@ -79,6 +79,7 @@ export default function AddProject(props: addProjectProps) {
                             margin="dense"
                             label="Projektname"
                             type="text"
+                            value={projectName}
                             fullWidth
                             variant="standard"
                             onChange={onProjectNameChange}
@@ -88,6 +89,7 @@ export default function AddProject(props: addProjectProps) {
                             margin="dense"
                             label="Creator"
                             type="text"
+                            value={creator}
                             fullWidth
                             variant="standard"
                             onChange={onCreatorChange}
@@ -96,8 +98,8 @@ export default function AddProject(props: addProjectProps) {
                             autoFocus
                             margin="dense"
                             label="Erstellt am"
-                            hiddenLabel={true}
                             type="date"
+                            value={created_at}
                             fullWidth
                             variant="standard"
                             onChange={onProjectCreatedAtChange}
