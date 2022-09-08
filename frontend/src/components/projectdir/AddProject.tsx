@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from "react";
 import {Project} from "./Project";
 import Button from "@mui/material/Button";
-import {Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@mui/material";
+import {Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import {toast} from "react-toastify";
 import {NewProject} from "./NewProject";
 
@@ -69,39 +69,40 @@ export default function AddProject(props: addProjectProps) {
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>
+                    <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit'}}>Erstellen des
+                        Projects</DialogTitle>
                     <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
-                        <DialogContentText>
-                            Please enter here your new Project
-                        </DialogContentText>
+                        Projektname
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Projektname"
+                            label=""
                             type="text"
                             value={projectName}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onProjectNameChange}
                         />
+                        Creator
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Creator"
+                            label=""
                             type="text"
                             value={creator}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onCreatorChange}
                         />
+                        Erstellungsdatum
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Erstellt am"
+                            label=""
                             type="date"
                             value={created_at}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onProjectCreatedAtChange}
                         />
                     </DialogContent>

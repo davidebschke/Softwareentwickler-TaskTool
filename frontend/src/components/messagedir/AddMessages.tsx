@@ -13,6 +13,7 @@ import {
 import Button from "@mui/material/Button";
 import {NewMessage} from "./NewMessage";
 import {Messages} from "./Messages";
+import './message.css'
 
 type addProjectProps = {
     addMessage: (newMessage: NewMessage
@@ -117,6 +118,7 @@ export default function AddMessages(props: addProjectProps) {
                         <DialogContentText>
                             Please enter here your new Project
                         </DialogContentText>
+                        Nachrichtnummer
                         <TextField
                             autoFocus
                             margin="dense"
@@ -127,64 +129,69 @@ export default function AddMessages(props: addProjectProps) {
                             variant="standard"
                             onChange={onMessageNumberChange}
                         />
+                        Titel der Nachricht
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Title"
+                            label=""
                             type="text"
                             value={title}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageTitleChange}
                         />
+                        Erstellt am
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Erstellt am"
+                            label=""
+
                             type="date"
                             value={created_at}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageCreatedAtChange}
                         />
+                        Nachricht
                         <TextareaAutosize
                             aria-label="empty textarea"
-                            placeholder="Empty"
+                            placeholder="Bitte hier ihre Nachricht eingeben"
                             minRows={5}
                             style={{width: 545}}
                             value={message}
-                            defaultValue={"Bitte hier ihre Nachricht eingeben"}
                             onChange={onMessageMessageChange}
                         />
+                        Empfänger
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Empfänger"
+                            label=""
                             type="text"
                             value={receiver}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageReceiverChange}
                         />
+                        Absender
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Sender"
+                            label=""
                             type="text"
                             value={sender}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageSenderChange}
                         />
+                        Projektname
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Projektname"
+                            label=""
                             type="text"
                             value={projectName}
-                            defaultValue={''}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageProjectNameChange}
                         />
                     </DialogContent>
