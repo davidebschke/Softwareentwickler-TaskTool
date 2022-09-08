@@ -1,9 +1,11 @@
 package com.example.backend.sett.projects;
 
+import com.example.backend.sett.githubstatus.OneIssue;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @Builder
@@ -13,5 +15,7 @@ public class NewProject {
     String projectName;
 
     String creator;
+
+    List<OneIssue> issues;
     String created_at;
 }

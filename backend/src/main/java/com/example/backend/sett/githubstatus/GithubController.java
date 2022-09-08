@@ -1,9 +1,6 @@
 package com.example.backend.sett.githubstatus;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +14,7 @@ public class GithubController {
         this.githubService = githubService;
     }
 
-    @GetMapping("/{username}/{repositoryName}")
+    @PostMapping("/{username}/{repositoryName}")
     public GithubRepositoryC getAllRepositoryInfos(@PathVariable String username, @PathVariable String repositoryName) {
 
         return githubService.getAllRepositoryInfos(username, repositoryName);

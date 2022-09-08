@@ -1,10 +1,11 @@
 package com.example.backend.sett.githubstatus;
 
+import com.example.backend.sett.projects.Project;
+import com.example.backend.sett.projects.Projectrepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -13,7 +14,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class GithubService {
 
-    GithubRepo githubRepo;
+    Projectrepo projectrepo;
 
     String pieceUri = "https://api.github.com/repos/";
 
@@ -61,6 +62,9 @@ public class GithubService {
         List<RepositoryName> repoName = getRepoName(userName, repositoryName);
         String id = getRandomId();
 
-        return new GithubRepositoryC(id, repoName, allIssues, createdAt);
+        GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repoName, allIssues, createdAt);
+
+        return projectrepo.save(new Project(newGithubRepo.id, newGithubRepo.projectName.get(0), newGithubRepo.issues, newGithubRepo.created_at.get(0)));
     }
 }
+
