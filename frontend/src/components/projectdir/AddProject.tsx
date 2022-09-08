@@ -4,9 +4,10 @@ import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import {toast} from "react-toastify";
 import {NewProject} from "./NewProject";
+import {Issue} from "./Issue";
 
 type addProjectProps = {
-    addProject: (newProject: NewProject
+    addProject: (newProject: { created_at: string; projectName: string; issues: Issue[] }
     ) => Promise<Project>
 }
 
@@ -14,7 +15,8 @@ export default function AddProject(props: addProjectProps) {
 
     const [projectName, setProjectName] = useState<string>("");
     const [created_at, setProjectCreatedAt] = useState<string>("");
-    const[creator,setCreator]= useState<string>("")
+    const [creator, setCreator] = useState<string>("")
+    const [issues, setIssues] = useState<Issue[]>([])
 
     function onProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
         setProjectName(event.target.value)
@@ -23,24 +25,24 @@ export default function AddProject(props: addProjectProps) {
     function onProjectCreatedAtChange(event: ChangeEvent<HTMLInputElement>) {
         setProjectCreatedAt(event.target.value)
     }
-    function onCreatorChange(event: ChangeEvent<HTMLInputElement>) {
-        setCreator(event.target.value)
-    }
+
+    //function onIssueChange(event: ChangeEvent<HTMLInputElement>) {
+    //    setIssues(issues.push(event.target.value))
+
+    // }
 
     const onProjectSubmit = () => {
-        if (!creator) {
-            toast.error("Creator muss gesetzt sein")
-        } else if (!projectName) {
+        if (!projectName) {
             toast.error("Projektname muss gesetzt sein")
         } else if (!created_at) {
             toast.error("Erstellungsdatum muss gesetzt sein")
         } else {
-            props.addProject({projectName, creator, created_at})
+            props.addProject({projectName, issues, created_at})
                 .then(() => {
                     setProjectName("");
                     setCreator("");
                     setProjectCreatedAt("");
-                     })
+                })
                 .then(()=> toast.success("Project wurde hinzugefügt",{theme: "light"}))
                 .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}))
         }
@@ -89,10 +91,10 @@ export default function AddProject(props: addProjectProps) {
                             margin="dense"
                             label=""
                             type="text"
-                            value={creator}
+                            value={'Issues'}
                             fullWidth
                             variant="outlined"
-                            onChange={onCreatorChange}
+
                         />
                         Erstellungsdatum
                         <TextField

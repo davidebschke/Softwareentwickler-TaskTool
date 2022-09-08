@@ -2,7 +2,9 @@ package com.example.backend.sett.githubstatus;
 
 import com.example.backend.sett.projects.Project;
 import com.example.backend.sett.projects.Projectrepo;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -14,7 +16,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class GithubService {
 
-    Projectrepo projectrepo;
+    private final Projectrepo projectrepo;
 
     String pieceUri = "https://api.github.com/repos/";
 
@@ -55,7 +57,7 @@ public class GithubService {
         return UUID.randomUUID().toString();
     }
 
-    public GithubRepositoryC getAllRepositoryInfos(String userName, String repositoryName) {
+    public Project getAllRepositoryInfos(String userName, String repositoryName) {
 
         List<OneIssue> allIssues = getAllIssuesFromRepository(userName, repositoryName);
         List<RepositoryCreatedDate> createdAt = getRepoCreatedAt(userName, repositoryName);
@@ -64,7 +66,6 @@ public class GithubService {
 
         GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repoName, allIssues, createdAt);
 
-        return projectrepo.save(new Project(newGithubRepo.id, newGithubRepo.projectName.get(0), newGithubRepo.issues, newGithubRepo.created_at.get(0)));
+        return projectrepo.save(new Project(newGithubRepo.id, newGithubRepo.projectName.get(0).toString(), newGithubRepo.issues, newGithubRepo.created_at.toString()));
     }
 }
-

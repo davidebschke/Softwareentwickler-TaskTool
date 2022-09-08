@@ -7,19 +7,19 @@ import {GridColDef, GridRowId,} from '@mui/x-data-grid-premium';
 
 import "../../index.css"
 import "./projectshow.css";
-import {Issue} from "../githubdir/Issue";
 import {DataGrid} from "@mui/x-data-grid";
 import {Button, ButtonGroup,} from '@mui/material';
 import AddProject from "./AddProject";
 import UpdateProjectForm from "./UpdateProjectForm";
 import moment from "moment";
+import ImportGithubForm from "./ImportGithubForm";
 
 type ProjectProps = {
     projects: Project[],
-    issues: Issue[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: GridRowId[]) => Promise<void>;
+    getAllRepositoryInfo: (username: string, repositoryname: string) => Promise<void>
 }
 
 const columns: GridColDef[] = [
@@ -37,23 +37,12 @@ const columns: GridColDef[] = [
 
     },
     {
-        field: 'creator',
-        headerName: 'Creator',
+        field: 'Issues',
+        headerName: 'Aufgaben',
         width: 200,
         headerClassName: 'super-app-theme--header'
     },
-    {
-        field: 'openIssue',
-        headerName: 'Offene Aufgaben',
-        width: 200,
-        headerClassName: 'super-app-theme--header'
-    },
-    {
-        field: 'closeIssue',
-        headerName: 'Geschlossene Aufgaben',
-        width: 200,
-        headerClassName: 'super-app-theme--header'
-    },
+
     {
         field: 'created_at',
         headerName: 'Erstellt am',
@@ -93,11 +82,7 @@ export default function DataGridDemo(props: ProjectProps) {
                 <AddProject addProject={props.addProject}/>
                 <UpdateProjectForm selectedID={ID[0]} projectUpdate={props.updateProjectForm}
                                    projects={props.projects}/>
-            </ButtonGroup>
-            <ButtonGroup sx={{marginLeft: '20em', borderStyle: 'solid', borderColor: 'ghostwhite', borderWidth: 'thin'}}
-                         variant="contained" aria-label="outlined primary button group">
-                <Button sx={{backgroundColor: 'var( --ButtonColor)'}} variant="contained"
-                        startIcon={<img src={"../github.svg"} alt={"GithubIcon"}/>}> Import Github </Button>
+                <ImportGithubForm getAllRepositoryInfo={props.getAllRepositoryInfo}/>
             </ButtonGroup>
         </Box>
     );
