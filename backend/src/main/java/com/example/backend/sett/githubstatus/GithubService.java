@@ -20,7 +20,7 @@ public class GithubService {
 
     String pieceUri = "https://api.github.com/repos/";
 
-    public List<RepositoryCreatedDate> getRepoCreatedAt(String userName, String repositoryName) {
+    public RepositoryCreatedDate getRepoCreatedAt(String userName, String repositoryName) {
 
         WebClient webClient = WebClient.create();
 
@@ -28,7 +28,7 @@ public class GithubService {
                 .get()
                 .uri(pieceUri + userName + "/" + repositoryName)
                 .retrieve()
-                .toEntityList(RepositoryCreatedDate.class).block()).getBody();
+                .toEntity(RepositoryCreatedDate.class).block()).getBody();
     }
 
     public List<OneIssue> getAllIssuesFromRepository(String userName, String repositoryName) {
@@ -42,7 +42,7 @@ public class GithubService {
                 .toEntityList(OneIssue.class).block()).getBody();
     }
 
-    public List<RepositoryName> getRepoName(String userName, String repositoryName) {
+    public RepositoryName getRepoName(String userName, String repositoryName) {
 
         WebClient webClient = WebClient.create();
 
@@ -50,7 +50,7 @@ public class GithubService {
                 .get()
                 .uri(pieceUri + userName + "/" + repositoryName)
                 .retrieve()
-                .toEntityList(RepositoryName.class).block()).getBody();
+                .toEntity(RepositoryName.class).block()).getBody();
     }
 
     public String getRandomId() {
@@ -60,12 +60,18 @@ public class GithubService {
     public Project getAllRepositoryInfos(String userName, String repositoryName) {
 
         List<OneIssue> allIssues = getAllIssuesFromRepository(userName, repositoryName);
-        List<RepositoryCreatedDate> createdAt = getRepoCreatedAt(userName, repositoryName);
-        List<RepositoryName> repoName = getRepoName(userName, repositoryName);
+        RepositoryCreatedDate createdAt = getRepoCreatedAt(userName, repositoryName);
+        RepositoryName repoName = getRepoName(userName, repositoryName);
         String id = getRandomId();
 
         GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repoName, allIssues, createdAt);
 
-        return projectrepo.save(new Project(newGithubRepo.id, newGithubRepo.projectName.get(0).toString(), newGithubRepo.issues, newGithubRepo.created_at.toString()));
+        RepositoryName repositoryName1 = newGithubRepo.projectName;
+
+        System.out.println(newGithubRepo.getProjectName());
+        System.out.println(newGithubRepo.getCreated_at());
+        System.out.println(repositoryName1.name());
+
+        return projectrepo.save(new Project(newGithubRepo.id, newGithubRepo.getProjectName().toString(), newGithubRepo.issues, newGithubRepo.getCreated_at().toString()));
     }
 }

@@ -14,9 +14,9 @@ public class GithubRepositoryC {
     @NotNull
     String id;
     @NotNull
-    List<RepositoryName> projectName;
+    RepositoryName projectName;
     @NotNull
     List<OneIssue> issues;
     @NotNull
-    List<RepositoryCreatedDate> created_at;
+    RepositoryCreatedDate created_at;
 }

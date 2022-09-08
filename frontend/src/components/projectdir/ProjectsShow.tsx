@@ -58,6 +58,8 @@ export default function DataGridDemo(props: ProjectProps) {
 
     const rows = props.projects
 
+    console.log(rows)
+
     const [ID, setID] = useState<GridRowId[]>([])
 
     return (
