@@ -2,7 +2,8 @@ package com.example.backend.sett.githubStatus;
 
 import com.example.backend.sett.githubstatus.GithubService;
 import com.example.backend.sett.githubstatus.OneIssue;
-import com.example.backend.sett.githubstatus.OneRepository;
+import com.example.backend.sett.githubstatus.RepositoryCreatedDate;
+import com.example.backend.sett.githubstatus.RepositoryName;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.AfterEach;
@@ -58,17 +59,14 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-    void getRepositoryinformation() {
+    void getRepositoryName() {
 
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
 
-        List<Integer> RepoNumberList = Collections.singletonList(githubService.getAllRepositoryInfos(username, repositoryName).size());
-        Integer issueNumber = RepoNumberList.get(0);
-        issueNumber = issueNumber - 1;
-        List<OneRepository> response = Collections.singletonList(githubService.getAllRepositoryInfos(username, repositoryName).get(issueNumber));
+        List<RepositoryName> response = (Collections.singletonList(githubService.getRepoName(username, repositoryName).get(0)));
 
-        assertThat(response).hasOnlyElementsOfType(OneRepository.class);
+        assertThat(response).hasOnlyElementsOfType(RepositoryName.class);
     }
 
     @Test
@@ -87,5 +85,17 @@ class GithubServiceTest {
 
         List<OneIssue> response = githubService.getAllCloseIssuesFromRepository(username, repositoryName);
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
+    }
+
+    @Test
+    @DirtiesContext
+    void getRepositoryCreatedAt() {
+
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
+
+        List<RepositoryCreatedDate> response = (Collections.singletonList(githubService.getRepoCreatedAt(username, repositoryName).get(0)));
+
+        assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
     }
 }

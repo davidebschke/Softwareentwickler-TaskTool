@@ -17,17 +17,9 @@ public class GithubController {
         this.githubService = githubService;
     }
 
-    @GetMapping("/issuesC/{username}/{repositoryName}")
-    public List<OneIssue> getAllCloseIssues(@PathVariable String username, @PathVariable String repositoryName) {
-        return githubService.getAllCloseIssuesFromRepository(username, repositoryName);
-    }
-    @GetMapping("/issuesO/{username}/{repositoryName}")
-    public List<OneIssue> getAllOpenIssues(@PathVariable String username, @PathVariable String repositoryName) {
-        return githubService.getAllOpenIssuesFromRepository(username, repositoryName);
-    }
-
     @GetMapping("/{username}/{repositoryName}")
-    public List<OneRepository> getAllRepositoryInfos(@PathVariable String username, @PathVariable String repositoryName) {
+    public List<GithubRepositoryC> getAllRepositoryInfos(@PathVariable String username, @PathVariable String repositoryName) {
+
         return githubService.getAllRepositoryInfos(username, repositoryName);
     }
 }

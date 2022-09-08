@@ -3,6 +3,7 @@ package com.example.backend.sett.githubstatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,9 +22,21 @@ public class GithubService {
                 .retrieve()
                 .toEntityList(OneIssue.class).block()).getBody();
     }
+
+    public List<RepositoryCreatedDate> getRepoCreatedAt(String userName, String repositoryName) {
+
+        WebClient webClient = WebClient.create();
+
+        return Objects.requireNonNull(webClient
+                .get()
+                .uri(pieceUri + userName + "/" + repositoryName)
+                .retrieve()
+                .toEntityList(RepositoryCreatedDate.class).block()).getBody();
+    }
+
     public List<OneIssue> getAllCloseIssuesFromRepository(String userName, String repositoryName) {
 
-        WebClient webClient= WebClient.create();
+        WebClient webClient = WebClient.create();
 
         return Objects.requireNonNull(webClient
                 .get()
@@ -32,14 +45,31 @@ public class GithubService {
                 .toEntityList(OneIssue.class).block()).getBody();
     }
 
-    public List<OneRepository> getAllRepositoryInfos(String userName, String repositoryName){
+    public List<RepositoryName> getRepoName(String userName, String repositoryName) {
 
-        WebClient webClient= WebClient.create();
+        WebClient webClient = WebClient.create();
 
         return Objects.requireNonNull(webClient
                 .get()
                 .uri(pieceUri + userName + "/" + repositoryName)
                 .retrieve()
-                .toEntityList(OneRepository.class).block()).getBody();
+                .toEntityList(RepositoryName.class).block()).getBody();
+    }
+
+
+    public List<GithubRepositoryC> getAllRepositoryInfos(String userName, String repositoryName) {
+
+        List<OneIssue> closedIssues = getAllCloseIssuesFromRepository(userName, repositoryName);
+        List<OneIssue> openIssues = getAllOpenIssuesFromRepository(userName, repositoryName);
+        List<RepositoryCreatedDate> createdAt = getRepoCreatedAt(userName, repositoryName);
+        List<RepositoryName> repoName = getRepoName(userName, repositoryName);
+
+        List<GithubRepositoryC> repoInfos = new ArrayList<>();
+        repoInfos.add((GithubRepositoryC) closedIssues);
+        repoInfos.add((GithubRepositoryC) openIssues);
+        repoInfos.add((GithubRepositoryC) repoName);
+        repoInfos.add((GithubRepositoryC) createdAt);
+
+        return repoInfos;
     }
 }
