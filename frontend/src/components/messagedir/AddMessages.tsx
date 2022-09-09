@@ -108,8 +108,14 @@ export default function AddMessages(props: addProjectProps) {
                 noValidate
                 autoComplete="off"
             >
-                <Button variant={'contained'} size={'small'} onClick={handleClickOpen}
-                        sx={{backgroundColor: '#051e25', color: 'white'}}>
+                <Button variant={'outlined'} size={'small'} onClick={handleClickOpen}
+                        sx={{
+                            backgroundColor: 'var( --ButtonColor)',
+                            color: 'black',
+                            marginLeft: '2em',
+                            borderColor: '#FFD700',
+                            borderWidth: 'medium', borderStyle: 'solid'
+                        }}>
                     New Message
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
