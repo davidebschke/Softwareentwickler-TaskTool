@@ -1,13 +1,12 @@
-package com.example.backend.sett.githubStatus;
+package com.example.backend.sett.githubstatus;
 
-import com.example.backend.sett.githubstatus.GithubService;
-import com.example.backend.sett.githubstatus.OneIssue;
-import com.example.backend.sett.githubstatus.RepositoryCreatedDate;
-import com.example.backend.sett.githubstatus.RepositoryName;
+import com.example.backend.sett.projects.NewProject;
+import com.example.backend.sett.projects.Project;
 import com.example.backend.sett.projects.Projectrepo;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,6 +21,9 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -31,13 +33,19 @@ class GithubServiceTest {
     MockMvc mockMvc;
     private final MockWebServer mockWebServer = new MockWebServer();
 
-    Projectrepo projectrepo;
+    private final Projectrepo projectrepo = mock(Projectrepo.class);
     private final GithubService githubService = new GithubService(projectrepo);
 
     @AfterEach
     public void shutDown() throws IOException {
         mockWebServer.shutdown();
     }
+
+    List<OneIssue> issueList = List.of(
+
+            new OneIssue("1", "Hallo Welt Issue", "open", "19.09.2000")
+
+    );
 
     @Test
     @DirtiesContext
@@ -99,5 +107,29 @@ class GithubServiceTest {
         List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedAt(username, repositoryName)).get(0)));
 
         assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
+    }
+
+    @Test
+    @DirtiesContext
+    void getAllRepositoryInfos() {
+
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
+        String id = githubService.getRandomId();
+        List<OneIssue> allIssues = issueList;
+        RepositoryCreatedDate createdAt = githubService.getRepoCreatedAt(username, repositoryName);
+        RepositoryName repositoryNamedefault = githubService.getRepoName(username, repositoryName);
+
+        GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repositoryNamedefault, allIssues, createdAt);
+
+        RepositoryName repositoryName1 = newGithubRepo.getProjectName();
+        RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.getCreated_at();
+        Project project = new Project(newGithubRepo.getId(), repositoryName1.name(), newGithubRepo.getIssues(), repositoryCreatedDate.created_at());
+
+        when(projectrepo.save(any())).thenReturn(project);
+
+        Project actual = githubService.getAllRepositoryInfos(username, repositoryName);
+
+        Assertions.assertEquals(actual, project);
     }
 }
