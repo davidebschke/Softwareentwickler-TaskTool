@@ -19,10 +19,13 @@ import ShowAllIssues from "./ShowAllIssues";
 
 type ProjectProps = {
     projects: Project[],
+    issue: Issue[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: GridRowId[]) => Promise<void>;
     getAllRepositoryInfo: (username: string, repositoryname: string) => Promise<void>;
+    addIssue: (Issue: { number: string; title: string; state: string, created_at: string }
+    ) => Promise<Issue>
 }
 
 
@@ -49,7 +52,11 @@ export default function DataGridDemo(props: ProjectProps) {
             headerClassName: 'super-app-theme--header',
             renderCell: (cellvalue: GridRenderCellParams<Issue[]>) => {
                 return (
-                    <ShowAllIssues Issue={cellvalue.value}/>
+                    <ShowAllIssues
+                        Issue={cellvalue.value &&
+                        cellvalue.value?.length > 0 ?
+                            cellvalue.value : props.issue}
+                        addIssue={props.addIssue}/>
                 );
             }
         },
