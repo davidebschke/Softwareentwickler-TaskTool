@@ -1,7 +1,9 @@
 package com.example.backend.sett.projects;
 
+import com.example.backend.sett.githubstatus.OneIssue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.kohsuke.github.GHEventPayload;
 
 import java.util.List;
 
@@ -10,16 +12,22 @@ import static org.mockito.Mockito.*;
 
 class ProjectserviceTest {
 
+    List<OneIssue> issueList = List.of(
+
+            new OneIssue("1", "Hallo Welt Issue", "open", "19.09.2000")
+
+    );
+
     List<Project> projectList = List.of(
 
-            new Project("0", "Jacke", "David",  "2022-11-09"),
-            new Project("0", "Kakao", "Jan",  "2022-09-11"),
-            new Project("0", "Shop", "Michael", "2022-09-11")
+            new Project("0", "Jacke", issueList, "2022-11-09"),
+            new Project("0", "Kakao", issueList, "2022-09-11"),
+            new Project("0", "Shop", issueList, "2022-09-11")
     );
 
     private final Projectrepo projectrepo = mock(Projectrepo.class);
     private final Projectservice projectservice = new Projectservice(projectrepo);
-    private final Project project = new Project("Test", "Shop", "David",  "2022-09-09");
+    private final Project project = new Project("Test", "Shop", issueList, "2022-09-09");
 
     @Test
     void getProjects() {
@@ -36,7 +44,7 @@ class ProjectserviceTest {
         //when
         Project actual = projectservice.addProject(new NewProject(
                 project.projectName,
-                project.creator,
+                project.issues,
                 project.created_at));
 
         Assertions.assertEquals(actual, project);
@@ -44,7 +52,7 @@ class ProjectserviceTest {
 
     @Test
     void deleteProjectTest() {
-        Project project = new Project("1", "shop", "David", "2022-09-09");
+        Project project = new Project("1", "shop", issueList, "2022-09-09");
 
         List<String> ids = List.of("1");
         when(projectrepo.existsById(project.id)).thenReturn(true);
@@ -56,7 +64,7 @@ class ProjectserviceTest {
 
     @Test
     void updateProjectTest() {
-        Project project = new Project("TestID", "Shop", "David", "2022-09-09");
+        Project project = new Project("TestID", "Shop", issueList, "2022-09-09");
 
         when(projectrepo.save(any(Project.class))).thenReturn(project);
         Project actual = projectservice.updateProject(project);

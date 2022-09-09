@@ -4,6 +4,7 @@ import com.example.backend.sett.githubstatus.GithubService;
 import com.example.backend.sett.githubstatus.OneIssue;
 import com.example.backend.sett.githubstatus.RepositoryCreatedDate;
 import com.example.backend.sett.githubstatus.RepositoryName;
+import com.example.backend.sett.projects.Projectrepo;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.AfterEach;
@@ -30,7 +31,8 @@ class GithubServiceTest {
     MockMvc mockMvc;
     private final MockWebServer mockWebServer = new MockWebServer();
 
-    private final GithubService githubService = new GithubService();
+    Projectrepo projectrepo;
+    private final GithubService githubService = new GithubService(projectrepo);
 
     @AfterEach
     public void shutDown() throws IOException {
@@ -49,10 +51,10 @@ class GithubServiceTest {
                 .setBody("""
                         [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
 
-        List<Integer> issueNumberListOpen = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username, repositoryName).size());
+        List<Integer> issueNumberListOpen = Collections.singletonList(githubService.getAllIssuesFromRepository(username, repositoryName).size());
         Integer issueNumber = issueNumberListOpen.get(0);
         issueNumber = issueNumber - 1;
-        List<com.example.backend.sett.githubstatus.OneIssue> response = Collections.singletonList(githubService.getAllOpenIssuesFromRepository(username, repositoryName).get(issueNumber));
+        List<com.example.backend.sett.githubstatus.OneIssue> response = Collections.singletonList(githubService.getAllIssuesFromRepository(username, repositoryName).get(issueNumber));
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
     }
@@ -64,7 +66,7 @@ class GithubServiceTest {
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
 
-        List<RepositoryName> response = (Collections.singletonList(githubService.getRepoName(username, repositoryName).get(0)));
+        List<RepositoryName> response = Collections.singletonList((Collections.singletonList(githubService.getRepoName(username, repositoryName)).get(0)));
 
         assertThat(response).hasOnlyElementsOfType(RepositoryName.class);
     }
@@ -83,7 +85,7 @@ class GithubServiceTest {
                         ["ABC"]
                         """));
 
-        List<OneIssue> response = githubService.getAllCloseIssuesFromRepository(username, repositoryName);
+        List<OneIssue> response = githubService.getAllIssuesFromRepository(username, repositoryName);
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
     }
 
@@ -94,7 +96,7 @@ class GithubServiceTest {
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
 
-        List<RepositoryCreatedDate> response = (Collections.singletonList(githubService.getRepoCreatedAt(username, repositoryName).get(0)));
+        List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedAt(username, repositoryName)).get(0)));
 
         assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
     }

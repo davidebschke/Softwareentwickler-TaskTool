@@ -88,7 +88,6 @@ class IntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("""
                         {"projectName":"Shop",
-                        "creator":"Gustaf",
                         "created_at":"2020-01-01"}
                         """)
         ).andReturn().getResponse().getContentAsString();
@@ -98,12 +97,10 @@ class IntegrationTest {
          mockMvc.perform(put("/stt/projects").contentType(MediaType.APPLICATION_JSON).content("""
                          {"id":"<ID>",
                          "projectName":"Aligator",
-                         "creator":"Frans",
                          "created_at":"2022-01-01"}
                  """.replaceFirst("<ID>",saveResultProject.id))).andExpect(status().isOk()).andExpect(content().json("""
                          {"id":"<ID>",
                          "projectName":"Aligator",
-                         "creator":"Frans",
                          "created_at":"2022-01-01"}
                  """.replaceFirst("<ID>",saveResultProject.id)));
     }

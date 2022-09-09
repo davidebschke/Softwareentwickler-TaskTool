@@ -14,8 +14,6 @@ public class NewProject {
     @NotNull
     String projectName;
 
-    String creator;
-
     List<OneIssue> issues;
     String created_at;
 }
