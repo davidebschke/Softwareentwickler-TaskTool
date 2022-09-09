@@ -84,7 +84,6 @@ export default function ImportGithubForm(props: ImportGithubProps) {
                             variant="outlined"
                             value={repositoryName}
                             onChange={onRepositoryNameChange}
-
                         />
                     </DialogContent>
                     <DialogActions sx={{backgroundColor: '#9CA3AF'}}>

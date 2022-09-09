@@ -123,7 +123,7 @@ class GithubServiceTest {
 
         RepositoryName repositoryName1 = newGithubRepo.getProjectName();
         RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.getCreated_on();
-        Project project = new Project(newGithubRepo.getId(), repositoryName1.name(), newGithubRepo.getIssues(), repositoryCreatedDate.created_on());
+        Project project = new Project(newGithubRepo.getId(), repositoryName1.name(), newGithubRepo.getIssues(), repositoryCreatedDate.created_at());
 
         when(projectrepo.save(any())).thenReturn(project);
 
