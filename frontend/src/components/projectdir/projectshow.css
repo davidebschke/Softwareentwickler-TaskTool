@@ -17,3 +17,27 @@
 .MuiSvgIcon-root {
     color: black;
 }
+
+.MuiDataGrid-root {
+    border-top-color: #FFD700 !important;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: #FFD700 !important;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: #FFD700 !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #FFD700 !important;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-repeat: stretch;
+    border-image-source: none;
+}
+
+.MuiDataGrid-cell {
+    border-bottom-color: black !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
