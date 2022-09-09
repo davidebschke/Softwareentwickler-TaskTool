@@ -79,7 +79,7 @@ export default function DataGridDemo(props: ProjectProps) {
         <Box sx={{
             height: 600, width: '90%', margin: '4em', backgroundColor: 'var(--TableBodyMessageBackground)',
             '& .super-app-theme--header': {
-                backgroundColor: '#2b4b8e', color: '#f9f9f9'
+                backgroundColor: '#A9A9A9', color: 'black'
             }
         }}>
             <DataGrid
@@ -91,8 +91,13 @@ export default function DataGridDemo(props: ProjectProps) {
                 disableSelectionOnClick
                 onSelectionModelChange={setID}
             />
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button sx={{backgroundColor: 'var( --ButtonColor)'}}
+            <ButtonGroup variant="outlined" aria-label="outlined primary button group" sx={{marginTop: '2em'}}>
+                <Button sx={{
+                    backgroundColor: 'var( --ButtonColor)',
+                    color: 'black',
+                    borderColor: '#FFD700',
+                    borderWidth: 'medium'
+                }}
                         onClick={() => props.deleteProject(ID)}>Delete</Button>
                 <AddProject addProject={props.addProject}/>
                 <UpdateProjectForm selectedID={ID[0]} projectUpdate={props.updateProjectForm}

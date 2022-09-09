@@ -1,19 +1,19 @@
 .MuiDataGrid-columnHeaderTitleContainer {
-    background-color: #2b4b8e;
+    background-color: #A9A9A9;
 }
 
 .MuiDataGrid-columnHeaders {
-    background-color: #2b4b8e;
+    background-color: #A9A9A9;
 }
 
 .MuiDataGrid-footerContainer {
-    background-color: #2b4b8e;
+    background-color: #A9A9A9;
 }
 
 .MuiTablePagination-displayedRows {
-    color: white;
+    color: black;
 }
 
 .MuiSvgIcon-root {
-    color: white;
+    color: black;
 }

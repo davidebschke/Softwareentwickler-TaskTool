@@ -37,12 +37,12 @@ export default function Header() {
             <AppBar position="static" sx={{
                 backgroundColor: 'var(--footerHeaderBackground);',
                 borderStyle: 'inset',
-                borderColor: 'var(--structure_background);',
+                borderColor: '#FFD700',
                 color: 'var(--HeaderAndFootercolor);'
             }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
+                        <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1, color: '#FFD700'}}/>
                         <Typography
                             variant="h6"
                             noWrap
@@ -54,13 +54,13 @@ export default function Header() {
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
                                 letterSpacing: '.3rem',
-                                color: 'var(--footer_Header_color);',
+                                color: '#FFD700',
                                 textDecoration: 'none',
                             }}
                         >
                             SETT
                         </Typography>
-                        <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+                        <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none', color: '#FFD700'}}}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -110,7 +110,7 @@ export default function Header() {
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
                                 letterSpacing: '.3rem',
-                                color: 'inherit',
+                                color: '#FFD700',
                                 textDecoration: 'none',
                             }}
                         >

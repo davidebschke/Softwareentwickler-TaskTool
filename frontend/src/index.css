@@ -1,12 +1,12 @@
 :root {
-    --footerHeaderBackground: #0c303f;
-    --TableHeadBackground: #0c303f;
-    --TableBodyMessageBackground: #299ac9;
+    --footerHeaderBackground: #696969;
+    --TableHeadBackground: #A9A9A9;
+    --TableBodyMessageBackground: #D3D3D3;
     --HomeCentralColor: #1a607f;
     --HomeCentralSecondColor: #2bc9c8;
     --HeaderAndFootercolor: ghostwhite;
-    --Background: #abe1eb;
-    --ButtonColor: #051e25;
+    --Background: #808080;
+    --ButtonColor: #C0C0C0;
 }
 
 body {

@@ -62,7 +62,13 @@ export default function AddProject(props: addProjectProps) {
                 autoComplete="off"
             >
                 <Button onClick={handleClickOpen}
-                        sx={{backgroundColor: 'var( --ButtonColor)'}}>
+                        sx={{
+                            backgroundColor: 'var( --ButtonColor)',
+                            color: 'black',
+                            marginLeft: '2em',
+                            borderColor: '#FFD700',
+                            borderWidth: 'medium'
+                        }}>
                     New Project
                 </Button>
                 <Dialog open={open} onClose={handleClose}>

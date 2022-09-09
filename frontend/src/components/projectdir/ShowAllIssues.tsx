@@ -84,7 +84,7 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
             field: 'created_at',
             headerName: 'Erstellt am',
             type: "date",
-            width: 160,
+            width: 180,
             headerClassName: 'super-app-theme--header',
             valueFormatter: params =>
                 moment(params?.value).format("DD.MM.YYYY"),
@@ -109,8 +109,8 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
                 autoComplete="off"
             >
                 <Button onClick={handleClickOpen}
-                        sx={{backgroundColor: 'var( --ButtonColor)'}}
-                        startIcon={<img src={"../github.svg"} alt={"GithubIcon"}/>}>
+                        sx={{backgroundColor: 'var( --ButtonColor)', color: 'black', borderColor: '#FFD700'}}
+                >
                     Alle Aufgaben
                 </Button>
                 <Dialog open={open} onClose={handleClose} fullWidth={true}

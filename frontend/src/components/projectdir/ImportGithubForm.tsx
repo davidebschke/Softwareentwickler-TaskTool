@@ -55,7 +55,13 @@ export default function ImportGithubForm(props: ImportGithubProps) {
                 autoComplete="off"
             >
                 <Button onClick={handleClickOpen}
-                        sx={{backgroundColor: 'var( --ButtonColor)'}}
+                        sx={{
+                            backgroundColor: 'var( --ButtonColor)',
+                            color: 'black',
+                            marginLeft: '2em',
+                            borderColor: '#FFD700',
+                            borderWidth: 'medium'
+                        }}
                         startIcon={<img src={"../github.svg"} alt={"GithubIcon"}/>}>
                     Import Github
                 </Button>
