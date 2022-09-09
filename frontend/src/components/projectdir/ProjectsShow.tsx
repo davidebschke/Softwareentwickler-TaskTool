@@ -8,14 +8,13 @@ import {GridColDef, GridRenderCellParams, GridRowId,} from '@mui/x-data-grid-pre
 import "../../index.css"
 import "./projectshow.css";
 import {DataGrid} from "@mui/x-data-grid";
-import {Button, ButtonGroup, List,} from '@mui/material';
+import {Button, ButtonGroup} from '@mui/material';
 import AddProject from "./AddProject";
 import UpdateProjectForm from "./UpdateProjectForm";
 import moment from "moment";
 import ImportGithubForm from "./ImportGithubForm";
 import {Issue} from "./Issue";
 import ShowAllIssues from "./ShowAllIssues";
-import {DataArray} from "@mui/icons-material";
 
 
 type ProjectProps = {
