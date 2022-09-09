@@ -24,19 +24,17 @@ export default function AddProject(props: addProjectProps) {
         setCreated_on(event.target.value)
     }
 
-    //function onIssueChange(event: ChangeEvent<HTMLInputElement>) {
-    //    setIssues(issues.push(event.target.value))
-
-    // }
-
     const onProjectSubmit = () => {
         if (!projectName) {
             toast.error("Projektname muss gesetzt sein")
         } else if (!created_on) {
             toast.error("Erstellungsdatum muss gesetzt sein")
+        } else if (!issues) {
+            toast.error("Mindestens eine Aufgabe muss gesetzt sein")
         } else {
             props.addProject({projectName, issues, created_on: created_on})
                 .then(() => {
+                    setIssues([]);
                     setProjectName("");
                     setCreated_on("");
                 })
@@ -81,17 +79,6 @@ export default function AddProject(props: addProjectProps) {
                             fullWidth
                             variant="outlined"
                             onChange={onProjectNameChange}
-                        />
-                        Creator
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            label=""
-                            type="text"
-                            value={'Issues'}
-                            fullWidth
-                            variant="outlined"
-
                         />
                         Erstellungsdatum
                         <TextField

@@ -5,6 +5,7 @@ import {Issue} from "./Issue";
 import {DataGrid} from "@mui/x-data-grid";
 import {GridColDef} from "@mui/x-data-grid-premium";
 import moment from "moment";
+import './showallIssue.css'
 
 type ShowAllIssuesProps = {
     Issue: Issue[] | undefined,
@@ -51,17 +52,17 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
     const rows = props.Issue
 
     return (
-        <Box sx={{m: 0, p: 2}}>
+        <Box sx={{m: 0, p: 2,}}>
             <Button onClick={handleClickOpen}
                     sx={{backgroundColor: 'var( --ButtonColor)'}}
                     startIcon={<img src={"../github.svg"} alt={"GithubIcon"}/>}>
                 Alle Aufgaben
             </Button>
             <Dialog open={open} onClose={handleClose} fullWidth={true}
-                    sx={{display: 'flex', width: '800px', height: '800px', minwidth: '1000', minHeight: '600'}}>
-                <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit'}}>Alle Aufgabe des
+                    sx={{width: '800px', height: '800px'}}>
+                <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit', width: '800px'}}>Alle Aufgaben des
                     Projekts </DialogTitle>
-                <DialogContent sx={{backgroundColor: '#9CA3AF', height: '700px', width: '700px'}}>
+                <DialogContent sx={{backgroundColor: '#9CA3AF', height: '800px', width: '800px',}}>
                     {rows ?
                         <DataGrid
                             getRowId={(row) => rows?.indexOf(row)}
