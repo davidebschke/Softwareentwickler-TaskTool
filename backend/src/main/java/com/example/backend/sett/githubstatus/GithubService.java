@@ -67,11 +67,9 @@ public class GithubService {
         GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repoName, allIssues, createdAt);
 
         RepositoryName repositoryName1 = newGithubRepo.projectName;
+        RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.created_at;
 
-        System.out.println(newGithubRepo.getProjectName());
-        System.out.println(newGithubRepo.getCreated_at());
-        System.out.println(repositoryName1.name());
 
-        return projectrepo.save(new Project(newGithubRepo.id, newGithubRepo.getProjectName().toString(), newGithubRepo.issues, newGithubRepo.getCreated_at().toString()));
+        return projectrepo.save(new Project(newGithubRepo.id, repositoryName1.name(), newGithubRepo.issues, repositoryCreatedDate.created_at()));
     }
 }

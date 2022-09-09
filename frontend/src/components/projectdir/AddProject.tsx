@@ -3,7 +3,6 @@ import {Project} from "./Project";
 import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import {toast} from "react-toastify";
-import {NewProject} from "./NewProject";
 import {Issue} from "./Issue";
 
 type addProjectProps = {

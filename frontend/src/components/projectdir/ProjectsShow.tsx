@@ -3,62 +3,69 @@ import {useState} from 'react';
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
 import Box from '@mui/material/Box';
-import {GridColDef, GridRowId,} from '@mui/x-data-grid-premium';
+import {GridColDef, GridRenderCellParams, GridRowId,} from '@mui/x-data-grid-premium';
 
 import "../../index.css"
 import "./projectshow.css";
 import {DataGrid} from "@mui/x-data-grid";
-import {Button, ButtonGroup,} from '@mui/material';
+import {Button, ButtonGroup, List,} from '@mui/material';
 import AddProject from "./AddProject";
 import UpdateProjectForm from "./UpdateProjectForm";
 import moment from "moment";
 import ImportGithubForm from "./ImportGithubForm";
+import {Issue} from "./Issue";
+import ShowAllIssues from "./ShowAllIssues";
+import {DataArray} from "@mui/icons-material";
+
 
 type ProjectProps = {
     projects: Project[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: GridRowId[]) => Promise<void>;
-    getAllRepositoryInfo: (username: string, repositoryname: string) => Promise<void>
+    getAllRepositoryInfo: (username: string, repositoryname: string) => Promise<void>;
 }
 
-const columns: GridColDef[] = [
-    {
-        field: 'id',
-        headerName: 'ID',
-        width: 150,
-        headerClassName: 'super-app-theme--header'
-    },
-    {
-        field: 'projectName',
-        headerName: 'Projektname',
-        width: 200,
-        headerClassName: 'super-app-theme--header'
-
-    },
-    {
-        field: 'Issues',
-        headerName: 'Aufgaben',
-        width: 200,
-        headerClassName: 'super-app-theme--header'
-    },
-
-    {
-        field: 'created_at',
-        headerName: 'Erstellt am',
-        type: "date",
-        width: 160,
-        headerClassName: 'super-app-theme--header',
-        valueFormatter: params =>
-            moment(params?.value).format("DD.MM.YYYY"),
-    },
-];
 
 export default function DataGridDemo(props: ProjectProps) {
 
-    const rows = props.projects
+    const columns: GridColDef[] = [
+        {
+            field: 'id',
+            headerName: 'ID',
+            width: 150,
+            headerClassName: 'super-app-theme--header'
+        },
+        {
+            field: 'projectName',
+            headerName: 'Projektname',
+            width: 200,
+            headerClassName: 'super-app-theme--header'
 
-    console.log(rows)
+        },
+        {
+            field: 'issues',
+            headerName: 'Aufgaben',
+            width: 200,
+            headerClassName: 'super-app-theme--header',
+            renderCell: (cellvalue: GridRenderCellParams<Issue[]>) => {
+                return (
+                    <ShowAllIssues Issue={cellvalue.value}/>
+                );
+            }
+        },
+        {
+            field: 'created_at',
+            headerName: 'Erstellt am',
+            type: "date",
+            width: 160,
+            headerClassName: 'super-app-theme--header',
+            valueFormatter: params =>
+                moment(params?.value).format("DD.MM.YYYY"),
+        },
+    ];
+
+    const rows = props.projects
 
     const [ID, setID] = useState<GridRowId[]>([])
 
@@ -72,8 +79,8 @@ export default function DataGridDemo(props: ProjectProps) {
             <DataGrid
                 rows={rows}
                 columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
+                pageSize={10}
+                rowsPerPageOptions={[10]}
                 checkboxSelection
                 disableSelectionOnClick
                 onSelectionModelChange={setID}

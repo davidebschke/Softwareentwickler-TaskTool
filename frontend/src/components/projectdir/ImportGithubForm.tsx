@@ -1,4 +1,3 @@
-import {Project} from "./Project";
 import {Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import Button from "@mui/material/Button";
 import React, {ChangeEvent, useState} from "react";
