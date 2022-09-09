@@ -6,15 +6,14 @@ import {toast} from "react-toastify";
 import {Issue} from "./Issue";
 
 type addProjectProps = {
-    addProject: (newProject: { created_at: string; projectName: string; issues: Issue[] }
+    addProject: (newProject: { created_on: string; projectName: string; issues: Issue[] }
     ) => Promise<Project>
 }
 
 export default function AddProject(props: addProjectProps) {
 
     const [projectName, setProjectName] = useState<string>("");
-    const [created_at, setProjectCreatedAt] = useState<string>("");
-    const [creator, setCreator] = useState<string>("")
+    const [created_on, setCreated_on] = useState<string>("");
     const [issues, setIssues] = useState<Issue[]>([])
 
     function onProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
@@ -22,7 +21,7 @@ export default function AddProject(props: addProjectProps) {
     }
 
     function onProjectCreatedAtChange(event: ChangeEvent<HTMLInputElement>) {
-        setProjectCreatedAt(event.target.value)
+        setCreated_on(event.target.value)
     }
 
     //function onIssueChange(event: ChangeEvent<HTMLInputElement>) {
@@ -33,16 +32,15 @@ export default function AddProject(props: addProjectProps) {
     const onProjectSubmit = () => {
         if (!projectName) {
             toast.error("Projektname muss gesetzt sein")
-        } else if (!created_at) {
+        } else if (!created_on) {
             toast.error("Erstellungsdatum muss gesetzt sein")
         } else {
-            props.addProject({projectName, issues, created_at})
+            props.addProject({projectName, issues, created_on: created_on})
                 .then(() => {
                     setProjectName("");
-                    setCreator("");
-                    setProjectCreatedAt("");
+                    setCreated_on("");
                 })
-                .then(()=> toast.success("Project wurde hinzugefügt",{theme: "light"}))
+                .then(() => toast.success("Project wurde hinzugefügt", {theme: "light"}))
                 .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}))
         }
     }
@@ -101,7 +99,7 @@ export default function AddProject(props: addProjectProps) {
                             margin="dense"
                             label=""
                             type="date"
-                            value={created_at}
+                            value={created_on}
                             fullWidth
                             variant="outlined"
                             onChange={onProjectCreatedAtChange}

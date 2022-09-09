@@ -24,6 +24,6 @@ public class Project {
     @NotNull
     List<OneIssue> issues;
     @NotNull
-    String created_at;
+    String created_on;
 
 }

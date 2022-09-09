@@ -1,6 +1,5 @@
 package com.example.backend.sett.githubstatus;
 
-import com.example.backend.sett.projects.NewProject;
 import com.example.backend.sett.projects.Project;
 import com.example.backend.sett.projects.Projectrepo;
 import okhttp3.mockwebserver.MockResponse;
@@ -57,7 +56,7 @@ class GithubServiceTest {
                 .setResponseCode(200)
                 .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .setBody("""
-                        [OneIssue[repositoryName=null, created_at=2022-08-30T06:50:26Z, login=null]]"""));
+                        [OneIssue[repositoryName=null, created_on=2022-08-30T06:50:26Z, login=null]]"""));
 
         List<Integer> issueNumberListOpen = Collections.singletonList(githubService.getAllIssuesFromRepository(username, repositoryName).size());
         Integer issueNumber = issueNumberListOpen.get(0);
@@ -99,12 +98,12 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-    void getRepositoryCreatedAt() {
+    void getRepositoryCreatedOn() {
 
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
 
-        List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedAt(username, repositoryName)).get(0)));
+        List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedOn(username, repositoryName)).get(0)));
 
         assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
     }
@@ -117,14 +116,14 @@ class GithubServiceTest {
         String repositoryName = "Softwareentwickler-TaskTool";
         String id = githubService.getRandomId();
         List<OneIssue> allIssues = issueList;
-        RepositoryCreatedDate createdAt = githubService.getRepoCreatedAt(username, repositoryName);
+        RepositoryCreatedDate createdAt = githubService.getRepoCreatedOn(username, repositoryName);
         RepositoryName repositoryNamedefault = githubService.getRepoName(username, repositoryName);
 
         GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repositoryNamedefault, allIssues, createdAt);
 
         RepositoryName repositoryName1 = newGithubRepo.getProjectName();
-        RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.getCreated_at();
-        Project project = new Project(newGithubRepo.getId(), repositoryName1.name(), newGithubRepo.getIssues(), repositoryCreatedDate.created_at());
+        RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.getCreated_on();
+        Project project = new Project(newGithubRepo.getId(), repositoryName1.name(), newGithubRepo.getIssues(), repositoryCreatedDate.created_on());
 
         when(projectrepo.save(any())).thenReturn(project);
 

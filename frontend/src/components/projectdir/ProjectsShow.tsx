@@ -54,7 +54,7 @@ export default function DataGridDemo(props: ProjectProps) {
             }
         },
         {
-            field: 'created_at',
+            field: 'created_on',
             headerName: 'Erstellt am',
             type: "date",
             width: 160,

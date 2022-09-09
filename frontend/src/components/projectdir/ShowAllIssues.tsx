@@ -33,7 +33,7 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
         },
 
         {
-            field: 'created_at',
+            field: 'created_on',
             headerName: 'Erstellt am',
             type: "date",
             width: 160,

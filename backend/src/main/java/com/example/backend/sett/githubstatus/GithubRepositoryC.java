@@ -22,5 +22,5 @@ public class GithubRepositoryC {
     @NotNull
     List<OneIssue> issues;
     @NotNull
-    RepositoryCreatedDate created_at;
+    RepositoryCreatedDate created_on;
 }

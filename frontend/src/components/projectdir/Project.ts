@@ -4,5 +4,5 @@ export type Project = {
     id: string,
     projectName: string,
     issues: Issue[],
-    created_at: string,
+    created_on: string,
 }

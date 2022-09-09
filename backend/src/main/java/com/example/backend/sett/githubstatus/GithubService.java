@@ -18,7 +18,7 @@ public class GithubService {
 
     String pieceUri = "https://api.github.com/repos/";
 
-    public RepositoryCreatedDate getRepoCreatedAt(String userName, String repositoryName) {
+    public RepositoryCreatedDate getRepoCreatedOn(String userName, String repositoryName) {
 
         WebClient webClient = WebClient.create();
 
@@ -58,16 +58,16 @@ public class GithubService {
     public Project getAllRepositoryInfos(String userName, String repositoryName) {
 
         List<OneIssue> allIssues = getAllIssuesFromRepository(userName, repositoryName);
-        RepositoryCreatedDate createdAt = getRepoCreatedAt(userName, repositoryName);
+        RepositoryCreatedDate createdAt = getRepoCreatedOn(userName, repositoryName);
         RepositoryName repoName = getRepoName(userName, repositoryName);
         String id = getRandomId();
 
         GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repoName, allIssues, createdAt);
 
         RepositoryName repositoryName1 = newGithubRepo.projectName;
-        RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.created_at;
+        RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.created_on;
 
 
-        return projectrepo.save(new Project(newGithubRepo.id, repositoryName1.name(), newGithubRepo.issues, repositoryCreatedDate.created_at()));
+        return projectrepo.save(new Project(newGithubRepo.id, repositoryName1.name(), newGithubRepo.issues, repositoryCreatedDate.created_on()));
     }
 }

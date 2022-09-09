@@ -48,7 +48,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 id: projectUp.id,
                 projectName: projectName,
                 issues: issues,
-                created_at: created_at,
+                created_on: created_at,
             };
             props.projectUpdate(updatedProject)
             toast.success("Update Erfolgreich");

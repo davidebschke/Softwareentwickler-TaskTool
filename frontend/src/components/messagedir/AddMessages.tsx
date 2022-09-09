@@ -24,7 +24,7 @@ export default function AddMessages(props: addProjectProps) {
 
     const [number, setNumber] = useState<string>("");
     const [title, settitle] = useState<string>("");
-    const [created_at, setCreated_at] = useState<string>("")
+    const [created_on, setCreated_on] = useState<string>("")
     const [message, setMessage] = useState<string>("")
     const [receiver, setReceiver] = useState<string>("")
     const [sender, setSender] = useState<string>("")
@@ -38,8 +38,8 @@ export default function AddMessages(props: addProjectProps) {
         settitle(event.target.value)
     }
 
-    function onMessageCreatedAtChange(event: ChangeEvent<HTMLInputElement>) {
-        setCreated_at(event.target.value)
+    function onMessageCreatedOnChange(event: ChangeEvent<HTMLInputElement>) {
+        setCreated_on(event.target.value)
     }
 
     function onMessageMessageChange(event: ChangeEvent<HTMLTextAreaElement>) {
@@ -63,7 +63,7 @@ export default function AddMessages(props: addProjectProps) {
             toast.error("Die Nummer muss gesetzt sein")
         } else if (!title) {
             toast.error("Der Titel muss gesetzt sein")
-        } else if (!created_at) {
+        } else if (!created_on) {
             toast.error("Das Erstellungsdatum muss gesetzt sein")
         } else if (!message) {
             toast.error("Die Nachricht muss eigegeben werden")
@@ -74,11 +74,11 @@ export default function AddMessages(props: addProjectProps) {
         } else if (!projectName) {
             toast.error("Der Projektname muss gesetzt sein")
         } else {
-            props.addMessage({number, title, created_at, message, receiver, sender, projectName})
+            props.addMessage({number, title, created_on: created_on, message, receiver, sender, projectName})
                 .then(() => {
                     setNumber("");
                     settitle("");
-                    setCreated_at("");
+                    setCreated_on("");
                     setMessage("");
                     setReceiver("");
                     setSender("");
@@ -147,10 +147,10 @@ export default function AddMessages(props: addProjectProps) {
                             label=""
 
                             type="date"
-                            value={created_at}
+                            value={created_on}
                             fullWidth
                             variant="outlined"
-                            onChange={onMessageCreatedAtChange}
+                            onChange={onMessageCreatedOnChange}
                         />
                         Nachricht
                         <TextareaAutosize

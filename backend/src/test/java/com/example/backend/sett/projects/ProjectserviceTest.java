@@ -3,7 +3,6 @@ package com.example.backend.sett.projects;
 import com.example.backend.sett.githubstatus.OneIssue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.kohsuke.github.GHEventPayload;
 
 import java.util.List;
 
@@ -45,7 +44,7 @@ class ProjectserviceTest {
         Project actual = projectservice.addProject(new NewProject(
                 project.projectName,
                 project.issues,
-                project.created_at));
+                project.created_on));
 
         Assertions.assertEquals(actual, project);
     }
