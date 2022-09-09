@@ -1,19 +1,13 @@
 package com.example.backend.sett.projects;
 
-import com.example.backend.sett.githubstatus.OneIssue;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Project {
 
     @Id
@@ -22,8 +16,8 @@ public class Project {
     @NotNull
     String projectName;
     @NotNull
-    List<OneIssue> issues;
+    String creator;
     @NotNull
-    String created_on;
+    String created_at;
 
 }

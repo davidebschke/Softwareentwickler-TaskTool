@@ -39,7 +39,7 @@ public class MessageService {
                 newMessage.sender,
                 newMessage.receiver,
                 newMessage.projectName,
-                newMessage.created_on,
+                newMessage.created_at,
                 newMessage.message,
                 newMessage.title
         ));

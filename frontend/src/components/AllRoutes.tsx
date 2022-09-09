@@ -8,10 +8,10 @@ import useMessages from "./messagedir/useMessages";
 export default function AllRoutes() {
 
     const {
-        projects, addProject, deleteProject, updateProject, getAllRepositoryInfos
+        projects, issues, addProject, deleteProject, updateProject,
     } = useProjects();
 
-    const {messages, deleteMessage, addMessage,} = useMessages();
+    const {messages, deleteMessage, addMessage} = useMessages();
 
     return (
         <>
@@ -20,8 +20,7 @@ export default function AllRoutes() {
                     <Navigate to={"/sett"} replace/>
                 }/>
                 <Route path={"/home"} element={<Home/>}/>
-                <Route path={"/sett"} element={<ProjectsShow getAllRepositoryInfo={getAllRepositoryInfos}
-                                                             updateProjectForm={updateProject}
+                <Route path={"/sett"} element={<ProjectsShow issues={issues} updateProjectForm={updateProject}
                                                              deleteProject={deleteProject}
                                                              addProject={addProject}
                                                              projects={projects}/>}/>

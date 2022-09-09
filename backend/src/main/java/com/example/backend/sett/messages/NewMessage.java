@@ -17,7 +17,7 @@ public class NewMessage {
     String receiver;
     String projectName;
     @NotNull
-    String created_on;
+    String created_at;
     @NotNull
     String message;
     String title;

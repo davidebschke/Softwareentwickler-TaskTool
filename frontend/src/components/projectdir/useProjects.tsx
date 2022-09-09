@@ -2,11 +2,13 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
+import {Issue} from "../githubdir/Issue";
 import {GridRowId} from "@mui/x-data-grid-premium";
 
 export default function UseProjects() {
 
     const [projects, setProjects] = useState<Project[]>([])
+    const [issues, setIssues] = useState<Issue[]>([])
 
     useEffect(() => {
             getAllProjects()
@@ -40,15 +42,30 @@ export default function UseProjects() {
             })
     }
 
-    const getAllRepositoryInfos = (username: string, repositoryname: string) => {
-        return axios.post("/stt/github/" + username + "/" + repositoryname)
-            .then((response) => {
-                getAllProjects()
-                return response.data
-            });
+    const getAllClosedIssues = (username: string ,repositoryName: string ) => {
+        axios.get("/stt/github/issuesC/"+ username + "/"+repositoryName)
+            .then((response) =>
+               response.data)
+            .then(setIssues)
+    }
+    const getAllOpenIssues = (username: string ,repositoryName: string ) => {
+        axios.get("/stt/github/issuesO/"+ username + "/"+repositoryName)
+            .then((response) =>
+                response.data)
+            .then(setIssues)
+    }
+
+    const getAllRepositoryInfos = (username: string ,repositoryName: string ) => {
+        axios.get("/stt/github/"+ username + "/"+repositoryName)
+            .then((response) =>
+                response.data)
+            .then(setIssues)
     }
 
     return {
+        issues,
+        getAllOpenIssues,
+        getAllClosedIssues,
         getAllRepositoryInfos,
         projects,
         updateProject,
