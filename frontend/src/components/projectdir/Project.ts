@@ -1,7 +1,8 @@
+import {Issue} from "./Issue";
 
-export type Project ={
-    id:string,
+export type Project = {
+    id: string,
     projectName: string,
-    creator: string,
-    created_at: string,
+    issues: Issue[],
+    created_on: string,
 }

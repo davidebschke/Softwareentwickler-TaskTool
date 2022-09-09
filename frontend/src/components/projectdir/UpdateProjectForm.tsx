@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import {Box, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import {toast} from "react-toastify";
 import {GridRowId} from "@mui/x-data-grid-premium";
+import {Issue} from "./Issue";
 
 type UpdateProjectProps = {
     selectedID: GridRowId,
@@ -16,8 +17,8 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
     const [projectUp, setProjectUp] = useState<Project>();
     const [projectName, setProjectName] = useState<string>("");
     const [open, setOpen] = React.useState(false);
-    const[creator,setCreator]= useState<string>("")
-    const[created_at,setCreatedAt]= useState<string>("")
+    const [issues, setissues] = useState<Issue[]>([])
+    const [created_at, setCreatedAt] = useState<string>("")
 
     const handleClickOpen = () => {
         isID();
@@ -46,8 +47,8 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
             const updatedProject: Project = {
                 id: projectUp.id,
                 projectName: projectName,
-                creator: creator,
-                created_at:created_at,
+                issues: issues,
+                created_on: created_at,
             };
             props.projectUpdate(updatedProject)
             toast.success("Update Erfolgreich");
@@ -62,10 +63,10 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
         setProjectName(event.target.value)
     }
 
-    function onProjectMemberChange(event: ChangeEvent<HTMLInputElement>) {
-        setCreator(event.target.value)
-    }
-    function onCreatedAtChange(event:ChangeEvent<HTMLInputElement>){
+    //  function onIssueChange(event: ChangeEvent<HTMLInputElement>) {
+    //      setissues(event.target.value)
+    // }
+    function onCreatedAtChange(event: ChangeEvent<HTMLInputElement>) {
         setCreatedAt(event.target.value)
     }
 
@@ -98,7 +99,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 variant="outlined"
                                 onChange={onProjectNameChange}
                             />
-                            Projektersteller
+                            Aufgaben
                             <TextField
                                 autoFocus
                                 margin="dense"
@@ -106,7 +107,7 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 type="text"
                                 fullWidth
                                 variant="outlined"
-                                onChange={onProjectMemberChange}
+                                value={'Hallo'}
                             />
                             Erstellt am
                             <TextField

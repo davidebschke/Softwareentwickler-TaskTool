@@ -21,7 +21,7 @@ public class OneMessage {
     String receiver;
     String projectName;
     @NotNull
-    String created_at;
+    String created_on;
     @NotNull
     String message;
     String title;
