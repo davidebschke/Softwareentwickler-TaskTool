@@ -116,13 +116,13 @@ export default function AddMessages(props: addProjectProps) {
                             borderColor: '#FFD700',
                             borderWidth: 'medium', borderStyle: 'solid'
                         }}>
-                    New Message
+                    Neue Nachricht
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
                     <DialogTitle sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>Änderung des
                         Projects</DialogTitle>
                     <DialogContent sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
-                        <DialogContentText>
+                        <DialogContentText sx={{paddingBottom: '1.5em'}}>
                             Bitte tragen Sie hier die Daten ihres Projekts ein
                         </DialogContentText>
                         Nachrichtnummer
@@ -132,7 +132,7 @@ export default function AddMessages(props: addProjectProps) {
                             type="text"
                             value={number}
                             fullWidth
-                            variant="standard"
+                            variant="outlined"
                             onChange={onMessageNumberChange}
                         />
                         Titel der Nachricht
