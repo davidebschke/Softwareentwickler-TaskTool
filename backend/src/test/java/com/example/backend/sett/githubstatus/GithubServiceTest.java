@@ -33,7 +33,8 @@ class GithubServiceTest {
     private final MockWebServer mockWebServer = new MockWebServer();
 
     private final Projectrepo projectrepo = mock(Projectrepo.class);
-    private final GithubService githubService = new GithubService(projectrepo);
+    private final GithubRepo githubRepo = mock(GithubRepo.class);
+    private final GithubService githubService = new GithubService(projectrepo, githubRepo);
 
     @AfterEach
     public void shutDown() throws IOException {
