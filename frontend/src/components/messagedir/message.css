@@ -8,7 +8,7 @@
 
 textarea {
 
-    background-color: #9CA3AF;
+    background-color: var(--TableBodyMessageBackground);
 }
 
 .MuiDivider-root {

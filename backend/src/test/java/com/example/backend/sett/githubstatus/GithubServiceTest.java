@@ -143,6 +143,12 @@ class GithubServiceTest {
         OneIssue actual = githubService.addIssue(oneIssue);
 
         Assertions.assertEquals(actual, oneIssue);
+    }
+
+    @Test
+    @DirtiesContext
+    void getListofIssuesTest() {
+
 
     }
 }

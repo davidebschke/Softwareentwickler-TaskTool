@@ -119,8 +119,9 @@ export default function AddMessages(props: addProjectProps) {
                     New Message
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>
-                    <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
+                    <DialogTitle sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>Änderung des
+                        Projects</DialogTitle>
+                    <DialogContent sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
                         <DialogContentText>
                             Bitte tragen Sie hier die Daten ihres Projekts ein
                         </DialogContentText>
@@ -200,7 +201,7 @@ export default function AddMessages(props: addProjectProps) {
                             onChange={onMessageProjectNameChange}
                         />
                     </DialogContent>
-                    <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
+                    <DialogActions sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
                         <Button sx={{
                             backgroundColor: 'var( --ButtonColor)',
                             color: 'black',

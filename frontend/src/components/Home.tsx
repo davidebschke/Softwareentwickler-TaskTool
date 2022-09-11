@@ -8,14 +8,14 @@ export default function Home() {
             <Box
                 sx={{
                     width: 1000,
-                    height: 600,
-                    backgroundColor: 'rgba(255,215,0,0.82)',
-                    borderRadius: '3em',
+                    height: 'auto',
+                    backgroundColor: 'rgba(255,215,0,0.44)',
+                    borderRadius: '1em',
                     textAlign: 'left',
                     marginLeft: '300px',
-                    marginTop: 3,
-                    marginBottom: 3,
-                    marginRight: 3,
+                    marginTop: 7,
+                    marginBottom: 2,
+                    marginRight: 2,
 
 
                 }}>
