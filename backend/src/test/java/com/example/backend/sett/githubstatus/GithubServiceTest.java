@@ -132,4 +132,17 @@ class GithubServiceTest {
 
         Assertions.assertEquals(actual, project);
     }
+
+    @Test
+    @DirtiesContext
+    void addOneIssueTest() {
+
+        OneIssue oneIssue = new OneIssue("1", "TestIssue", "TestStatus", "TestDatum");
+        when(githubRepo.save(any())).thenReturn(oneIssue);
+
+        OneIssue actual = githubService.addIssue(oneIssue);
+
+        Assertions.assertEquals(actual, oneIssue);
+
+    }
 }
