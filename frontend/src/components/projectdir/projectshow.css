@@ -14,9 +14,14 @@
     color: black;
 }
 
-.MuiSvgIcon-root {
-    color: black;
+.MuiDataGrid-sortIcon {
+    color: #066ff8;
 }
+
+.MuiIconButton-root {
+    color: #066ff8 !important;
+}
+
 
 .MuiDataGrid-root {
     border-top-color: #FFD700 !important;

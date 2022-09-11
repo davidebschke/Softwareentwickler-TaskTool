@@ -9,14 +9,13 @@ export default function Home() {
                 sx={{
                     width: 1000,
                     height: 600,
-                    backgroundColor: 'grey',
+                    backgroundColor: 'rgba(255,215,0,0.82)',
                     borderRadius: '3em',
                     textAlign: 'left',
                     marginLeft: '300px',
                     marginTop: 3,
                     marginBottom: 3,
                     marginRight: 3,
-                    borderStyle: 'solid',
 
 
                 }}>

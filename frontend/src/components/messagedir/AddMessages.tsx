@@ -122,13 +122,12 @@ export default function AddMessages(props: addProjectProps) {
                     <DialogTitle sx={{backgroundColor: '#9CA3AF'}}>Änderung des Projects</DialogTitle>
                     <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
                         <DialogContentText>
-                            Please enter here your new Project
+                            Bitte tragen Sie hier die Daten ihres Projekts ein
                         </DialogContentText>
                         Nachrichtnummer
                         <TextField
                             autoFocus
                             margin="dense"
-                            label="Number"
                             type="text"
                             value={number}
                             fullWidth
@@ -202,12 +201,20 @@ export default function AddMessages(props: addProjectProps) {
                         />
                     </DialogContent>
                     <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
-                        <Button sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}} size={'small'}
-                                variant='contained' onClick={handleClose}> Zurück</Button>
-                        <Button size={'small'} variant='contained' onClick={onProjectSubmit} sx={{
-                            backgroundColor: '#051e25',
-                            color: 'white',
-                            borderRadius: '2em'
+                        <Button sx={{
+                            backgroundColor: 'var( --ButtonColor)',
+                            color: 'black',
+                            marginLeft: '2em',
+                            borderColor: '#FFD700',
+                            borderWidth: 'medium'
+                        }} size={'small'}
+                                variant="outlined" onClick={handleClose}> Zurück</Button>
+                        <Button size={'small'} variant="outlined" onClick={onProjectSubmit} sx={{
+                            backgroundColor: 'var( --ButtonColor)',
+                            color: 'black',
+                            marginLeft: '2em',
+                            borderColor: '#FFD700',
+                            borderWidth: 'medium'
                         }}>Speichern</Button>
                     </DialogActions>
                 </Dialog>

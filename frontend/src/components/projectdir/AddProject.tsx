@@ -69,7 +69,7 @@ export default function AddProject(props: addProjectProps) {
                             borderColor: '#FFD700',
                             borderWidth: 'medium'
                         }}>
-                    New Project
+                    Neues Projekt
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
                     <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit'}}>Erstellen des
