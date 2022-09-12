@@ -41,6 +41,7 @@ export default function Home() {
                             <li> Einlogfunktion mit verschiedenen Berechtigungen</li>
                             <li> Aktives Nachrichtensystem zwischen den einzelnen Benutzern</li>
                             <li> Tabellen export als PDF und Excel-Datei</li>
+                            <li> Datenabfrage mit GraphQL optimieren</li>
                         </p>
                     </h4>
                 </div>
