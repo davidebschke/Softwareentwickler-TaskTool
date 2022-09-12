@@ -23,6 +23,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -135,22 +138,29 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-    void addOneIssueTest() {
+    void addOneIssueTest() throws Exception {
 
-        OneIssue oneIssue = new OneIssue("1", "TestIssue", "TestStatus", "TestDatum");
-        when(githubRepo.save(any())).thenReturn(oneIssue);
-
-        OneIssue actual = githubService.addIssue(oneIssue);
-
-        Assertions.assertEquals(actual, oneIssue);
+        mockMvc.perform(post(
+                        "/stt/github/issue")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"state": "open"
+                                }
+                                """)
+                )
+                .andExpect(status().is(201))
+                .andExpect(content().json("""
+                        {
+                                "state": "open"
+                                }
+                        """));
     }
+
 
     @Test
     @DirtiesContext
     void getListofIssuesTest() {
 
-        String username = "davidebschke";
-        String repositoryName = "Softwareentwickler-TaskTool";
 
        List<OneIssue> response = githubService.getIssues();
 

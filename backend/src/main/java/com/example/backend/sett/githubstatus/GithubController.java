@@ -1,8 +1,6 @@
 package com.example.backend.sett.githubstatus;
 
-import com.example.backend.sett.projects.NewProject;
 import com.example.backend.sett.projects.Project;
-import org.kohsuke.github.GHEventPayload;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
