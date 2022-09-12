@@ -55,20 +55,22 @@ export default function ImportGithubForm(props: ImportGithubProps) {
                 autoComplete="off"
             >
                 <Button onClick={handleClickOpen}
+                        variant={'outlined'}
                         sx={{
                             backgroundColor: 'var( --ButtonColor)',
                             color: 'black',
                             marginLeft: '2em',
                             borderColor: '#FFD700',
-                            borderWidth: 'medium'
+                            borderWidth: 'medium', borderStyle: 'solid'
                         }}
                         startIcon={<img src={"../github.svg"} alt={"GithubIcon"}/>}>
                     Import Github
                 </Button>
                 <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit'}}>Erstellen des
+                    <DialogTitle sx={{backgroundColor: 'var(--TableBodyMessageBackground)', color: 'inherit'}}>Erstellen
+                        des
                         Projects</DialogTitle>
-                    <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
+                    <DialogContent sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
                         GithubUserName
                         <TextField
                             autoFocus
@@ -92,12 +94,26 @@ export default function ImportGithubForm(props: ImportGithubProps) {
                             onChange={onRepositoryNameChange}
                         />
                     </DialogContent>
-                    <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
+                    <DialogActions sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
                         <Button onClick={handleClose}
-                                sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                sx={{
+                                    backgroundColor: 'var( --ButtonColor)',
+                                    color: 'black',
+                                    marginLeft: '2em',
+                                    borderColor: '#FFD700',
+                                    borderWidth: 'medium'
+                                }}
+                                variant={'outlined'}
                                 size={'small'}>Zurück</Button>
                         <Button onClick={onProjectSubmit}
-                                sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                sx={{
+                                    backgroundColor: 'var( --ButtonColor)',
+                                    color: 'black',
+                                    marginLeft: '2em',
+                                    borderColor: '#FFD700',
+                                    borderWidth: 'medium'
+                                }}
+                                variant={'outlined'}
                                 size={'small'}>Speichern</Button>
                     </DialogActions>
                 </Dialog>
