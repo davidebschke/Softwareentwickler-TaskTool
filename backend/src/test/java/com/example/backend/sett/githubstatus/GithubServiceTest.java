@@ -149,6 +149,12 @@ class GithubServiceTest {
     @DirtiesContext
     void getListofIssuesTest() {
 
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
+
+        List<OneIssue> response = Collections.singletonList((githubService.getAllIssuesFromRepository(username, repositoryName).get(0)));
+
+        assertThat(response).hasOnlyElementsOfType(OneIssue.class);
 
     }
 }
