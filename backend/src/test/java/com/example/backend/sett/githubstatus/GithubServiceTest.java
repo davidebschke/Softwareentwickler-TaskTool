@@ -152,7 +152,7 @@ class GithubServiceTest {
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
 
-        List<OneIssue> response = Collections.singletonList((githubService.getAllIssuesFromRepository(username, repositoryName).get(0)));
+       List<OneIssue> response = githubService.getIssues();
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
 
