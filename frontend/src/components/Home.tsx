@@ -42,6 +42,7 @@ export default function Home() {
                             <li> Aktives Nachrichtensystem zwischen den einzelnen Benutzern</li>
                             <li> Tabellen export als PDF und Excel-Datei</li>
                             <li> Datenabfrage mit GraphQL optimieren</li>
+                            <li> Automatische aktualisierung der Daten</li>
                         </p>
                     </h4>
                 </div>
