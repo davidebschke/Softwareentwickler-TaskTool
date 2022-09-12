@@ -17,30 +17,30 @@ export default function MessageShow(props: MessageProps) {
         <List sx={{
             width: '100%',
             maxWidth: 1000,
-            bgcolor: '#9CA3AF',
+            bgColor: 'green',
             marginLeft: '10em',
             marginTop: '1em',
-            color: '#E5E7EB'
+            color: 'black'
         }}>
             {props.messages.map((message) => {
                 return (
                     <div key={message.id}>
                         <ListItem alignItems="flex-start"
                                   sx={{
-                                      backgroundColor: '#2b4b8e',
+                                      backgroundColor: 'var(--TableBodyMessageBackground)',
                                       borderRadius: '2em',
                                       marginBottom: '1em',
-                                      color: 'white'
+                                      color: 'black'
                                   }}>
                             <ListItemAvatar>
                                 <Avatar alt="MessageIcon" src="../envelope.svg"/>
                             </ListItemAvatar>
-                            <ListItemText sx={{color: 'white'}}
+                            <ListItemText sx={{color: 'black'}}
                                           primary={"Title: " + message.title}
                                           secondary={
                                               <React.Fragment>
                                                   <Typography
-                                                      sx={{display: 'flex', color: '#E5E7EB'}}
+                                                      sx={{display: 'flex', color: 'black'}}
                                                       component="span"
                                                       variant="subtitle1"
                                                       color="text.primary"
@@ -48,21 +48,21 @@ export default function MessageShow(props: MessageProps) {
                                                   </Typography>
 
                                                   <Typography
-                                                      sx={{display: 'flex', color: '#E5E7EB'}}
+                                                      sx={{display: 'flex', color: 'black'}}
                                                       component="span"
                                                       variant="subtitle2"
                                                       color="text.primary"
                                                   >{'Empfänger:' + message.receiver}
                                                   </Typography>
                                                   <Typography
-                                                      sx={{display: 'flex', color: '#E5E7EB'}}
+                                                      sx={{display: 'flex', color: 'black'}}
                                                       component="span"
                                                       variant="subtitle2"
                                                       color="text.primary"
                                                   >
                                                   </Typography>
                                                   <Typography
-                                                      sx={{display: 'inline', color: '#E5E7EB'}}
+                                                      sx={{display: 'inline', color: 'black'}}
                                                       component="span"
                                                       variant="body2"
                                                       color="text.primary"
@@ -71,8 +71,14 @@ export default function MessageShow(props: MessageProps) {
                                                   </Typography>
                                               </React.Fragment>
                                           }/>
-                            {(<Button sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
-                                      variant={'contained'} size={'small'}
+                            {(<Button sx={{
+                                backgroundColor: 'var( --ButtonColor)',
+                                color: 'black',
+                                marginLeft: '3em',
+                                borderColor: '#FFD700',
+                                borderWidth: 'thin', borderStyle: 'solid', borderRadius: '3em'
+                            }}
+                                      variant={'outlined'} size={'small'}
                                       onClick={() => props.deleteMessage(message.id)}> Löschen </Button>)}
 
                         </ListItem>

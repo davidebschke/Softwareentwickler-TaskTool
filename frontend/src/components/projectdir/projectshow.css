@@ -1,19 +1,50 @@
 .MuiDataGrid-columnHeaderTitleContainer {
-    background-color: #2b4b8e;
+    background-color: #A9A9A9;
 }
 
 .MuiDataGrid-columnHeaders {
-    background-color: #2b4b8e;
+    background-color: #A9A9A9;
 }
 
 .MuiDataGrid-footerContainer {
-    background-color: #2b4b8e;
+    background-color: #A9A9A9;
 }
 
 .MuiTablePagination-displayedRows {
-    color: white;
+    color: black;
 }
 
-.MuiSvgIcon-root {
-    color: white;
+.MuiDataGrid-sortIcon {
+    color: #066ff8;
+}
+
+.MuiIconButton-root {
+    color: #066ff8 !important;
+}
+
+.MuiDataGrid-root {
+    border-top-color: #FFD700 !important;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: #FFD700 !important;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: #FFD700 !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #FFD700 !important;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-repeat: stretch;
+    border-image-source: none;
+}
+
+.MuiDataGrid-cell {
+    border-bottom-color: black !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.MuiList-root.MuiList-padding {
+    background-color: var(--TableBodyMessageBackground) !important;
 }

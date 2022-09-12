@@ -6,10 +6,9 @@ footer {
     background: var(--footerHeaderBackground);
     height: auto;
     width: 100vw;
-    padding-top: 20px;
     color: ghostwhite;
     border-style: inset;
-    border-color: #798098;
+    border-color: #FFD700;
 }
 
 .footer-content {
@@ -29,7 +28,7 @@ footer {
 
 .footer-content p {
     max-width: 500px;
-    margin: 10px auto;
+    margin: 5px auto;
     line-height: 28px;
     font-size: 14px;
     color: var(--footer_Header_color);
@@ -40,7 +39,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem 0 1rem 0;
+
 }
 
 .socials li {
@@ -48,7 +47,7 @@ footer {
 }
 
 .socials a {
-    color: var(--footer_Header_color);
+    color: #FFD700 !important;
     padding: 5px;
     border-radius: 50%;
 }

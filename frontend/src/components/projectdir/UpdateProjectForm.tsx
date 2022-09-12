@@ -79,14 +79,21 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                 autoComplete="off"
             >
                 <div>
-                    <Button sx={{backgroundColor: 'var( --ButtonColor)'}} variant="contained"
+                    <Button variant={'outlined'} sx={{
+                        backgroundColor: 'var( --ButtonColor)',
+                        color: 'black',
+                        marginLeft: '2em',
+                        borderColor: '#FFD700',
+                        borderWidth: 'medium'
+                    }}
                             onClick={handleClickOpen}>
                         Update
                     </Button>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit'}}>Änderung des
+                        <DialogTitle sx={{backgroundColor: 'var(--TableBodyMessageBackground)', color: 'inherit'}}>Änderung
+                            des
                             Projects</DialogTitle>
-                        <DialogContent sx={{backgroundColor: '#9CA3AF'}}>
+                        <DialogContent sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
                             Projektname
                             <TextField
                                 autoFocus
@@ -108,12 +115,26 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
                                 onChange={onCreatedAtChange}
                             />
                         </DialogContent>
-                        <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
+                        <DialogActions sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
                             <Button onClick={handleClose}
-                                    sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                    sx={{
+                                        backgroundColor: 'var( --ButtonColor)',
+                                        color: 'black',
+                                        marginLeft: '2em',
+                                        borderColor: '#FFD700',
+                                        borderWidth: 'medium'
+                                    }}
+                                    variant={'outlined'}
                                     size={'small'}>Zurück</Button>
                             <Button onClick={handleUpdate}
-                                    sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
+                                    sx={{
+                                        backgroundColor: 'var( --ButtonColor)',
+                                        color: 'black',
+                                        marginLeft: '2em',
+                                        borderColor: '#FFD700',
+                                        borderWidth: 'medium'
+                                    }}
+                                    variant={'outlined'}
                                     size={'small'}>Update</Button>
                         </DialogActions>
                     </Dialog>

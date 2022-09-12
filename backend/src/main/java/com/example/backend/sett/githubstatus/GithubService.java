@@ -1,5 +1,6 @@
 package com.example.backend.sett.githubstatus;
 
+import com.example.backend.sett.projects.NewProject;
 import com.example.backend.sett.projects.Project;
 import com.example.backend.sett.projects.Projectrepo;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.UUID;
 public class GithubService {
 
     private final Projectrepo projectrepo;
+    private final GithubRepo githubRepo;
 
     String pieceUri = "https://api.github.com/repos/";
 
@@ -68,5 +70,19 @@ public class GithubService {
         RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.created_on;
 
         return projectrepo.save(new Project(newGithubRepo.id, repositoryName1.name(), newGithubRepo.issues, repositoryCreatedDate.created_at()));
+    }
+
+    public OneIssue addIssue(OneIssue oneIssue) {
+        return githubRepo.save(
+                new OneIssue(
+                        oneIssue.number(),
+                        oneIssue.title(),
+                        oneIssue.state(),
+                        oneIssue.created_at()
+                ));
+    }
+
+    public List<OneIssue> getIssues() {
+        return githubRepo.findAll();
     }
 }

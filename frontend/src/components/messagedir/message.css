@@ -1,12 +1,17 @@
 .MuiTypography-root {
-    color: white;
+    color: black;
 }
 
 .MuiList-root {
-    background-color: #abe1eb !important;
+    background-color: var(--Background) !important;
 }
 
 textarea {
 
-    background-color: #9CA3AF;
+    background-color: var(--TableBodyMessageBackground);
+}
+
+.MuiDivider-root {
+
+    border: none;
 }

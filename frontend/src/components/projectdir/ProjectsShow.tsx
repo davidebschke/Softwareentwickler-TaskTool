@@ -19,10 +19,13 @@ import ShowAllIssues from "./ShowAllIssues";
 
 type ProjectProps = {
     projects: Project[],
+    issue: Issue[],
     updateProjectForm: (project: Project) => Promise<void>,
     addProject: (newProject: NewProject) => Promise<Project>,
     deleteProject: (id: GridRowId[]) => Promise<void>;
     getAllRepositoryInfo: (username: string, repositoryname: string) => Promise<void>;
+    addIssue: (Issue: { number: string; title: string; state: string, created_at: string }
+    ) => Promise<Issue>
 }
 
 
@@ -49,7 +52,11 @@ export default function DataGridDemo(props: ProjectProps) {
             headerClassName: 'super-app-theme--header',
             renderCell: (cellvalue: GridRenderCellParams<Issue[]>) => {
                 return (
-                    <ShowAllIssues Issue={cellvalue.value}/>
+                    <ShowAllIssues
+                        Issue={cellvalue.value &&
+                        cellvalue.value?.length > 0 ?
+                            cellvalue.value : props.issue}
+                        addIssue={props.addIssue}/>
                 );
             }
         },
@@ -72,7 +79,7 @@ export default function DataGridDemo(props: ProjectProps) {
         <Box sx={{
             height: 600, width: '90%', margin: '4em', backgroundColor: 'var(--TableBodyMessageBackground)',
             '& .super-app-theme--header': {
-                backgroundColor: '#2b4b8e', color: '#f9f9f9'
+                backgroundColor: '#A9A9A9', color: 'black'
             }
         }}>
             <DataGrid
@@ -84,8 +91,13 @@ export default function DataGridDemo(props: ProjectProps) {
                 disableSelectionOnClick
                 onSelectionModelChange={setID}
             />
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button sx={{backgroundColor: 'var( --ButtonColor)'}}
+            <ButtonGroup variant="outlined" aria-label="outlined primary button group" sx={{marginTop: '2em'}}>
+                <Button sx={{
+                    backgroundColor: 'var( --ButtonColor)',
+                    color: 'black',
+                    borderColor: '#FFD700',
+                    borderWidth: 'medium'
+                }}
                         onClick={() => props.deleteProject(ID)}>Delete</Button>
                 <AddProject addProject={props.addProject}/>
                 <UpdateProjectForm selectedID={ID[0]} projectUpdate={props.updateProjectForm}

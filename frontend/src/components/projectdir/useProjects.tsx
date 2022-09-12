@@ -3,13 +3,16 @@ import axios from "axios";
 import {Project} from "./Project";
 import {NewProject} from "./NewProject";
 import {GridRowId} from "@mui/x-data-grid-premium";
+import {Issue} from "./Issue";
 
 export default function UseProjects() {
 
     const [projects, setProjects] = useState<Project[]>([])
+    const [issues, setIssues] = useState<Issue[]>([])
 
     useEffect(() => {
-            getAllProjects()
+        getAllProjects()
+        getAllIssue()
     }, [])
 
     const getAllProjects = () => {
@@ -48,7 +51,25 @@ export default function UseProjects() {
             });
     }
 
+    const getAllIssue = () => {
+        axios.get("/stt/github/issue")
+            .then((response) => response.data)
+            .then(setIssues)
+    }
+
+    const addIssue = (issue: Issue) => {
+
+        return axios.post("/stt/github/issue", issue)
+            .then((response) => {
+                    getAllIssue()
+                    return response.data
+                }
+            );
+    }
+
     return {
+        issues,
+        addIssue,
         getAllRepositoryInfos,
         projects,
         updateProject,

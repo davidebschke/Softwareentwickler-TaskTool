@@ -23,6 +23,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -33,7 +36,8 @@ class GithubServiceTest {
     private final MockWebServer mockWebServer = new MockWebServer();
 
     private final Projectrepo projectrepo = mock(Projectrepo.class);
-    private final GithubService githubService = new GithubService(projectrepo);
+    private final GithubRepo githubRepo = mock(GithubRepo.class);
+    private final GithubService githubService = new GithubService(projectrepo, githubRepo);
 
     @AfterEach
     public void shutDown() throws IOException {
@@ -130,5 +134,37 @@ class GithubServiceTest {
         Project actual = githubService.getAllRepositoryInfos(username, repositoryName);
 
         Assertions.assertEquals(actual, project);
+    }
+
+    @Test
+    @DirtiesContext
+    void addOneIssueTest() throws Exception {
+
+        mockMvc.perform(post(
+                        "/stt/github/issue")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"state": "open"
+                                }
+                                """)
+                )
+                .andExpect(status().is(201))
+                .andExpect(content().json("""
+                        {
+                                "state": "open"
+                                }
+                        """));
+    }
+
+
+    @Test
+    @DirtiesContext
+    void getListofIssuesTest() {
+
+
+       List<OneIssue> response = githubService.getIssues();
+
+        assertThat(response).hasOnlyElementsOfType(OneIssue.class);
+
     }
 }
