@@ -1,7 +1,6 @@
 package com.example.backend.sett.githubstatus;
 
 import org.junit.jupiter.api.Test;
-import org.junit.platform.engine.SelectorResolutionResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
