@@ -50,7 +50,19 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-    void getIssues() {
+    void getRepositoryCreatedOn() {
+
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
+
+        List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedOn(username, repositoryName)).get(0)));
+
+        assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
+    }
+
+    @Test
+    @DirtiesContext
+    void getAllIssuesFromRepository() {
 
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
@@ -82,36 +94,6 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-    void getCloseIssues() {
-
-        String username = "davidebschke";
-        String repositoryName = "Softwareentwickler-TaskTool";
-
-        mockWebServer.enqueue(new MockResponse()
-                .setResponseCode(200)
-                .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-                .setBody(""" 
-                        ["ABC"]
-                        """));
-
-        List<OneIssue> response = githubService.getAllIssuesFromRepository(username, repositoryName);
-        assertThat(response).hasOnlyElementsOfType(OneIssue.class);
-    }
-
-    @Test
-    @DirtiesContext
-    void getRepositoryCreatedOn() {
-
-        String username = "davidebschke";
-        String repositoryName = "Softwareentwickler-TaskTool";
-
-        List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedOn(username, repositoryName)).get(0)));
-
-        assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
-    }
-
-    @Test
-    @DirtiesContext
     void getAllRepositoryInfos() {
 
         String username = "davidebschke";
@@ -133,11 +115,21 @@ class GithubServiceTest {
 
         Assertions.assertEquals(actual, project);
     }
+
+    @Test
+    @DirtiesContext
+    void getRandomiD() {
+
+        String id = githubService.getRandomId();
+        
+        Assertions.assertNotNull(id);
+    }
+
     @Test
     @DirtiesContext
     void getListofIssuesTest() {
 
-       List<OneIssue> response = githubService.getIssues();
+        List<OneIssue> response = githubService.getIssues();
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
 
