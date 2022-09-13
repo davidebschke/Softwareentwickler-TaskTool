@@ -31,8 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 class GithubServiceTest {
 
-    @Autowired
-    MockMvc mockMvc;
+
     private final MockWebServer mockWebServer = new MockWebServer();
 
     private final Projectrepo projectrepo = mock(Projectrepo.class);
@@ -135,28 +134,6 @@ class GithubServiceTest {
 
         Assertions.assertEquals(actual, project);
     }
-
-    @Test
-    @DirtiesContext
-    void addOneIssueTest() throws Exception {
-
-        mockMvc.perform(post(
-                        "/stt/github/issue")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("""
-                                {"state": "open"
-                                }
-                                """)
-                )
-                .andExpect(status().is(201))
-                .andExpect(content().json("""
-                        {
-                                "state": "open"
-                                }
-                        """));
-    }
-
-
     @Test
     @DirtiesContext
     void getListofIssuesTest() {
