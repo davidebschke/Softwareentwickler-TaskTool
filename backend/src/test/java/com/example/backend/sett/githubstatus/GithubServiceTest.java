@@ -138,7 +138,6 @@ class GithubServiceTest {
     @DirtiesContext
     void getListofIssuesTest() {
 
-
        List<OneIssue> response = githubService.getIssues();
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
