@@ -46,7 +46,6 @@ class GithubServiceTest {
     List<OneIssue> issueList = List.of(
 
             new OneIssue("1", "Hallo Welt Issue", "open", "19.09.2000")
-
     );
 
     @Test
