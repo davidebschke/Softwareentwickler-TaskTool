@@ -13,16 +13,13 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class NewMessage {
 
-    @NotNull
     String number;
-    @NotNull
+
     String sender;
-    @NotNull
     String receiver;
     String projectName;
-    @NotNull
+
     String created_on;
-    @NotNull
     String message;
     String title;
 }
