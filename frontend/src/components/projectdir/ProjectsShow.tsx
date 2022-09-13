@@ -28,7 +28,6 @@ type ProjectProps = {
     ) => Promise<Issue>
 }
 
-
 export default function DataGridDemo(props: ProjectProps) {
 
     const columns: GridColDef[] = [
