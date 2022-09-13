@@ -12,11 +12,9 @@ import lombok.NoArgsConstructor;
 public class NewMessage {
 
     String number;
-
     String sender;
     String receiver;
     String projectName;
-
     String created_on;
     String message;
     String title;
