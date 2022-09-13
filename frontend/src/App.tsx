@@ -10,22 +10,22 @@ function App() {
     return (
         <>
             <HashRouter>
-            <Header/>
-            <AllRoutes/>
-            <Footer/>
-
+                <Header/>
+                <AllRoutes/>
+                <Footer/>
             </HashRouter>
-    <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-    />
+
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
 </>
     );
 }

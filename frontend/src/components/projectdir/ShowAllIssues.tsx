@@ -115,16 +115,19 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
                 </Button>
                 <Dialog open={open} onClose={handleClose} fullWidth={true}
                         sx={{width: '800px', height: '800px'}}>
-                    <DialogTitle sx={{backgroundColor: '#9CA3AF', color: 'inherit', width: '800px'}}>Alle Aufgaben des
+                    <DialogTitle
+                        sx={{backgroundColor: 'var(--TableBodyMessageBackground)', color: 'inherit', width: '800px'}}>Alle
+                        Aufgaben des
                         Projekts </DialogTitle>
-                    <DialogContent sx={{backgroundColor: '#9CA3AF', height: '800px', width: '800px',}}>
+                    <DialogContent
+                        sx={{backgroundColor: 'var(--TableBodyMessageBackground)', height: '400px', width: '800px',}}>
                         {rows ?
                             <DataGrid
                                 getRowId={(row) => rows?.indexOf(row)}
                                 rows={rows}
                                 columns={columns}
-                                pageSize={10}
-                                rowsPerPageOptions={[10]}
+                                pageSize={5}
+                                rowsPerPageOptions={[5]}
                                 checkboxSelection
                                 disableSelectionOnClick
                             /> : <p> Hier gibt nix zu sehen</p>}
@@ -172,7 +175,7 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
                             variant="outlined"
                             onChange={onCreatedOnChange}
                         /> </DialogContent>
-                    <DialogActions sx={{backgroundColor: '#9CA3AF'}}>
+                    <DialogActions sx={{backgroundColor: 'var(--TableBodyMessageBackground)'}}>
                         <Button onClick={handleClose}
                                 sx={{backgroundColor: '#051e25', color: 'white', borderRadius: '2em'}}
                                 size={'small'}>Zurück</Button>

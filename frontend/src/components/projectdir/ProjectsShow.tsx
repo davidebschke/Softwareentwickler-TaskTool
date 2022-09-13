@@ -28,7 +28,6 @@ type ProjectProps = {
     ) => Promise<Issue>
 }
 
-
 export default function DataGridDemo(props: ProjectProps) {
 
     const columns: GridColDef[] = [
@@ -88,7 +87,6 @@ export default function DataGridDemo(props: ProjectProps) {
                 pageSize={10}
                 rowsPerPageOptions={[10]}
                 checkboxSelection
-                disableSelectionOnClick
                 onSelectionModelChange={setID}
             />
             <ButtonGroup variant="outlined" aria-label="outlined primary button group" sx={{marginTop: '2em'}}>

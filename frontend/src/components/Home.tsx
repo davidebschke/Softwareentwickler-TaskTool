@@ -32,12 +32,17 @@ export default function Home() {
                             <li> Anzeigen, Einfügen und Löschen von Nachrichten</li>
                             <li> Einbinden einer MongoDB mit zwei Repositories</li>
                             <li> Provisorische Home Seite</li>
+                            <li> Filterung der Projekte mit verschiedenen Möglichkeiten</li>
+                            <li> Sortierung der Projekte</li>
                         </p>
                         <p> Folgende Featueres sind noch in Arbeit </p>
                         <p>
                             <li> Validieren der verschiedenen Imputfelder</li>
                             <li> Einlogfunktion mit verschiedenen Berechtigungen</li>
                             <li> Aktives Nachrichtensystem zwischen den einzelnen Benutzern</li>
+                            <li> Tabellen export als PDF und Excel-Datei</li>
+                            <li> Datenabfrage mit GraphQL optimieren</li>
+                            <li> Automatische aktualisierung der Daten</li>
                         </p>
                     </h4>
                 </div>

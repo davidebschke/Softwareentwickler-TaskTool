@@ -31,8 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 class GithubServiceTest {
 
-    @Autowired
-    MockMvc mockMvc;
+
     private final MockWebServer mockWebServer = new MockWebServer();
 
     private final Projectrepo projectrepo = mock(Projectrepo.class);
@@ -47,12 +46,23 @@ class GithubServiceTest {
     List<OneIssue> issueList = List.of(
 
             new OneIssue("1", "Hallo Welt Issue", "open", "19.09.2000")
-
     );
 
     @Test
     @DirtiesContext
-    void getIssues() {
+    void getRepositoryCreatedOn() {
+
+        String username = "davidebschke";
+        String repositoryName = "Softwareentwickler-TaskTool";
+
+        List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedOn(username, repositoryName)).get(0)));
+
+        assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
+    }
+
+    @Test
+    @DirtiesContext
+    void getAllIssuesFromRepository() {
 
         String username = "davidebschke";
         String repositoryName = "Softwareentwickler-TaskTool";
@@ -84,36 +94,6 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-    void getCloseIssues() {
-
-        String username = "davidebschke";
-        String repositoryName = "Softwareentwickler-TaskTool";
-
-        mockWebServer.enqueue(new MockResponse()
-                .setResponseCode(200)
-                .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-                .setBody(""" 
-                        ["ABC"]
-                        """));
-
-        List<OneIssue> response = githubService.getAllIssuesFromRepository(username, repositoryName);
-        assertThat(response).hasOnlyElementsOfType(OneIssue.class);
-    }
-
-    @Test
-    @DirtiesContext
-    void getRepositoryCreatedOn() {
-
-        String username = "davidebschke";
-        String repositoryName = "Softwareentwickler-TaskTool";
-
-        List<RepositoryCreatedDate> response = Collections.singletonList((Collections.singletonList(githubService.getRepoCreatedOn(username, repositoryName)).get(0)));
-
-        assertThat(response).hasOnlyElementsOfType(RepositoryCreatedDate.class);
-    }
-
-    @Test
-    @DirtiesContext
     void getAllRepositoryInfos() {
 
         String username = "davidebschke";
@@ -138,31 +118,18 @@ class GithubServiceTest {
 
     @Test
     @DirtiesContext
-    void addOneIssueTest() throws Exception {
+    void getRandomiD() {
 
-        mockMvc.perform(post(
-                        "/stt/github/issue")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("""
-                                {"state": "open"
-                                }
-                                """)
-                )
-                .andExpect(status().is(201))
-                .andExpect(content().json("""
-                        {
-                                "state": "open"
-                                }
-                        """));
+        String id = githubService.getRandomId();
+        
+        Assertions.assertNotNull(id);
     }
-
 
     @Test
     @DirtiesContext
     void getListofIssuesTest() {
 
-
-       List<OneIssue> response = githubService.getIssues();
+        List<OneIssue> response = githubService.getIssues();
 
         assertThat(response).hasOnlyElementsOfType(OneIssue.class);
 

@@ -39,8 +39,8 @@ export default function ImportGithubForm(props: ImportGithubProps) {
                     setUserName("");
                     setRepositoryName("");
                 })
-                .then(() => toast.success("Project wurde hinzugefügt", {theme: "light"}))
-                .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}))
+                .then(() => toast.success("Projekt wurde hinzugefügt", {theme: "light"}))
+                .catch(() => toast.error("Projekt konnte nicht hinzugefügt werden", {theme: "light"}))
         }
     }
 

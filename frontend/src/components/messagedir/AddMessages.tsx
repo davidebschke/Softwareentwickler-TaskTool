@@ -114,7 +114,8 @@ export default function AddMessages(props: addProjectProps) {
                             color: 'black',
                             marginLeft: '2em',
                             borderColor: '#FFD700',
-                            borderWidth: 'medium', borderStyle: 'solid'
+                            borderWidth: 'medium', borderStyle: 'solid',
+                            marginTop: '1em'
                         }}>
                     Neue Nachricht
                 </Button>

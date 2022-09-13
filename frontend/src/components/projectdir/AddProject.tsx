@@ -38,8 +38,8 @@ export default function AddProject(props: addProjectProps) {
                     setProjectName("");
                     setCreated_on("");
                 })
-                .then(() => toast.success("Project wurde hinzugefügt", {theme: "light"}))
-                .catch(() => toast.error("Project konnte nicht hinzugefügt werden", {theme: "light"}))
+                .then(() => toast.success("Projekt wurde hinzugefügt", {theme: "light"}))
+                .catch(() => toast.error("Projekt konnte nicht hinzugefügt werden", {theme: "light"}))
         }
     }
 

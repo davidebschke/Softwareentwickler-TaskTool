@@ -1,6 +1,6 @@
 footer {
-    position: absolute;
-    bottom: 0;
+    position: static;
+    bottom: -78px;
     left: 0;
     right: 0;
     background: var(--footerHeaderBackground);
@@ -9,6 +9,7 @@ footer {
     color: ghostwhite;
     border-style: inset;
     border-color: #FFD700;
+    margin-top: 10.2em;
 }
 
 .footer-content {
