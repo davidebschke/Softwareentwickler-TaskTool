@@ -56,7 +56,8 @@ import static org.mockito.Mockito.*;
          String id = "1";
 
          when(messageRepo.existsById(id)).thenReturn(false);
-
+         
          Assertions.assertFalse(messageRepo.existsById(id));
+         Assertions.assertFalse(messageService.deleteMessage(id));
      }
  }
