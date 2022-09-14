@@ -50,4 +50,13 @@ import static org.mockito.Mockito.*;
         OneMessage actual = messageService.addMessage(newMessage);
         Assertions.assertEquals(oneMessage.sender, actual.sender);
     }
-}
+
+     @Test
+     void messageFindById() {
+         String id = "1";
+
+         when(messageRepo.existsById(id)).thenReturn(false);
+
+         Assertions.assertFalse(messageRepo.existsById(id));
+     }
+ }
