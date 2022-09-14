@@ -49,9 +49,6 @@ class IntegrationsTest {
                 .andExpect(content().json("""
                         []
                         """));
-
-        mockMvc.perform(delete("/stt/messages/" + id))
-                .andExpect(status().is(404));
     }
 
     @DirtiesContext
@@ -70,6 +67,17 @@ class IntegrationsTest {
                                 "title": "Shop"
                                 }
                         """));
+
+    }
+
+    @DirtiesContext
+    @Test
+    void notFoundDeleteTest() throws Exception {
+
+        String id = "1";
+
+        mockMvc.perform(delete("/stt/messages/" + id))
+                .andExpect(status().is(404));
 
     }
 }

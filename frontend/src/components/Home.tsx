@@ -34,10 +34,10 @@ export default function Home() {
                             <li> Provisorische Home Seite</li>
                             <li> Filterung der Projekte mit verschiedenen Möglichkeiten</li>
                             <li> Sortierung der Projekte</li>
+                            <li> Validieren der verschiedenen Imputfelder</li>
                         </p>
                         <p> Folgende Featueres sind noch in Arbeit </p>
                         <p>
-                            <li> Validieren der verschiedenen Imputfelder</li>
                             <li> Einlogfunktion mit verschiedenen Berechtigungen</li>
                             <li> Aktives Nachrichtensystem zwischen den einzelnen Benutzern</li>
                             <li> Tabellen export als PDF und Excel-Datei</li>
