@@ -34,8 +34,6 @@ class IntegrationsTest {
     @Test
     void deleteMessage() throws Exception {
 
-        Boolean testBoolean = null;
-
         OneMessage TestObject = new OneMessage("2", "22", "David", "Alf", "Webshop",
                 "2000-01-01", "Hallo Welt Lorum Ipsum is out", "Your Message");
 

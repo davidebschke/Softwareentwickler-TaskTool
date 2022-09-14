@@ -14,7 +14,6 @@ function App() {
                 <AllRoutes/>
                 <Footer/>
             </HashRouter>
-
             <ToastContainer
                 position="top-center"
                 autoClose={2000}
