@@ -35,7 +35,9 @@ export default function AddMessages(props: addProjectProps) {
     }
 
     function onMessageTitleChange(event: ChangeEvent<HTMLInputElement>) {
-        settitle(event.target.value)
+        const re = /[0-9]/g;
+        const validValue = event.target.value.replace(re, "")
+        settitle(validValue)
     }
 
     function onMessageCreatedOnChange(event: ChangeEvent<HTMLInputElement>) {
@@ -47,15 +49,21 @@ export default function AddMessages(props: addProjectProps) {
     }
 
     function onMessageReceiverChange(event: ChangeEvent<HTMLInputElement>) {
-        setReceiver(event.target.value)
+        const re = /[0-9]/g;
+        const validValue = event.target.value.replace(re, "")
+        setReceiver(validValue)
     }
 
     function onMessageSenderChange(event: ChangeEvent<HTMLInputElement>) {
-        setSender(event.target.value)
+        const re = /[0-9]/g;
+        const validValue = event.target.value.replace(re, "")
+        setSender(validValue)
     }
 
     function onMessageProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
-        setProjectName(event.target.value)
+        const re = /[0-9ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(re, "")
+        setProjectName(validValue)
     }
 
     const onProjectSubmit = () => {

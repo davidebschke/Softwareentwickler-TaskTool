@@ -25,11 +25,15 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
     }
 
     function onTitleChange(event: ChangeEvent<HTMLInputElement>) {
-        setTitle(event.target.value)
+        const re = /[0-9ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(re, "")
+        setTitle(validValue)
     }
 
     function onStateChange(event: ChangeEvent<HTMLInputElement>) {
-        setState(event.target.value)
+        const re = /[0-9ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(re, "")
+        setState(validValue)
     }
 
     function onCreatedOnChange(event: ChangeEvent<HTMLInputElement>) {
