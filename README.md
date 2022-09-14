@@ -15,6 +15,7 @@ Manuelles erstellen von Projekten --> Klicken Sie auf den Button *Neues Projekt*
 
 Beachten Sie : Es ist ein reines Desktop Tool
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=davidebschke_Softwareentwickler-TaskTool_backend)
 
 Testabdeckung :
 
