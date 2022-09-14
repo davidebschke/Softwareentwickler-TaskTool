@@ -1,13 +1,12 @@
 # Softwareentwickler-TaskTool
 Das Ziel dieses Projekt ist die Verwaltung von Projekten und das hinterlassen von Nachrichten für den nächsten Anwender. 
 
-[![.github/workflows/deployto-heroku.yml](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml/badge.svg)](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml)
 
-[![.github/workflows/deployto-heroku.yml](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/build.yml/badge.svg)](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/build.yml)
 
-[![.github/workflows/deployto-heroku.yml](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/sonar-frontend.yml/badge.svg)](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/sonar-frontend.yml)
+
 
 Zum Starten des Projekts auf diesen Link klicken : https://capstone-sett.herokuapp.com/
+Status des Links: [![.github/workflows/deployto-heroku.yml](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml/badge.svg)](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml)
 
 Github Projekte Importieren --> Klicken Sie auf den Button *Import Github* um ein Repository von Github hinzuzufügen . Dabei müssen Sie ihren Github      Benutzernamen eintragen und den Namen vom Repository. Achten Sie dabei auf exakte Namen. Bei leerzeichen oder	unterschiedlicher Groß und Kleinschreibung wird es nicht funktionieren . Sie werden darüber aber auch von den Programm Informiert falls es fehlschlägt.
 
