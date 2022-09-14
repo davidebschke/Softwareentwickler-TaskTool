@@ -15,3 +15,8 @@ Manuelles erstellen von Projekten --> Klicken Sie auf den Button *Neues Projekt*
 
 
 Beachten Sie : Es ist ein reines Desktop Tool
+
+
+Testabdeckung :
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=davidebschke_Softwareentwickler-TaskTool_backend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=davidebschke_Softwareentwickler-TaskTool_backend)
