@@ -35,7 +35,7 @@ export default function AddMessages(props: addProjectProps) {
     }
 
     function onMessageTitleChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /[0-9]/g;
+        const re = /\d/g;
         const validValue = event.target.value.replace(re, "")
         settitle(validValue)
     }
@@ -49,13 +49,13 @@ export default function AddMessages(props: addProjectProps) {
     }
 
     function onMessageReceiverChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /[0-9]/g;
+        const re = /\d/g;
         const validValue = event.target.value.replace(re, "")
         setReceiver(validValue)
     }
 
     function onMessageSenderChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /[0-9]/g;
+        const re = /\d/g;
         const validValue = event.target.value.replace(re, "")
         setSender(validValue)
     }

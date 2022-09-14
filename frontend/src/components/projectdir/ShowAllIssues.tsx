@@ -31,7 +31,7 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
     }
 
     function onStateChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /[0-9ß-üÄ-Ü]/g;
+        const re = /[ß-üÄ-Ü]/g;
         const validValue = event.target.value.replace(re, "")
         setState(validValue)
     }
