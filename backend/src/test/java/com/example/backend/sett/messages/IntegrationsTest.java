@@ -45,13 +45,11 @@ class IntegrationsTest {
         messageRepo.existsById(TestObject.id);
         mockMvc.perform(delete("/stt/messages/" + id))
                 .andExpect(status().is(204));
-
         mockMvc.perform(get("/stt/messages"))
                 .andExpect(status().is(200))
                 .andExpect(content().json("""
                         []
                         """));
-
         mockMvc.perform(delete("/stt/messages/" + id))
                 .andExpect(status().is(404));
     }
