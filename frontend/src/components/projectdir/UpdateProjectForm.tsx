@@ -58,13 +58,13 @@ export default function UpdateProjectForm(props: UpdateProjectProps) {
     }
 
     function onProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
-        setProjectName(event.target.value)
+        const re = /[0-9ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(re, "")
+        setProjectName(validValue)
     }
 
-    //  function onIssueChange(event: ChangeEvent<HTMLInputElement>) {
-    //      setissues(event.target.value)
-    // }
     function onCreatedAtChange(event: ChangeEvent<HTMLInputElement>) {
+
         setCreatedAt(event.target.value)
     }
 

@@ -17,7 +17,9 @@ export default function AddProject(props: addProjectProps) {
     const [issues, setIssues] = useState<Issue[]>([])
 
     function onProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
-        setProjectName(event.target.value)
+        const re = /[0-9ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(re, "")
+        setProjectName(validValue)
     }
 
     function onProjectCreatedAtChange(event: ChangeEvent<HTMLInputElement>) {
@@ -86,6 +88,7 @@ export default function AddProject(props: addProjectProps) {
                             fullWidth
                             variant="outlined"
                             onChange={onProjectNameChange}
+
                         />
                         Erstellungsdatum
                         <TextField
