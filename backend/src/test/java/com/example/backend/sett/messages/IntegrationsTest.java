@@ -1,6 +1,8 @@
 package com.example.backend.sett.messages;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.assertj.core.api.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -79,6 +81,14 @@ class IntegrationsTest {
         mockMvc.perform(delete("/stt/messages/" + id))
                 .andExpect(status().is(404));
 
+    }
+
+    @Test
+    void notexistbyIdTest() {
+
+        String id = "1";
+        boolean existing = messageRepo.existsById(id);
+        Assertions.assertFalse(existing);
     }
 }
 
