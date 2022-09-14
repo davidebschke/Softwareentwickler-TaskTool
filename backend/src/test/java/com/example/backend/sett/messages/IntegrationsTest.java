@@ -73,5 +73,12 @@ class IntegrationsTest {
                                 }
                         """));
     }
+
+    @Test
+    void deletenotExistingID() throws Exception {
+
+        String id = "1";
+        mockMvc.perform(delete("/stt/messages/" + id)).andExpect(status().is(404));
+    }
 }
 
