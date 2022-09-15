@@ -23,7 +23,6 @@ public class MessageService {
             messageRepo.deleteById(id);
             return true;
         } else {
-
             return false;
         }
     }

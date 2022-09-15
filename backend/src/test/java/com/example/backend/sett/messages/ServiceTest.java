@@ -50,4 +50,4 @@ import static org.mockito.Mockito.*;
         OneMessage actual = messageService.addMessage(newMessage);
         Assertions.assertEquals(oneMessage.sender, actual.sender);
     }
-}
+ }

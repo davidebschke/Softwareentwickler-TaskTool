@@ -1,6 +1,8 @@
 package com.example.backend.sett.messages;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.assertj.core.api.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -32,8 +34,6 @@ class IntegrationsTest {
     @Test
     void deleteMessage() throws Exception {
 
-        Boolean testBoolean = null;
-
         OneMessage TestObject = new OneMessage("2", "22", "David", "Alf", "Webshop",
                 "2000-01-01", "Hallo Welt Lorum Ipsum is out", "Your Message");
 
@@ -43,13 +43,11 @@ class IntegrationsTest {
         messageRepo.existsById(TestObject.id);
         mockMvc.perform(delete("/stt/messages/" + id))
                 .andExpect(status().is(204));
-
         mockMvc.perform(get("/stt/messages"))
                 .andExpect(status().is(200))
                 .andExpect(content().json("""
                         []
                         """));
-
         mockMvc.perform(delete("/stt/messages/" + id))
                 .andExpect(status().is(404));
     }
@@ -70,7 +68,13 @@ class IntegrationsTest {
                                 "title": "Shop"
                                 }
                         """));
+    }
 
+    @Test
+    void deletenotExistingID() throws Exception {
+
+        String id = "1";
+        mockMvc.perform(delete("/stt/messages/" + id)).andExpect(status().is(404));
     }
 }
 

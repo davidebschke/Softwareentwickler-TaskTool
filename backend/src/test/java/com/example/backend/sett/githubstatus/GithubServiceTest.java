@@ -31,7 +31,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 class GithubServiceTest {
 
-
     private final MockWebServer mockWebServer = new MockWebServer();
 
     private final Projectrepo projectrepo = mock(Projectrepo.class);
