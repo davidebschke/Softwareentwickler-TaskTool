@@ -23,7 +23,7 @@ type addProjectProps = {
 export default function AddMessages(props: addProjectProps) {
 
     const [number, setNumber] = useState<string>("");
-    const [title, settitle] = useState<string>("");
+    const [title, setTitle] = useState<string>("");
     const [created_on, setCreated_on] = useState<string>("")
     const [message, setMessage] = useState<string>("")
     const [receiver, setReceiver] = useState<string>("")
@@ -35,9 +35,9 @@ export default function AddMessages(props: addProjectProps) {
     }
 
     function onMessageTitleChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /\d/g;
-        const validValue = event.target.value.replace(re, "")
-        settitle(validValue)
+        const numberRegEx = /\d/g;
+        const validValue = event.target.value.replace(numberRegEx, "")
+        setTitle(validValue)
     }
 
     function onMessageCreatedOnChange(event: ChangeEvent<HTMLInputElement>) {
@@ -49,20 +49,20 @@ export default function AddMessages(props: addProjectProps) {
     }
 
     function onMessageReceiverChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /\d/g;
-        const validValue = event.target.value.replace(re, "")
+        const numberRegEx = /\d/g;
+        const validValue = event.target.value.replace(numberRegEx, "")
         setReceiver(validValue)
     }
 
     function onMessageSenderChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /\d/g;
-        const validValue = event.target.value.replace(re, "")
+        const numberRegEx = /\d/g;
+        const validValue = event.target.value.replace(numberRegEx, "")
         setSender(validValue)
     }
 
     function onMessageProjectNameChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /[0-9ß-üÄ-Ü]/g;
-        const validValue = event.target.value.replace(re, "")
+        const specialCharacterAndNumberRegEx = /[0-9ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(specialCharacterAndNumberRegEx, "")
         setProjectName(validValue)
     }
 
@@ -85,7 +85,7 @@ export default function AddMessages(props: addProjectProps) {
             props.addMessage({number, title, created_on: created_on, message, receiver, sender, projectName})
                 .then(() => {
                     setNumber("");
-                    settitle("");
+                    setTitle("");
                     setCreated_on("");
                     setMessage("");
                     setReceiver("");
