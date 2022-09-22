@@ -25,14 +25,14 @@ export default function ShowAllIssues(props: ShowAllIssuesProps) {
     }
 
     function onTitleChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /[0-9ß-üÄ-Ü]/g;
-        const validValue = event.target.value.replace(re, "")
+        const specialCharacterAndNumberRegEx = /[0-9ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(specialCharacterAndNumberRegEx, "")
         setTitle(validValue)
     }
 
     function onStateChange(event: ChangeEvent<HTMLInputElement>) {
-        const re = /[ß-üÄ-Ü]/g;
-        const validValue = event.target.value.replace(re, "")
+        const specialCharacterRegEx = /[ß-üÄ-Ü]/g;
+        const validValue = event.target.value.replace(specialCharacterRegEx, "")
         setState(validValue)
     }
 

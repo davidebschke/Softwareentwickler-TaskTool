@@ -66,11 +66,12 @@ public class GithubService {
 
         GithubRepositoryC newGithubRepo = new GithubRepositoryC(id, repoName, allIssues, createdOn);
 
-        RepositoryName repositoryName1 = newGithubRepo.projectName;
+        RepositoryName repoNameFromProject = newGithubRepo.projectName;
         RepositoryCreatedDate repositoryCreatedDate = newGithubRepo.created_on;
 
-        return projectrepo.save(new Project(newGithubRepo.id, repositoryName1.name(), newGithubRepo.issues, repositoryCreatedDate.created_at()));
+        return projectrepo.save(new Project(newGithubRepo.id, repoNameFromProject.name(), newGithubRepo.issues, repositoryCreatedDate.created_at()));
     }
+
 
     public OneIssue addIssue(OneIssue oneIssue) {
         return githubRepo.save(
