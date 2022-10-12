@@ -1,5 +1,5 @@
 # Softwareentwickler-TaskTool
-### Das Ziel dieses Projekt ist die Verwaltung von Projekten und das hinterlassen von Nachrichten für den nächsten Anwender. 
+#### Das Ziel dieses Projekt ist die Verwaltung von Projekten und das hinterlassen von Nachrichten für den nächsten Anwender. 
 
 
 
