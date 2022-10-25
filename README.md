@@ -6,7 +6,7 @@
 
 
 Zum Starten des Projekts auf diesen Link klicken : https://capstone-sett.herokuapp.com/
-Status des Links: [![.github/workflows/deployto-heroku.yml](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml/badge.svg)](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml)
+Status des Links: [![.github/workflows/deployto-heroku.yml](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml/badge.svg)](https://github.com/davidebschke/Softwareentwickler-TaskTool/actions/workflows/deployto-heroku.yml) ( Aktuell außer Betrieb es wird ein neuer Ort zum Deployen gesucht. Ideen gerne gesehen im Discuss Channel)
 
 Github Projekte Importieren --> Klicken Sie auf den Button *Import Github* um ein Repository von Github hinzuzufügen . Dabei müssen Sie ihren Github      Benutzernamen eintragen und den Namen vom Repository. Achten Sie dabei auf exakte Namen. Bei leerzeichen oder	unterschiedlicher Groß und Kleinschreibung wird es nicht funktionieren . Sie werden darüber aber auch von den Programm Informiert falls es fehlschlägt.
 
