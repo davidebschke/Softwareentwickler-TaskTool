@@ -1,7 +1,9 @@
 # Softwareentwickler-TaskTool
 #### Das Ziel dieses Projekt ist die Verwaltung von Projekten und das hinterlassen von Nachrichten für den nächsten Anwender. 
 
+Update 27.12.2025
 
+Dieses Projekt wird bald aktualisiert und wieder erreichbar sein und mit verschiedenen Clean Code Regeln überarbeitet werden
 
 
 
