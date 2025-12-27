@@ -5,6 +5,7 @@ Update 27.12.2025
 
 Dieses Projekt wird bald aktualisiert und wieder erreichbar sein und mit verschiedenen Clean Code Regeln überarbeitet werden
 
+-----------------------------------------------------------------------------------------------------------------------------
 
 
 Zum Starten des Projekts auf diesen Link klicken : https://capstone-sett.herokuapp.com/
